@@ -10,9 +10,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_19_134129) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_19_145906) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "sloop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sloop_id"], name: "index_bookmarks_on_sloop_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.integer "rating"
+    t.bigint "receiver_id", null: false
+    t.bigint "poster_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["poster_id"], name: "index_reviews_on_poster_id"
+    t.index ["receiver_id"], name: "index_reviews_on_receiver_id"
+  end
+
+  create_table "ride_requests", force: :cascade do |t|
+    t.date "start_date"
+    t.string "start_port"
+    t.date "end_date"
+    t.string "end_port"
+    t.float "distance"
+    t.text "details"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_ride_requests_on_user_id"
+  end
+
+  create_table "rides", force: :cascade do |t|
+    t.date "start_date"
+    t.string "start_port"
+    t.date "end_date"
+    t.string "end_port"
+    t.float "distance"
+    t.text "details"
+    t.bigint "sloop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sloop_id"], name: "index_rides_on_sloop_id"
+  end
+
+  create_table "sloops", force: :cascade do |t|
+    t.integer "capacity"
+    t.string "category"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sloops_on_user_id"
+  end
+
+  create_table "traveller_rides", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "ride_id", null: false
+    t.string "validate_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ride_id"], name: "index_traveller_rides_on_ride_id"
+    t.index ["user_id"], name: "index_traveller_rides_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +88,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_19_134129) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.text "description"
+    t.integer "age"
+    t.string "phone_number"
+    t.text "preferences"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "sloops"
+  add_foreign_key "bookmarks", "users"
+  add_foreign_key "reviews", "users", column: "poster_id"
+  add_foreign_key "reviews", "users", column: "receiver_id"
+  add_foreign_key "ride_requests", "users"
+  add_foreign_key "rides", "sloops"
+  add_foreign_key "sloops", "users"
+  add_foreign_key "traveller_rides", "rides"
+  add_foreign_key "traveller_rides", "users"
 end
