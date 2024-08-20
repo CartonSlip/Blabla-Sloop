@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :sloops
   has_many :reviews
+  has_one_attached :photo
 end

@@ -12,7 +12,7 @@ john = User.new(
   description: "Le vent, les embrunts, la mer...",
   first_name: "John",
   last_name: "Doe",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code"
+  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
   age: "26"
 )
 john.photo.attach(io: file10, filename: "nes.png", content_type: "image/png")
@@ -26,7 +26,7 @@ celia = User.new(
   description: "Je réve d'un trois mats volant!",
   first_name: "Celia",
   last_name: "Dalia",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code"
+  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
   age: "18"
 )
 celia.photo.attach(io: file11, filename: "nes.png", content_type: "image/png")
