@@ -1,6 +1,6 @@
 class SloopsController < ApplicationController
   def index
-    @sloops = sloop.all
+    @sloops = Sloop.all
   end
 
   def new
