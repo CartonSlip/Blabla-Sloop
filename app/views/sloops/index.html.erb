@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-3">
   <div class="cards mt-2">
   <div class="row">
     <div>
@@ -10,22 +10,21 @@
       <% @sloops.each do |sloop| %>
       <div class="col-md-4 mb-4">
         <%= link_to sloop_path(sloop), style: "text-decoration: none; color: inherit;" do %>
-          <div class="card"  style="width: 18rem;">
+          <div class="card-sloop"  style="width: 20rem;">
             <% if sloop.photos.any? %>
               <%= cl_image_tag sloop.photos.first.key, class: "card-img-top", height: 250, width: 220, crop: :fill%>
             <% else %>
               <img class="card-img-top" src="default_image.jpg" alt="Default image">
             <% end %>
-            <div class="card-body">
-              <h3 class="card-title"><%= sloop.name %></h3><br>
+            <div class="card-sloop-infos">
+              <h2 class="card-title"><%= sloop.name %></h2><br>
               <p class="card-text owner-text">
                 <% if sloop.user.photo.attached? %>
-                  <%= cl_image_tag sloop.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+                  <%= cl_image_tag sloop.user.photo.key, class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
                 <% else %>
-                  <%= image_tag "default_avatar.png", class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+                  <%= image_tag "default_avatar.png", class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
                 <% end %>
                 <%= sloop.user.first_name %></p>
-
             </div>
           </div>
         <% end %>
