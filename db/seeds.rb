@@ -2,6 +2,7 @@ require "open-uri"
 
 puts "Cleaning DB..."
 User.destroy_all
+Sloop.destroy_all
 
 puts "Creating users..."
 
@@ -172,3 +173,16 @@ claire = User.new(
 claire.photo.attach(io: file21, filename: "nes.png", content_type: "image/png")
 claire.save
 puts "Claire created!!"
+
+Puts "create sloop"
+
+file22 = URI.open("https://images.pexels.com/photos/1011628/pexels-photo-1011628.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+sloop1 = Sloop.new(
+  name: "Josette",
+  description: "",
+  user: thomas,
+  capacity:
+)
+sloop1.photos.attach(io: file22, filename: "nes.png", content_type: "image/png")
+sloop1.save!
+puts "Sloop Josette created!!"
