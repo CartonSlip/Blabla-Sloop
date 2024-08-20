@@ -1,0 +1,32 @@
+<div class="container_sloops" >
+  <div class="box_card">
+    <div>
+      <h1 class="display-4 text-center my-4">Toutes les chèvres disponibles</h1>
+      <span class="mb-3 d-block"><em><%= "Aucun résultat pour votre recherche, consultez la carte pour voir toutes les chêvres disponibles" if @sloops.empty? %></em></span>
+      <span class="mb-3 d-block"><em><%= "#{pluralize(@sloops.count, "résultat")}" if @sloops.count  %></em></span>
+    </div>
+
+      <% @sloops.each do |sloop| %>
+        <%= link_to sloop_path(sloop), style: "text-decoration: none;" do %>
+          <div class="card" id="card_index" data-controller="image-dynam" data-image-dynam-target="imageContainer">
+            <% if sloop.photos.any? %>
+              <%= cl_image_tag sloop.photos.first.key, class: "card-img-top", height: 250, width: 220, crop: :fill%>
+            <% else %>
+              <img class="card-img-top" src="default_image.jpg" alt="Default image">
+            <% end %>
+            <div class="card-body" id="card-body_index">
+              <h3 class="card-title"><%= sloop.name %></h3><br>
+              <p class="card-text owner-text">
+                <% if sloop.user.photo.attached? %>
+                  <%= cl_image_tag sloop.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+                <% else %>
+                  <%= image_tag "default_avatar.png", class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+                <% end %>
+                <%= sloop.user.first_name %></p>
+              <p class="card-text"><%= image_tag "https://res.cloudinary.com/drgeetoka/image/upload/v1723470871/sloop_4717671-freepik_ghxaxv.png", class: "me-2", style: "width: 35px; height: 35px;" %><%= sloop.race %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>

@@ -6,4 +6,5 @@ class Sloop < ApplicationRecord
   validates :capacity, presence: true, numericality: true
   validates :category, presence: true
   validates :description, presence: true
+  validates :name, presence: true
 end
