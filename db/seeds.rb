@@ -2,6 +2,7 @@ require "open-uri"
 
 puts "Cleaning DB..."
 RideRequest.destroy_all
+Ride.destroy_all
 Sloop.destroy_all
 User.destroy_all
 
@@ -255,35 +256,35 @@ sloop5.save!
 puts "Sloop d'Isabelle created!!"
 
 puts "Creating Rides request..."
-request1 = RideRequest.new(
+request1 = Ride.new(
   start_date: "2024-09-01",  # Date de départ
   start_port: "Brest",
   end_date: "2024-09-10",    # Date d'arrivée
   end_port: "Nantes",
   details: "Voyage relaxant avec escales dans des petites criques cachées. Prévoir des vêtements légers et une bonne humeur.",
-  user: isabelle
+  sloop: sloop5
 )
 request1.save!
 puts "rides request1 created!"
 
-request2 = RideRequest.new(
+request2 = Ride.new(
   start_date: "2024-10-05",  # Date de départ
   start_port: "Marseille",
   end_date: "2024-10-15",    # Date d'arrivée
   end_port: "Nice",
   details: "Croisière à travers la Côte d'Azur avec des visites de vignobles locaux. Accueil chaleureux garanti.",
-  user: marie
+  sloop: sloop1
 )
 request2.save!
 puts "rides request2 created!"
 
-request3 = RideRequest.new(
+request3 = Ride.new(
   start_date: "2024-11-01",  # Date de départ
   start_port: "La Rochelle",
   end_date: "2024-11-20",    # Date d'arrivée
   end_port: "Bordeaux",
   details: "Aventure automnale avec exploration des îles alentours. Prévoir des vêtements chauds et des jumelles pour observer les oiseaux.",
-  user: john
+  sloop: sloop2
 )
 request3.save!
 puts "rides request3 created!"
