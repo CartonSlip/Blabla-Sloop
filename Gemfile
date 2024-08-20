@@ -8,6 +8,8 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem 'faker'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -56,6 +58,8 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
 end
+
+gem "cloudinary"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
