@@ -1,0 +1,2 @@
+class RidesRequestsController < ApplicationController
+end
