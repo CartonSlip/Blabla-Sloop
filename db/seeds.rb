@@ -1,6 +1,7 @@
 require "open-uri"
 
 puts "Cleaning DB..."
+Bookmark.destroy_all
 Review.destroy_all
 RideRequest.destroy_all
 Ride.destroy_all
@@ -552,3 +553,44 @@ review15 = Review.new(
 )
 review15.save!
 puts "review15 created!"
+
+puts "create bookmarks"
+# Récupérer les utilisateurs
+isabelle = User.find_by(first_name: "Isabelle")
+john = User.find_by(first_name: "John")
+celia = User.find_by(first_name: "Celia")
+thomas = User.find_by(first_name: "Thomas")
+marie = User.find_by(first_name: "Marie")
+
+# Récupérer les sloops (bateaux)
+sloop1 = Sloop.find_by(name: "Le pigeon")
+sloop2 = Sloop.find_by(name: "La franchise")
+sloop3 = Sloop.find_by(name: "Le belem")
+sloop4 = Sloop.find_by(name: "Black Peral")
+sloop5 = Sloop.find_by(name: "La victorieuse")
+
+# Créer les bookmarks
+book1 = Bookmark.new(user: isabelle, sloop: sloop1, created_at: Time.now)
+book2 = Bookmark.new(user: isabelle, sloop: sloop2, created_at: Time.now)
+book3 = Bookmark.new(user: john, sloop: sloop3, created_at: Time.now)
+book4 = Bookmark.new(user: john, sloop: sloop4, created_at: Time.now)
+book5 = Bookmark.new(user: celia, sloop: sloop5, created_at: Time.now)
+book6 = Bookmark.new(user: celia, sloop: sloop1, created_at: Time.now)
+book7 = Bookmark.new(user: thomas, sloop: sloop2, created_at: Time.now)
+book8 = Bookmark.new(user: marie, sloop: sloop3, created_at: Time.now)
+book9 = Bookmark.new(user: marie, sloop: sloop4, created_at: Time.now)
+book10 = Bookmark.new(user: marie, sloop: sloop5, created_at: Time.now)
+
+# Sauvegarder les bookmarks
+book1.save!
+book2.save!
+book3.save!
+book4.save!
+book5.save!
+book6.save!
+book7.save!
+book8.save!
+book9.save!
+book10.save!
+
+puts "10 bookmarks created!"
