@@ -23,3 +23,14 @@ class SloopsController < ApplicationController
     @sloop = Sloop.find(params[:id])
   end
 end
+def destroy
+  @sloop = Sloop.find(params[:id])
+  @sloop.destroy
+  redirect_to profil_path, status: :see_other
+end
+
+private
+
+def sloop_params
+  params.require(:sloop).permit(:name, :capacity, :description, :category, photos: [])
+end
