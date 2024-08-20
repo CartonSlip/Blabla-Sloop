@@ -1,6 +1,7 @@
 require "open-uri"
 
 puts "Cleaning DB..."
+Review.destroy_all
 RideRequest.destroy_all
 Ride.destroy_all
 Sloop.destroy_all
@@ -255,7 +256,7 @@ sloop5.photos.attach(io: file22, filename: "sloop_isabelle.png", content_type: "
 sloop5.save!
 puts "Sloop d'Isabelle created!!"
 
-puts "Creating Rides request..."
+puts "Creating Rides..."
 request1 = Ride.new(
   start_date: "2024-09-01",  # Date de départ
   start_port: "Brest",
@@ -288,3 +289,266 @@ request3 = Ride.new(
 )
 request3.save!
 puts "rides request3 created!"
+
+puts "create rides request ..."
+
+request4 = RideRequest.new(
+  start_date: "2024-11-01",  # Date de départ
+  start_port: "La Rochelle",
+  end_date: "2024-11-20",    # Date d'arrivée
+  end_port: "Bordeaux",
+  details: "J'en ai mare de la vie parisien, du metro et du speed. A la recherche d'un marin pour me faire découvrir autre chose...",
+  user: celia
+)
+request3.save!
+puts "rides request3 created!"
+
+# Pour Luc Bernard
+request5 = RideRequest.new(
+  start_date: "2024-12-01",  # Date de départ
+  start_port: "Nantes",
+  end_date: "2024-12-10",    # Date d'arrivée
+  end_port: "Saint-Malo",
+  details: "À la recherche d'une expérience de navigation tranquille le long des côtes bretonnes. Préférences pour des petites marinas et des paysages côtiers magnifiques.",
+  user: luc
+)
+request5.save!
+puts "rides request5 created!"
+
+# Pour Elise Moreau
+request6 = RideRequest.new(
+  start_date: "2024-12-15",  # Date de départ
+  start_port: "Toulon",
+  end_date: "2025-01-05",    # Date d'arrivée
+  end_port: "Cannes",
+  details: "Voyage en mer le long de la Côte d'Azur pour découvrir les charmantes villes côtières et les calanques. Prévoir des moments de détente et des visites culturelles.",
+  user: elise
+)
+request6.save!
+puts "rides request6 created!"
+
+# Pour Sophie Durand
+request7 = RideRequest.new(
+  start_date: "2025-01-10",  # Date de départ
+  start_port: "Bordeaux",
+  end_date: "2025-01-25",    # Date d'arrivée
+  end_port: "La Rochelle",
+  details: "Ancien professeur de mathématiques passionné par l'analyse et la cartographie, je rêve de parfaire mes connaissances en géographie maritime. Je cherche une expérience de navigation qui me permettra de découvrir les subtilités des courants océaniques, des routes maritimes et des caractéristiques géographiques des côtes. Mon objectif est de combiner mon amour des chiffres et des cartes avec une aventure en mer enrichissante. Préférences pour des itinéraires éducatifs et des escales dans des lieux d'intérêt géographique.",
+  user: sophie
+)
+request7.save!
+puts "rides request7 created!"
+
+puts "create reviews ..."
+
+# Commentaire : "Voyage exceptionnel, très professionnel et bien organisé. Les paysages étaient à couper le souffle."
+
+john_id = User.find_by(first_name: "John").id
+celia_id = User.find_by(first_name: "Celia").id
+
+review0 = Review.new(
+  comment: "Voyage exceptionnel, très professionnel et bien organisé. Les paysages étaient à couper le souffle.",
+  rating: 5,
+  receiver_id: john_id,
+  poster_id: celia_id,
+  created_at: 6.months.ago
+)
+
+review0.save!
+puts "review created!"
+
+# Commentaire : "L'expérience en mer a été très agréable. Le bateau était confortable et l'itinéraire parfait."
+thomas_id = User.find_by(first_name: "Thomas").id
+luc_id = User.find_by(first_name: "Luc").id
+
+review2 = Review.new(
+  comment: "L'expérience en mer a été très agréable. Le bateau était confortable et l'itinéraire parfait.",
+  rating: 4,
+  receiver_id: thomas_id,
+  poster_id: luc_id,
+  created_at: 2.months.ago
+)
+review2.save!
+puts "review2 created!"
+
+# Commentaire : "Le voyage était bien, mais j'aurais préféré plus de détails sur les escales prévues."
+maxime_id = User.find_by(first_name: "Maxime").id
+antoine_id = User.find_by(first_name: "Antoine").id
+
+review3 = Review.new(
+  comment: "Le voyage était bien, mais j'aurais préféré plus de détails sur les escales prévues.",
+  rating: 3,
+  receiver_id: maxime_id,
+  poster_id: antoine_id,
+  created_at: 17.months.ago
+)
+review3.save!
+puts "review3 created!"
+
+# Commentaire : "Un excellent voyage avec un hôte très sympathique. Je recommande vivement!"
+julien_id = User.find_by(first_name: "Julien").id
+marie_id = User.find_by(first_name: "Marie").id
+
+review4 = Review.new(
+  comment: "Un excellent voyage avec un hôte très sympathique. Je recommande vivement!",
+  rating: 5,
+  receiver_id: julien_id,
+  poster_id: marie_id,
+  created_at: 6.months.ago
+)
+review4.save!
+puts "review4 created!"
+
+# Commentaire : "Bien que le bateau soit agréable, la communication pourrait être améliorée."
+marie_id = User.find_by(first_name: "Marie").id
+john_id = User.find_by(first_name: "John").id
+
+review5 = Review.new(
+  comment: "Bien que le bateau soit agréable, la communication pourrait être améliorée.",
+  rating: 3,
+  receiver_id: marie_id,
+  poster_id: john_id,
+  created_at: 5.months.ago
+)
+review5.save!
+puts "review5 created!"
+
+# Commentaire : "Voyage agréable avec de belles vues. Cependant, le confort du bateau pourrait être amélioré."
+antoine_id = User.find_by(first_name: "Antoine").id
+marie_id = User.find_by(first_name: "Marie").id
+
+review6 = Review.new(
+  comment: "Voyage agréable avec de belles vues. Cependant, le confort du bateau pourrait être amélioré.",
+  rating: 4,
+  receiver_id: antoine_id,
+  poster_id: marie_id,
+  created_at: 1.months.ago
+)
+review6.save!
+puts "review6 created!"
+
+# Commentaire : "Une expérience en mer mémorable. Le bateau était en excellent état et l'équipage très professionnel."
+isabelle_id = User.find_by(first_name: "Isabelle").id
+luc_id = User.find_by(first_name: "Luc").id
+
+review7 = Review.new(
+  comment: "Une expérience en mer mémorable. Le bateau était en excellent état et l'équipage très professionnel.",
+  rating: 5,
+  receiver_id: isabelle_id,
+  poster_id: luc_id,
+  created_at: 6.days.ago
+)
+review7.save!
+puts "review7 created!"
+
+# Commentaire : "La croisière était agréable, mais il y a eu des problèmes avec la météo."
+claire_id = User.find_by(first_name: "Claire").id
+sophie_id = User.find_by(first_name: "Sophie").id
+
+review8 = Review.new(
+  comment: "La croisière était agréable, mais il y a eu des problèmes avec la météo.",
+  rating: 3,
+  receiver_id: claire_id,
+  poster_id: sophie_id,
+  created_at: 16.days.ago
+)
+review8.save!
+puts "review8 created!"
+
+# Commentaire : "Voyage bien organisé avec des escales intéressantes. Je reviendrais sans hésiter!"
+claire_id = User.find_by(first_name: "Claire").id
+isabelle_id = User.find_by(first_name: "Isabelle").id
+
+review9 = Review.new(
+  comment: "Voyage bien organisé avec des escales intéressantes. Je reviendrais sans hésiter!",
+  rating: 4,
+  receiver_id: claire_id,
+  poster_id: isabelle_id,
+  created_at: 6.months.ago
+)
+review9.save!
+puts "review9 created!"
+
+# Commentaire : "Bon voyage mais le bateau était un peu plus vieux que prévu. Cependant, l'hôte était très accueillant."
+john_id = User.find_by(first_name: "John").id
+elise_id = User.find_by(first_name: "Elise").id
+
+review10 = Review.new(
+  comment: "Bon voyage mais le bateau était un peu plus vieux que prévu. Cependant, l'hôte était très accueillant.",
+  rating: 3,
+  receiver_id: john_id,
+  poster_id: elise_id,
+  created_at: 9.months.ago
+)
+review10.save!
+puts "review10 created!"
+
+# Commentaire : "Une expérience en mer magnifique avec des paysages splendides. L'équipage était fantastique."
+elise_id = User.find_by(first_name: "Elise").id
+maxime_id = User.find_by(first_name: "Maxime").id
+
+review11 = Review.new(
+  comment: "Une expérience en mer magnifique avec des paysages splendides. L'équipage était fantastique.",
+  rating: 5,
+  receiver_id: elise_id,
+  poster_id: maxime_id,
+  created_at: 1.months.ago
+)
+review11.save!
+puts "review11 created!"
+
+# Commentaire : "Le voyage était agréable mais le bateau avait quelques problèmes techniques."
+marie_id = User.find_by(first_name: "Marie").id
+claire_id = User.find_by(first_name: "Claire").id
+
+review12 = Review.new(
+  comment: "Le voyage était agréable mais le bateau avait quelques problèmes techniques.",
+  rating: 3,
+  receiver_id: marie_id,
+  poster_id: claire_id,
+  created_at: 2.months.ago
+)
+review12.save!
+puts "review12 created!"
+
+# Commentaire : "Super voyage, mais la météo n'était pas toujours clémente. Le reste était parfait!"
+luc_id = User.find_by(first_name: "Luc").id
+john_id = User.find_by(first_name: "John").id
+
+review13 = Review.new(
+  comment: "Super voyage, mais la météo n'était pas toujours clémente. Le reste était parfait!",
+  rating: 4,
+  receiver_id: luc_id,
+  poster_id: john_id,
+  created_at: 4.months.ago
+)
+review13.save!
+puts "review13 created!"
+
+# Commentaire : "Bonne organisation et beau bateau, mais le confort était un peu en dessous de mes attentes."
+thomas_id = User.find_by(first_name: "Thomas").id
+sophie_id = User.find_by(first_name: "Sophie").id
+
+review14 = Review.new(
+  comment: "Bonne organisation et beau bateau, mais le confort était un peu en dessous de mes attentes.",
+  rating: 3,
+  receiver_id: thomas_id,
+  poster_id: sophie_id,
+  created_at: 4.months.ago
+)
+review14.save!
+puts "review14 created!"
+
+# Commentaire : "Voyage agréable avec des escales intéressantes. Le bateau était très propre et bien entretenu."
+isabelle_id = User.find_by(first_name: "Isabelle").id
+marie_id = User.find_by(first_name: "Marie").id
+
+review15 = Review.new(
+  comment: "Voyage agréable avec des escales intéressantes. Le bateau était très propre et bien entretenu.",
+  rating: 4,
+  receiver_id: isabelle_id,
+  poster_id: marie_id,
+  created_at: 45.months.ago
+)
+review15.save!
+puts "review15 created!"
