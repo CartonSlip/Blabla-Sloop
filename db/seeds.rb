@@ -156,7 +156,7 @@ sophie = User.new(
   age: "24"
 )
 sophie.photo.attach(io: file20, filename: "nes.png", content_type: "image/png")
-sophie.save
+sophie.save!
 puts "Sophie created!!"
 
 file21 = URI.open("https://randomuser.me/api/portraits/women/37.jpg")
