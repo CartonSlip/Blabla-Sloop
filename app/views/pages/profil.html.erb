@@ -1,9 +1,10 @@
 
   <!-- Profil de l'utilisateur -->
   <div class="card shadow-sm bg-white rounded">
+    <span class="d-flex justify-content-end m-2"><%= link_to "Éditer", edit_dashboard_path(current_user), class: "btn btn-info" %></span>
     <div class="card-body">
       <div class="text-center">
-        <%= cl_image_tag current_user.photo.key, class: "profil-avatar", alt: "dropdown menu", radius: "max" %>
+        <%= cl_image_tag current_user.photo.key, height: 100, class: "profil-avatar", alt: "dropdown menu", radius: "max" %>
         <br>
         <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
         <span><em class="text-muted"><%= current_user.age %> ans</em></span>

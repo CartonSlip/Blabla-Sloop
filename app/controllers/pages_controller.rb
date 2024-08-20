@@ -5,6 +5,5 @@ class PagesController < ApplicationController
   end
 
   def profil
-    @user = profil_path(current_user)
   end
 end
