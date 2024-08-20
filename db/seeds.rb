@@ -1,8 +1,8 @@
 require "open-uri"
 
 puts "Cleaning DB..."
-User.destroy_all
 Sloop.destroy_all
+User.destroy_all
 
 puts "Creating users..."
 
@@ -174,15 +174,81 @@ claire.photo.attach(io: file21, filename: "nes.png", content_type: "image/png")
 claire.save
 puts "Claire created!!"
 
-Puts "create sloop"
+puts "create sloop"
 
-file22 = URI.open("https://images.pexels.com/photos/1011628/pexels-photo-1011628.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+file22 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/presentation-dun-bateau-trimaran-1024x512_wealuo.jpg?_s=public-apps")
 sloop1 = Sloop.new(
   name: "Josette",
-  description: "",
+  description: "Un trimarant récent, rapide",
   user: thomas,
-  capacity:
+  capacity: "2",
+  category: "trimarant"
 )
 sloop1.photos.attach(io: file22, filename: "nes.png", content_type: "image/png")
 sloop1.save!
 puts "Sloop Josette created!!"
+
+# Pour Thomas Martin
+file22 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/voilier-gip-sea-32-1984-3-chambres-32-1815795811_z2dg9x.jpg?_s=public-apps")
+sloop1 = Sloop.new(
+  name: "Le pigeon",
+  description: "petite frégate humble et chill",
+  user: john,
+  capacity: "3",
+  category: "Voilier 1 mats"
+)
+sloop1.photos.attach(io: file22, filename: "sloop_thomas.png", content_type: "image/png")
+sloop1.save!
+puts "Sloop de Thomas created!!"
+
+# Pour Maxime Dupont
+file23 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/8623882_20221213040615804_1_LARGE.340145c699812070efe55904aab595aa_yyhglj.jpg?_s=public-apps")
+sloop2 = Sloop.new(
+  name: "La victorieuse",
+  description: "Mon voilier à déja remporter le paris dakar",
+  user: maxime,
+  capacity: "2",
+  category: "Fregate"
+)
+sloop2.photos.attach(io: file23, filename: "sloop_maxime.png", content_type: "image/png")
+sloop2.save!
+puts "Sloop de Maxime created!!"
+
+# Pour Julien Rousseau
+file24 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/8623882_20221213040617666_1_LARGE.d84197b2845c03880e2467953142ba20_o4jfaq.jpg?_s=public-apps")
+sloop3 = Sloop.new(
+  name: "Black Peral",
+  description: "Il est assez vieux, mais toujours bien entretenu",
+  user: julien,
+  capacity: "1",
+  category: "Monocoque"
+)
+sloop3.photos.attach(io: file24, filename: "sloop_julien.png", content_type: "image/png")
+sloop3.save!
+puts "Sloop de Julien created!!"
+
+# Pour Marie Dubois
+file25 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/le-trois-mats-barque-belem-toutes-voiles-dehors_lgqdjs.jpg?_s=public-apps")
+sloop4 = Sloop.new(
+  name: "Le belem",
+  description: "N'avez vous jamais révé de revivre les voyage d'autrefois?",
+  user: marie,
+  capacity: "10",
+  category: "Voilier ancien de cargaison"
+)
+sloop4.photos.attach(io: file25, filename: "sloop_marie.png", content_type: "image/png")
+sloop4.save!
+puts "Sloop de Marie created!!"
+
+# Pour Isabelle Girard
+file22 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/voilier-gip-sea-32-1984-3-chambres-32-1815795811_z2dg9x.jpg?_s=public-apps") # Réutilisation de l'image
+sloop5 = Sloop.new(
+  name: "La franchise",
+  description: "Petite ambarcation conviviale",
+  user: isabelle,
+  capacity: "3",
+  category: "Monocoque"
+)
+sloop5.photos.attach(io: file22, filename: "sloop_isabelle.png", content_type: "image/png")
+sloop5.save!
+puts "Sloop d'Isabelle created!!"
