@@ -10,3 +10,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.body-pages {
+  z-index: 0;
+  margin-bottom: 60px;
+  position: relative;
+}

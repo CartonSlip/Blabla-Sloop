@@ -1,7 +1,18 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #A7F1F8;
 }
+
+#font_link {
+  color: #023631;
+  font-style: strong;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+    &:hover {
+      color: #08685e;
+    }
+}
+
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
