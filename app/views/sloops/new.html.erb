@@ -1,0 +1,12 @@
+<div class="container mb-4">
+  <h1>Ajoute une nouveaux Sloop </h1>
+  <hr>
+  <%= simple_form_for(@sloop) do |f| %>
+    <%= f.input :name, label: 'Nom du sloop'%>
+    <%= f.input :category %>
+    <%= f.input :description %>
+    <%= f.input :capacity %>
+    <%= f.input :photos %>
+    <%= f.submit 'Ajouter' , class:"btn btn-primary"%>
+  <% end %>
+</div>
