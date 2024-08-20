@@ -12,8 +12,7 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   validates :first_name, :last_name, presence: true
-  validates :phone_number, presence: true, length: { minimum: 10 }, format: { with: /\A(\+33|0)[1-9]\d{8}\z/, message: "Doit être un numéro de téléphone français valide" }
+  validates :phone_number, presence: true, length: { minimum: 10 }
   validates :age, numericality: true, exclusion: { in: 0...18, message: "Vous devez avoir au moins 18 ans pour vous inscrire" }
 
 end
-

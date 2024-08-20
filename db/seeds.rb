@@ -12,11 +12,11 @@ john = User.new(
   description: "Le vent, les embrunts, la mer...",
   first_name: "John",
   last_name: "Doe",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 12 34 56 78",
   age: "26"
 )
 john.photo.attach(io: file10, filename: "nes.png", content_type: "image/png")
-john.save
+john.save!
 puts "John created!!"
 
 file11 = URI.open("https://randomuser.me/api/portraits/women/96.jpg")
@@ -26,7 +26,7 @@ celia = User.new(
   description: "Je réve d'un trois mats volant!",
   first_name: "Celia",
   last_name: "Dalia",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 87 65 43 21",
   age: "18"
 )
 celia.photo.attach(io: file11, filename: "nes.png", content_type: "image/png")
@@ -40,13 +40,12 @@ thomas = User.new(
   description: "Naviguer, c'est ma passion. Mon voilier 'Aventure' m'a emmené aux quatre coins du monde.",
   first_name: "Thomas",
   last_name: "Martin",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 98 76 54 32",
   age: "34"
 )
 thomas.photo.attach(io: file12, filename: "nes.png", content_type: "image/png")
 thomas.save
 puts "Thomas created!!"
-
 
 file13 = URI.open("https://randomuser.me/api/portraits/men/85.jpg")
 luc = User.new(
@@ -55,13 +54,12 @@ luc = User.new(
   description: "Je n'ai pas encore de bateau, mais je rêve de parcourir les mers en solitaire.",
   first_name: "Luc",
   last_name: "Bernard",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 23 45 67 89",
   age: "29"
 )
 luc.photo.attach(io: file13, filename: "nes.png", content_type: "image/png")
 luc.save
 puts "Luc created!!"
-
 
 file14 = URI.open("https://randomuser.me/api/portraits/men/55.jpg")
 maxime = User.new(
@@ -70,7 +68,7 @@ maxime = User.new(
   description: "Je suis un artiste-peintre, et mon voilier est mon atelier flottant. J'aime capturer la beauté des océans.",
   first_name: "Maxime",
   last_name: "Dupont",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 45 67 89 01",
   age: "41"
 )
 maxime.photo.attach(io: file14, filename: "nes.png", content_type: "image/png")
@@ -84,7 +82,7 @@ antoine = User.new(
   description: "Je rêve de vivre sur un bateau, voguer d'île en île, et découvrir des cultures fascinantes.",
   first_name: "Antoine",
   last_name: "Lemoine",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 54 32 10 98",
   age: "25"
 )
 antoine.photo.attach(io: file15, filename: "nes.png", content_type: "image/png")
@@ -98,7 +96,7 @@ julien = User.new(
   description: "Mon voilier 'Liberté' est mon foyer. J'ai navigué à travers l'Atlantique et au-delà.",
   first_name: "Julien",
   last_name: "Rousseau",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 78 56 34 21",
   age: "39"
 )
 julien.photo.attach(io: file16, filename: "nes.png", content_type: "image/png")
@@ -112,7 +110,7 @@ marie = User.new(
   description: "J'ai navigué le long des côtes méditerranéennes avec mon bateau 'Sirène'. La mer est ma maison.",
   first_name: "Marie",
   last_name: "Dubois",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 34 56 78 90",
   age: "32"
 )
 marie.photo.attach(io: file17, filename: "nes.png", content_type: "image/png")
@@ -126,7 +124,7 @@ elise = User.new(
   description: "Je rêve d'apprendre la navigation et de voyager en mer, à la découverte de nouveaux horizons.",
   first_name: "Elise",
   last_name: "Moreau",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 12 98 76 54",
   age: "27"
 )
 elise.photo.attach(io: file18, filename: "nes.png", content_type: "image/png")
@@ -140,7 +138,7 @@ isabelle = User.new(
   description: "Je suis une photographe passionnée, et mon voilier 'Odyssée' est l'endroit idéal pour capturer des moments uniques.",
   first_name: "Isabelle",
   last_name: "Girard",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 67 89 01 23",
   age: "35"
 )
 isabelle.photo.attach(io: file19, filename: "nes.png", content_type: "image/png")
@@ -154,7 +152,7 @@ sophie = User.new(
   description: "Je n'ai pas encore de bateau, mais j'adore l'idée de pouvoir un jour explorer le monde depuis la mer.",
   first_name: "Sophie",
   last_name: "Durand",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 89 01 23 45",
   age: "24"
 )
 sophie.photo.attach(io: file20, filename: "nes.png", content_type: "image/png")
@@ -168,7 +166,7 @@ claire = User.new(
   description: "Le vent dans les voiles, l'océan infini... Je suis passionnée par la mer et je rêve de voyager en bateau.",
   first_name: "Claire",
   last_name: "Lefevre",
-  phone_number: "Faker::PhoneNumber.phone_number_with_country_code",
+  phone_number: "+33 6 90 12 34 56",
   age: "30"
 )
 claire.photo.attach(io: file21, filename: "nes.png", content_type: "image/png")
