@@ -20,14 +20,20 @@
               </div>
               <div class="card-sloop-infos">
                 <p>
-                  <i class="fa-regular fa-calendar-days"></i>
-                  <%= ride.start_date.strftime('%d/%m/%Y') %> / <%= ride.end_date.strftime('%d/%m/%Y') %>
+                  <i class="fa-regular fa-calendar"></i></i>
+                  <%= ride.start_date.strftime('%d/%m/%Y') %>  <%= ride.end_date.strftime('%d/%m/%Y') %>
+                </p>
+                <br>
+                <p>
+                  <i class="fa-solid fa-anchor"></i>
+                  <%= ride.start_port %> <strong>/</strong> <%= ride.end_port %>
                 </p>
               </div>
               <div class="card-sloop-infos">
                 <p>
                   <i class="fa-solid fa-users"></i>
-                  <%= ride.traveller_rides.count %> voyageurs
+                  <%= ride.traveller_rides.count %> voyageurs </p>   <p><i class="fa-solid fa-person-circle-exclamation" ></i>
+                  <%= ride.sloop.capacity %> <strong> MAX </strong>
                 </p>
               </div>
             </div>
