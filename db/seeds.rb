@@ -264,7 +264,8 @@ request1 = Ride.new(
   end_date: "2024-09-10",    # Date d'arrivée
   end_port: "Nantes",
   details: "Voyage relaxant avec escales dans des petites criques cachées. Prévoir des vêtements légers et une bonne humeur.",
-  sloop: sloop5
+  sloop: sloop5,
+  capacity: sloop5.capacity
 )
 request1.save!
 puts "rides request1 created!"
@@ -275,7 +276,8 @@ request2 = Ride.new(
   end_date: "2024-10-15",    # Date d'arrivée
   end_port: "Nice",
   details: "Croisière à travers la Côte d'Azur avec des visites de vignobles locaux. Accueil chaleureux garanti.",
-  sloop: sloop1
+  sloop: sloop1,
+  capacity: sloop1.capacity
 )
 request2.save!
 puts "rides request2 created!"
@@ -286,7 +288,8 @@ request3 = Ride.new(
   end_date: "2024-11-20",    # Date d'arrivée
   end_port: "Bordeaux",
   details: "Aventure automnale avec exploration des îles alentours. Prévoir des vêtements chauds et des jumelles pour observer les oiseaux.",
-  sloop: sloop2
+  sloop: sloop2,
+  capacity: sloop2.capacity
 )
 request3.save!
 puts "rides request3 created!"
