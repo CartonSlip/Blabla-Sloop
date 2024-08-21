@@ -4,7 +4,6 @@ class DashboardsController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    # @user.update!(description: user_params[:description])
     if @user.update(user_params)
       redirect_to profil_path, notice: "Votre profil a bien été mis à jour"
     else
