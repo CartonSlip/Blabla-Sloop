@@ -9,16 +9,12 @@
 
       <% @riderequests.each do |riderequest| %>
       <div class="col-md-4 mb-4">
-        <%= link_to riderequests_path(riderequest), style: "text-decoration: none; color: inherit;" do %>
+        <%= link_to ride_requests_path(riderequest), style: "text-decoration: none; color: inherit;" do %>
           <div class="card-sloop"  style="width: 20rem;">
-            <% if sloop.photos.any? %>
-              <%= cl_image_tag sloop.photos.first.key, class: "card-img-top", height: 250, width: 220, crop: :fill%>
-            <% else %>
-              <img class="card-img-top" src="default_image.jpg" alt="Default image">
-            <% end %>
+          <img class="card-img-top" src="default_image.jpg" alt="Default image">
             <div class="card-sloop-infos">
-              <h2 class="card-title"><%= riderequests.strat_date %></h2><br>
-              <h2 class="card-title"><%= riderequests.end_date %></h2> <br>
+              <h2 class="card-title"><%= riderequest.start_port %></h2><br>
+              <h2 class="card-title"><%= riderequest.end_port %></h2> <br>
               <p class="card-text owner-text">
                 <% if riderequest.user.photo.attached? %>
                   <%= cl_image_tag riderequest.user.photo.key, class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>

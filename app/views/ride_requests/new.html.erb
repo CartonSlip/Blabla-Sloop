@@ -1,9 +1,7 @@
-
-
 <div class="container mt-4 mb-5">
   <h1>Demande de location</h1>
   <hr>
-  <%= simple_form_for [@sloop, @riderequest] do |f| %>
+  <%= simple_form_for [@riderequest] do |f| %>
       <%= f.input :details, label: 'Commentaires'%>
       <%= f.input :start_port, label: 'Port de départ'%>
       <%= f.input :end_port, label: "Port d'arrivé"%>
@@ -11,7 +9,6 @@
       label: "Date de début", input_html: { data: { controller: "datepicker" } } %>
       <%= f.input :end_date, as: :string,
       label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
-      <%= f.button :submit, 'Poster', class:"template-button"%>
+      <%= f.button :submit, 'Poster', class:"btn btn-primary"%>
   <% end %>
   </div>
-</div>

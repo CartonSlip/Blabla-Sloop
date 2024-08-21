@@ -8,7 +8,7 @@ class RideRequestsController < ApplicationController
   end
 
   def create
-    @riderequest = RidesRequest.new(riderequest_params)
+    @riderequest = RideRequest.new(riderequest_params)
     @riderequest.user = current_user
 
     if @riderequest.save
@@ -17,5 +17,11 @@ class RideRequestsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def riderequest_params
+    params.require(:riderequest).permit(:details, :start_date, :end_date, :start_port, :end_port)
   end
 end
