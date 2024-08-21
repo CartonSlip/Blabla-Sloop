@@ -22,6 +22,6 @@ class RideRequestsController < ApplicationController
   private
 
   def riderequest_params
-    params.require(:riderequest).permit(:details, :start_date, :end_date, :start_port, :end_port)
+    params.require(:ride_request).permit(:details, :start_date, :end_date, :start_port, :end_port)
   end
 end
