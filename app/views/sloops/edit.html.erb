@@ -1,0 +1,14 @@
+<div class="container mt-4 mb-5">
+  <h1><%= @sloop.name %></h1>
+  <hr>
+  <%= simple_form_for(@sloop) do |f| %>
+    <%= f.input :name, label: 'Nom du Sloop' %>
+    <%= f.input :category %>
+    <%= f.input :description %>
+    <%= f.input :capacity %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= link_to sloop_path
+     f.button :submit, 'Éditer', class: "btn btn-primary"
+    %>
+  <% end %>
+</div>

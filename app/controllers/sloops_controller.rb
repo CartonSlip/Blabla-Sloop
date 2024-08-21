@@ -22,15 +22,29 @@ class SloopsController < ApplicationController
   def show
     @sloop = Sloop.find(params[:id])
   end
-end
-def destroy
-  @sloop = Sloop.find(params[:id])
-  @sloop.destroy
-  redirect_to profil_path, status: :see_other
-end
 
-private
+  def edit
+    @sloop = Sloop.find(params[:id])
+  end
 
-def sloop_params
-  params.require(:sloop).permit(:name, :capacity, :description, :category, photos: [])
+  def update
+    @sloop = Sloop.find(params[:id])
+    if @sloop.update(sloop_params)
+      redirect_to sloop_path(@sloop)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @sloop = Sloop.find(params[:id])
+    @sloop.destroy
+    redirect_to profil_path, status: :see_other
+  end
+
+  private
+
+  def sloop_params
+    params.require(:sloop).permit(:name, :capacity, :description, :category, photos: [])
+  end
 end
