@@ -1,33 +1,27 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  position: relative;
-  // background: #FFF1D0;
-  z-index: 2;
-}
-
-.navbar-lewagon::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+  justify-content: center;
+  background: #FFF1D0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
   width: 100%;
-  height: 100%;
-  background-image: url('bg-navbar.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.3;
-  z-index: -1;
-  pointer-events: none;
+  z-index: 2
 }
 
-#font_link {
+.navbar-lewagon .container-fluid {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item a {
+  text-decoration: none;
   color: #023631;
-  font-style: strong;
-  font-family: "Nunito", "Helvetica", "sans-serif";
-    &:hover {
-      color: #08685e;
-    }
+}
+
+.nav-item a:hover {
+  color: #08685E;
 }
 
 .navbar-lewagon .navbar-collapse {
