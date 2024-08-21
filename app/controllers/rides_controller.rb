@@ -5,7 +5,9 @@ class RidesController < ApplicationController
   end
 
   def new
-    @rides = Ride.new
+    @ride = Ride.new
+    @sloops = current_user.sloops
+    @capacity_by_sloop = @sloops.pluck(:id, :capacity).to_h
   end
 
   def create
@@ -15,6 +17,8 @@ class RidesController < ApplicationController
     if @sloop.save
       redirect_to rides_path, notice: "Votre ride a bien été ajoutée"
     else
+      @sloops = current_user.sloops
+      @capacity_by_sloop = @sloops.pluck(:id, :capacity).to_h
       render :new, status: :unprocessable_entity
     end
   end
