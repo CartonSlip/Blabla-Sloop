@@ -2,7 +2,7 @@
   <div class="cards mt-2">
   <div class="row">
     <div>
-      <h1 class="display-4 text-center my-4">Toutes les Ride_Requests disponibles</h1>
+      <h1 class="display-4 text-center my-4">Toutes les Ride Requests disponibles</h1>
       <span class="mb-3 d-block"><em><%= "Aucun résultat pour votre recherche, consultez la carte pour voir tous les ridesrequests disponibles" if @riderequests.empty? %></em></span>
       <span class="mb-3 d-block"><em><%= "#{pluralize(@riderequests.count, "résultat")}" if @riderequests.count  %></em></span>
     </div>
@@ -11,17 +11,22 @@
       <div class="col-md-4 mb-4">
         <%= link_to ride_requests_path(riderequest), style: "text-decoration: none; color: inherit;" do %>
           <div class="card-sloop"  style="width: 20rem;">
-          <img class="card-img-top" src="default_image.jpg" alt="Default image">
+           <% if riderequest %>
+              <%= image_tag "https://data.pixiz.com/output/user/frame/preview/api/big/0/7/0/5/2065070_04609.jpg", class: "card-img-top", height: 250, width: 220, crop: :fill%>
+            <% else %>
+              <img class="card-img-top" src="default_image.jpg" alt="Default image">
+            <% end %>
             <div class="card-sloop-infos">
-              <h2 class="card-title"><%= riderequest.start_port %></h2><br>
-              <h2 class="card-title"><%= riderequest.end_port %></h2> <br>
+              <h2 class="card-title"> <%= riderequest.start_port %></h2>
+              <p>en direction de :</p>
+              <h2 class="card-title"><%= riderequest.end_port %></h2>
               <p class="card-text owner-text">
                 <% if riderequest.user.photo.attached? %>
                   <%= cl_image_tag riderequest.user.photo.key, class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
                 <% else %>
                   <%= image_tag "default_avatar.png", class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
                 <% end %>
-                <%= riderequest.user.first_name %></p>
+              </p>
             </div>
           </div>
         <% end %>
