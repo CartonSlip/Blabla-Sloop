@@ -79,7 +79,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_21_093426) do
     t.date "start_date"
     t.string "start_port"
     t.date "end_date"
-    t.string "end_port" 
+    t.string "end_port"
     t.float "distance"
     t.text "details"
     t.bigint "sloop_id", null: false
