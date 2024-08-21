@@ -1,0 +1,36 @@
+<div class="container mb-3">
+  <div class="cards mt-2">
+  <div class="row">
+    <div>
+      <h1 class="display-4 text-center my-4">Toutes les Ride_Requests disponibles</h1>
+      <span class="mb-3 d-block"><em><%= "Aucun résultat pour votre recherche, consultez la carte pour voir tous les ridesrequests disponibles" if @riderequests.empty? %></em></span>
+      <span class="mb-3 d-block"><em><%= "#{pluralize(@riderequests.count, "résultat")}" if @riderequests.count  %></em></span>
+    </div>
+
+      <% @riderequests.each do |riderequest| %>
+      <div class="col-md-4 mb-4">
+        <%= link_to riderequests_path(riderequest), style: "text-decoration: none; color: inherit;" do %>
+          <div class="card-sloop"  style="width: 20rem;">
+            <% if sloop.photos.any? %>
+              <%= cl_image_tag sloop.photos.first.key, class: "card-img-top", height: 250, width: 220, crop: :fill%>
+            <% else %>
+              <img class="card-img-top" src="default_image.jpg" alt="Default image">
+            <% end %>
+            <div class="card-sloop-infos">
+              <h2 class="card-title"><%= riderequests.strat_date %></h2><br>
+              <h2 class="card-title"><%= riderequests.end_date %></h2> <br>
+              <p class="card-text owner-text">
+                <% if riderequest.user.photo.attached? %>
+                  <%= cl_image_tag riderequest.user.photo.key, class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+                <% else %>
+                  <%= image_tag "default_avatar.png", class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+                <% end %>
+                <%= riderequest.user.first_name %></p>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      <% end %>
+  </div>
+ </div>
+</div>
