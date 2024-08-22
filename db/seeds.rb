@@ -1,6 +1,7 @@
 require "open-uri"
 
 puts "Cleaning DB..."
+TravellerRide.destroy_all
 Bookmark.destroy_all
 Review.destroy_all
 RideRequest.destroy_all
