@@ -1,0 +1,25 @@
+<div class="glasseffect">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
+  <div class="container">
+    <h2>Détails du trajet</h2>
+  </div>
+</div>
+</div>
+<%= @ride.start_port %>
+<%= l(@ride.start_date, format: '%d/%m/%Y') %>
+<%= @ride.end_port %>
+<%= l(@ride.end_date, format: '%d/%m/%Y') %>
+
+<p>Informations pour le Slooper</p>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" aria-label="user_demand" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+  </div>
+</div>
+<button type="button" class="btn btn-primary">Ajouter</button>
+
+<%= render 'usercard', user: @ride.sloop.user %>
+<%= render 'shared/sloopcard', sloop: @ride.sloop %>
+
+<%= button_to "Demande de réservation",  ride_traveller_rides_path(@ride), class: "btn btn-primary" %>
