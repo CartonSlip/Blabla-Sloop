@@ -1,11 +1,11 @@
-<div class="container mb-4">
-  <h1>Ajoute une nouveaux Sloop </h1>
+<div class="container my-3">
+  <h1>Votre nouveau Sloop</h1>
   <hr>
   <%= simple_form_for(@sloop) do |f| %>
-    <%= f.input :name, label: 'Nom du sloop'%>
-    <%= f.input :category %>
-    <%= f.input :description %>
-    <%= f.input :capacity %>
+    <%= f.input :name, label: 'Nom du Sloop'%>
+    <%= f.input :category, label: 'Catégorie' %>
+    <%= f.input :description, label: 'Description du Sloop' %>
+    <%= f.input :capacity, label: 'Capacité voyageurs' %>
     <%= f.input :photos %>
     <%= f.submit 'Ajouter' , class:"btn btn-primary"%>
   <% end %>
