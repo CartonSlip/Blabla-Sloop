@@ -17,13 +17,17 @@
     <h2><strong>Derniers voyages proposés</strong></h2>
     <%# aller dans la table ride %>
     <%# recuperer les 3 derniers proposer %>
-    <% ride = Ride.all.order(:created_at).limit(3) %>
     <%# afficher les 3 derniere ride %>
-    <% ride.each do |ride| %>
-      <%= render :partial => 'rides/cardride' %>
+    <% @rides.each do |ride| %>
+      <%= render 'shared/cardride', ride: ride %>
     <% end %>
 </div>
 <div class="container" id="home-content">
-    <h2><strong>Derniers voyages proposés</strong></h2>
-
+    <h2><strong>Derniers voyages demandés</strong></h2>
+    <%# aller dans la table ride %>
+    <%# recuperer les 3 derniers proposer %>
+    <%# afficher les 3 derniere ride %>
+    <% @ridesrequests.each do |ridesrequest| %>
+      <%= render 'shared/riderequestcard', ride: ridesrequest %>
+    <% end %>
 </div>
