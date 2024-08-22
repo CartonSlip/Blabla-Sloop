@@ -1,25 +1,26 @@
-<div class="card card-body shadow-sm bg-white rounded">
+<div class="container bg-white">
   <!-- Infos principales de l'utilisateur -->
-  <span class="d-flex justify-content-end m-2"><%= link_to "Éditer", edit_dashboard_path(current_user), class: "btn btn-info" %></span>
-  <div class="">
-    <div class="text-center">
-      <%= cl_image_tag current_user.photo.key, height: 100, class: "profil-avatar", alt: "dropdown menu", radius: "max" %>
-      <br>
-      <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-      <span><em class="text-muted"><%= current_user.age %> ans</em></span>
-      <ul class="list-inline ">
-        <li class="list-inline-item bg-white"><i class="fa-regular fa-envelope"></i> <%= current_user.email %></li>
-        <li class="list-inline-item bg-white"><i class="fa-solid fa-mobile-retro"></i> <%= current_user.phone_number %></li>
-      </ul>
-    </div>
+  <div class="text-center">
+    <%= cl_image_tag current_user.photo.key, height: 175, class: "my-3", alt: "photo de profil", radius: "max" %>
+    <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+    <span><%= current_user.age %> ans</span>
+    <ul class="list-inline ">
+      <li class="list-inline-item bg-white"><i class="fa-regular fa-envelope"></i> <%= current_user.email %></li>
+      <li class="list-inline-item bg-white"><i class="fa-solid fa-mobile-retro"></i> <%= current_user.phone_number %></li>
+    </ul>
   </div>
   <hr>
 <!-- Détails de l'utilisateur -->
   <div class="text-start">
-    <h2 class="">À propos</h4>
-    <p><%= current_user.description %></p>
-    <h4 class="lead">Préférences</h4>
-    <p><%= current_user.preferences %></p>
+    <h4 class="">À propos</h4>
+    <p class="border rounded-3 p-3"><%= current_user.description %></p>
+    <h4 class="lead">Mes préférences</h4>
+    <p class="border rounded-3 p-3"><%= current_user.preferences %></p>
+    <div class="d-flex justify-content-between p-2">
+    <%= link_to "Éditer mon profil", edit_dashboard_path(current_user), class: "btn btn-primary" %>
+    <%= link_to "+ Sloop", new_sloop_path, class: "btn btn-primary" %>
+
+    </div>
   </div>
 <!-- Sloops de l'utilisateur / Si existants -->
   <% if current_user.sloops.any? %>
