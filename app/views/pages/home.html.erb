@@ -1,12 +1,29 @@
 
 <%# ##########Banner########################### %>
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
   <div class="container" id="banner-content">
-    <h2><strong>Vous avez un bateau</strong></h2>
-    <a class="btn btn-primary" id="banner-bouton" href="#">Voir les trajets demandés</a>
+    <h2><strong>Vous avez un bateau</strong>
+    </h2>
+    <strong><%= link_to "Voir les trajets demandés", ride_requests_path, class: "btn btn-primary", id:"banner-bouton" %></strong>
   </div>
   <div class="container mt-5" id="banner-content">
-    <h2><strong>Vous êtes voyageur</strong></h2>
-    <a class="btn btn-primary" id="banner-bouton" href="#">Voir les trajets proposés</a>
+    <strong><%= link_to "Voir les trajets proposés", rides_path, class: "btn btn-primary", id:"banner-bouton" %></strong>
   </div>
+</div>
+
+
+<%# ########## purpose ########################### %>
+<div class="container" id="home-content">
+    <h2><strong>Derniers voyages proposés</strong></h2>
+    <%# aller dans la table ride %>
+    <%# recuperer les 3 derniers proposer %>
+    <% ride = Ride.all.order(:created_at).limit(3) %>
+    <%# afficher les 3 derniere ride %>
+    <% ride.each do |ride| %>
+      <%= render :partial => 'rides/cardride' %>
+    <% end %>
+</div>
+<div class="container" id="home-content">
+    <h2><strong>Derniers voyages proposés</strong></h2>
+
 </div>
