@@ -5,9 +5,26 @@ class RidesController < ApplicationController
   end
 
   def new
-    @ride = Ride.new
     @sloops = current_user.sloops
     @capacity_by_sloop = @sloops.pluck(:id, :capacity).to_h
+    if params[:ride_request_id].present?
+      @ride_request = RideRequest.find(params[:ride_request_id])
+
+      @ride = Ride.new(
+        start_date: @ride_request.start_date,
+        start_port: @ride_request.start_port,
+        end_date: @ride_request.end_date,
+        end_port: @ride_request.end_port,
+        distance: @ride_request.distance,
+        details: @ride_request.details,
+      )
+
+      render :new_with_ride_request
+    else
+      @ride = Ride.new
+
+      render :new
+    end
   end
 
   def create
@@ -16,6 +33,7 @@ class RidesController < ApplicationController
     # penser à installer dans le form le defaut capacity egale au capacity du sloop
     if @sloop.save
       redirect_to rides_path, notice: "Votre ride a bien été ajoutée"
+      # refaire un if, puis recuperer la riderequest. PUis creer la traveler ride, en statut accepted, puis suprimer la ride request
     else
       @sloops = current_user.sloops
       @capacity_by_sloop = @sloops.pluck(:id, :capacity).to_h

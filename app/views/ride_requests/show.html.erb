@@ -46,6 +46,7 @@
     <% if @riderequest.user == current_user %>
       <%= link_to "Modifier la demande", edit_ride_request_path(@riderequest), class: "btn btn-primary" %>
     <% end %>
+    <%= link_to "Slooper la demande", new_ride_request_ride_path(@riderequest), class: "btn btn-primary", id:"???" %>
   </div>
 
 <div class="col-md-12" style="height: 400px;">
