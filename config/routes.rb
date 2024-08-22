@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :sloops
   resources :rides do
-    resources :traveller_rides, only: %i[new create]
+    resources :traveller_rides, only: %i[new]
   end
   resources :traveller_rides, only: %i[edit update]
-  resources :ride_requests
+  resources :ride_requests do
+    resources :rides, only: %i[new create]
+  end
   get "/profil", to: "pages#profil"
   get "/about", to: "pages#about"
   resources :bookmarks, only: [:create, :destroy]
