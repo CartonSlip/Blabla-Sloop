@@ -1,20 +1,22 @@
 <div class="container mb-4">
   <h1>Sloop de la demande de <% @ride_request.user.first_name %> </h1>
   <hr>
-    <%= simple_form_for([@ride_request, @ride]) do |f| %>
-  <div data-controller="newride" data-newride-capacity-by-sloop-value="<%= @capacity_by_sloop.to_json %>">
-    <%= f.input :sloop, collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
-    <%= f.input :start_date, as: :string,
-      label: "Date de debut", input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :end_date, as: :string,
-      label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :capacity, input_html: { "data-newride-target": "capacity" } %>
-    <%= f.input :details %>
-    <%= f.input :start_port %>
-    <%= f.input :end_port %>
-    <%= f.submit 'Ajouter', class: "btn btn-primary" %>
-  </div>
-<% end %>
+  <%= simple_form_for([@ride_request, @ride]) do |f| %>
+    <div data-controller="newride" data-newride-capacity-by-sloop-value="<%= @capacity_by_sloop.to_json %>">
+      <%= f.input :sloop, collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
+      <%= f.input :start_date, as: :string,
+        label: "Date de début",  readonly: true %>
+      <%= f.input :end_date, as: :string,
+        label: "Date de fin",  readonly: true  %>
+      <%= f.input :capacity, input_html: { "data-newride-target": "capacity" } %>
+      <%= f.input :details %>
+      <%= f.input :start_port, readonly: true  %>
+      <%= f.input :end_port, readonly: true %>
+      <%= f.submit 'Ajouter', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
 
 
 <%# flatpicker pour les dates %>
