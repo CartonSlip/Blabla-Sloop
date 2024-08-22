@@ -1,10 +1,12 @@
 
 <%# ##########Banner########################### %>
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
-    <div class="container">
-      <h2><strong>Vous avez un bateau</strong></h2>
-      <a class="btn btn-primary" href="#">Voir les trajets demandés</a>
-      <h2><strong>Vous êtes voyageur</strong></h2>
-      <a class="btn btn-primary" href="#">Voir les trajets proposés</a>
-    </div>
+  <div class="container" id="banner-content">
+    <h2><strong>Vous avez un bateau</strong></h2>
+    <a class="btn btn-primary" id="banner-bouton" href="#">Voir les trajets demandés</a>
   </div>
+  <div class="container mt-5" id="banner-content">
+    <h2><strong>Vous êtes voyageur</strong></h2>
+    <a class="btn btn-primary" id="banner-bouton" href="#">Voir les trajets proposés</a>
+  </div>
+</div>
