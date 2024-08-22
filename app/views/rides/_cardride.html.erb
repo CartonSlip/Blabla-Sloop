@@ -21,7 +21,7 @@
               <div class="card-sloop-infos">
                 <p>
                   <i class="fa-regular fa-calendar"></i></i>
-                  <%= ride.start_date.strftime('%d/%m/%Y') %>  <%= ride.end_date.strftime('%d/%m/%Y') %>
+                  <%= l(ride.start_date, format: '%d/%m/%Y') %>  <%= l(ride.end_date, format: '%d/%m/%Y') %>
                 </p>
                 <br>
                 <p>
