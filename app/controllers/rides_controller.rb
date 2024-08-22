@@ -50,7 +50,7 @@ class RidesController < ApplicationController
   private
 
   def ride_params
-    params.require(:ride).permit(:start_date, :end_date, :details, :capacity)
+    params.require(:ride).permit(:start_date, :end_date, :details, :capacity, :start_port, :end_port, sloop: [:id])
   end
 
 end

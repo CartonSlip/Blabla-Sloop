@@ -1,0 +1,18 @@
+  <div class="col-md-4 mb-4">
+      <%= link_to user_path(user), style: "text-decoration: none; color: inherit;" do %>
+        <div class="card-sloop"  style="width: 20rem;">
+          <% if user.photo.attached? %>
+            <%= cl_image_tag user.photo.key, class: "card-img-top", height: 250, width: 220, crop: :fill%>
+          <% else %>
+            <img class="card-img-top" src="default_image.jpg" alt="Default image">
+          <% end %>
+          <div class="card-sloop-infos">
+              <h2 class="card-title"><%= user.first_name %>
+              <%= user.last_name %></h2><br>
+              <%= user.preferences %>
+              </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

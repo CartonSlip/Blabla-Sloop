@@ -3,7 +3,7 @@
     <div class="row">
       <div>
         <h1 class="display-4 text-center my-4">Tous les voyages prévues</h1>
-        <span class="mb-3 d-block"><em><%= "Aucune proposition de voyage disponnible pour le moment." if @rides.empty? %></em></span>
+        <span class="mb-3 d-block"><em><%= "Aucune proposition de voyage disponible pour le moment." if @rides.empty? %></em></span>
         <span class="mb-3 d-block"><em><%= "#{pluralize(@rides.count, "résultat")}" if @rides.count  %></em></span>
       </div>
       <% @rides.each do |ride| %>
