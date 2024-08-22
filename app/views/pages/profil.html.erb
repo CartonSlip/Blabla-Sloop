@@ -33,6 +33,12 @@
   <% end %>
 <!-- Les trajets proposés par l'utlisateur -->
   <% if current_user.rides.any? %>
+  <h3 class="mb-4"> <%= pluralize(current_user.rides.size, "Trajet") %> </h3>
+    <div class="row">
+    <% current_user.rides.each do |ride| %>
+    <%= render "rides/cardride", ride: ride %>
+      <% end %>
+    </div>
   <% end %>
 <!-- Les demandes de trajet de l'utlisateur -->
   <% if current_user.ride_requests.any? %>
