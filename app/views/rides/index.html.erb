@@ -6,7 +6,9 @@
         <span class="mb-3 d-block"><em><%= "Aucune proposition de voyage disponible pour le moment." if @rides.empty? %></em></span>
         <span class="mb-3 d-block"><em><%= "#{pluralize(@rides.count, "résultat")}" if @rides.count  %></em></span>
       </div>
-          <%= render :partial => 'cardride' %>
+      <% @rides.each do |ride| %>
+        <%= render "shared/cardride", ride: ride %>
+      <% end %>
       <div>
         <%= link_to "Proposer un voyage", new_ride_path, class: "btn btn-primary" %>
       </div>

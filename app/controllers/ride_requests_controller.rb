@@ -13,10 +13,29 @@ class RideRequestsController < ApplicationController
 
     if @riderequest.save
       # redirect_to profil_path(@current_user)
-      redirect_to riderequests_path, notice: "Votre ridesrequest a bien été ajoutée"
+      redirect_to ride_requests_path, notice: "Votre ridesrequest a bien été ajoutée"
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @riderequest = RideRequest.find(params[:id])
+
+    @markers = [
+      {
+        lat: @riderequest.start_port_latitude,
+        lng: @riderequest.start_port_longitude,
+        # info_window_html: render_to_string(partial: "info_window", locals: { riderequest: @riderequest }),
+        marker_html: render_to_string(partial: "marker")
+      },
+      {
+        lat: @riderequest.end_port_latitude,
+        lng: @riderequest.end_port_longitude,
+        # info_window_html: render_to_string(partial: "info_window", locals: { riderequest: @riderequest }),
+        marker_html: render_to_string(partial: "marker")
+      }
+    ]
   end
 
   private

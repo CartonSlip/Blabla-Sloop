@@ -1,0 +1,39 @@
+=> 
+[[32m#<Ride:0x00007fa247b1e9c8[0m
+  id: [34m[1m70[0m,
+  start_date: Sun, 01 Sep 2024,
+  start_port: [31m[1m"[0m[31mBrest[0m[31m[1m"[0m,
+  end_date: Tue, 10 Sep 2024,
+  end_port: [31m[1m"[0m[31mNantes[0m[31m[1m"[0m,
+  distance: [36m[1mnil[0m,
+  details:
+   [31m[1m"[0m[31mVoyage relaxant avec escales dans des petites criques cachées. Prévoir des vêtements légers et une bonne humeur.[0m[31m[1m"[0m,
+  sloop_id: [34m[1m169[0m,
+  created_at: Wed, 21 Aug 2024 09:48:37.572357000 UTC +00:00,
+  updated_at: Wed, 21 Aug 2024 09:48:37.572357000 UTC +00:00,
+  capacity: [34m[1m3[0m[32m>[0m,
+ [32m#<Ride:0x00007fa248d896d0[0m
+  id: [34m[1m71[0m,
+  start_date: Sat, 05 Oct 2024,
+  start_port: [31m[1m"[0m[31mMarseille[0m[31m[1m"[0m,
+  end_date: Tue, 15 Oct 2024,
+  end_port: [31m[1m"[0m[31mNice[0m[31m[1m"[0m,
+  distance: [36m[1mnil[0m,
+  details: [31m[1m"[0m[31mCroisière à travers la Côte d'Azur avec des visites de vignobles locaux. Accueil chaleureux garanti.[0m[31m[1m"[0m,
+  sloop_id: [34m[1m165[0m,
+  created_at: Wed, 21 Aug 2024 09:48:37.618867000 UTC +00:00,
+  updated_at: Wed, 21 Aug 2024 09:48:37.618867000 UTC +00:00,
+  capacity: [34m[1m3[0m[32m>[0m,
+ [32m#<Ride:0x00007fa248d89608[0m
+  id: [34m[1m72[0m,
+  start_date: Fri, 01 Nov 2024,
+  start_port: [31m[1m"[0m[31mLa Rochelle[0m[31m[1m"[0m,
+  end_date: Wed, 20 Nov 2024,
+  end_port: [31m[1m"[0m[31mBordeaux[0m[31m[1m"[0m,
+  distance: [36m[1mnil[0m,
+  details:
+   [31m[1m"[0m[31mAventure automnale avec exploration des îles alentours. Prévoir des vêtements chauds et des jumelles pour observer les oiseaux.[0m[31m[1m"[0m,
+  sloop_id: [34m[1m166[0m,
+  created_at: Wed, 21 Aug 2024 09:48:37.640299000 UTC +00:00,
+  updated_at: Wed, 21 Aug 2024 09:48:37.640299000 UTC +00:00,
+  capacity: [34m[1m2[0m[32m>[0m]
