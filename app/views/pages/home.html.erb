@@ -27,7 +27,7 @@
     <%# aller dans la table ride %>
     <%# recuperer les 3 derniers proposer %>
     <%# afficher les 3 derniere ride %>
-    <% @ridesrequests.each do |ridesrequest| %>
-      <%= render 'shared/riderequestcard', ride: ridesrequest %>
+    <% @rides_requests.each do |riderequest| %>
+      <%= render 'shared/riderequestcard', riderequest: riderequest %>
     <% end %>
 </div>
