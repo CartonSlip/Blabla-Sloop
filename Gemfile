@@ -12,7 +12,7 @@ gem "sprockets-rails"
 
 gem 'faker'
 
-# Use postgresql as the database for Active Record
+# Use postgresql as the data☺base for Active Record
 gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]

@@ -1,9 +1,9 @@
-class DashboardsController < ApplicationController
+class ProfilesController < ApplicationController
   def edit
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = current_user
     if @user.update(user_params)
       redirect_to profil_path, notice: "Votre profil a bien été mis à jour"
     else
