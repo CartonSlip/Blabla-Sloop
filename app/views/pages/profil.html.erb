@@ -41,7 +41,7 @@
     </div>
   <% end %>
 <!-- Les demandes de trajet de l'utlisateur -->
-    <h4 class="mb-4"> <%= pluralize(@user.ride_requests.size, "Ma demande de Trajet", "Mes demandes de Trajets") %></h4>
+    <h4 class="mb-4"> <%= pluralize(current_user.ride_requests.size, "Ma demande de Trajet", "Mes demandes de Trajets") %></h4>
     <% current_user.ride_requests.each do |riderequest| %>
       <%= render "shared/riderequestcard", riderequest: riderequest %>
      <% end %>
