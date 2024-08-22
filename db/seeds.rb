@@ -304,7 +304,7 @@ request4 = RideRequest.new(
   details: "J'en ai mare de la vie parisien, du metro et du speed. A la recherche d'un marin pour me faire découvrir autre chose...",
   user: celia
 )
-request3.save!
+request4.save!
 puts "rides request3 created!"
 
 # Pour Luc Bernard

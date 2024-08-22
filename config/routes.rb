@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   get "/about", to: "pages#about"
   resources :bookmarks, only: [:create, :destroy]
   resources :dashboards, only: [:edit, :update]
+  resources :users, only: [:show]
 end
