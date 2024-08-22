@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :sloops
   resources :rides do
-    resources :traveller_rides, only: %i[new]
+    resources :traveller_rides, only: %i[new create]
   end
   resources :traveller_rides, only: %i[edit update]
   resources :ride_requests do
