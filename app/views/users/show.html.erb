@@ -1,0 +1,47 @@
+<div class="container bg-white">
+<!-- Infos principales de l'utilisateur -->
+  <div class="text-center">
+    <%= cl_image_tag @user.photo.key, height: 175, class: "my-3", alt: "photo de profil", radius: "max" %>
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <span><%= @user.age %> ans</span>
+  </div>
+  <hr>
+  <!-- Détails de l'utilisateur -->
+  <div class="text-start">
+    <h4 class="">À propos</h4>
+    <p class="border rounded-3 p-3"><%= @user.description %></p>
+    <h4 class="lead">Préférences</h4>
+    <p class="border rounded-3 p-3"><%= @user.preferences %></p>
+  <!-- Les trajets proposés par l'utlisateur -->
+  <% if @user.rides.any? %>
+    <h4 class="mb-4"> <%= @user.rides.size == 1 ? "Un trajet proposé" : "Trajets Proposés" %></h4>
+    <div class="row">
+      <% @user.rides.each do |ride| %>
+        <%= render "shared/cardride", ride: ride %>
+      <% end %>
+    </div>
+  <% end %>
+<!-- Les demandes de trajet de l'utlisateur -->
+  <% if @user.ride_requests.any? %>
+    <h4 class="mb-4"> <%= pluralize(@user.ride_requests.size, "Demande de Trajet", "Demandes de Trajets") %></h4>
+     <% @user.ride_requests.each do |riderequest| %>
+      <%= render "shared/riderequestcard", riderequest: riderequest %>
+     <% end %>
+    <% end %>
+<!-- Sloops de l'utilisateur / Si existants -->
+  <% if @user.sloops.any? %>
+    <h3 class="mb-4"> <%=  @user.sloops.size == 1 ? "Son Sloop" : "Ses Sloops" %></h3>
+    <div class="row">
+    <% @user.sloops.each do |sloop| %>
+      <%= render "shared/sloopcard", sloop: sloop %>
+    <% end %>
+    </div>
+  <% end %>
+<!-- Commentaires sur l'utlisateur -->
+  <% if @user.received_reviews.any? %>
+    <div>
+
+    </div>
+  <% end %>
+  </div>
+</div>
