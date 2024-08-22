@@ -1,0 +1,18 @@
+<div class="container mb-4">
+  <h1>Répondre à une demande d'embarcation</h1>
+  <hr>
+<%= button_to "Valider la demande",  traveller_ride_path(@travellerride), class: "btn btn-primary" %>
+<%= button_to "Refuser la demande",  traveller_ride_path(@travellerride), class: "btn btn-warning" %>
+</div>
+<div class="container mt-4">
+  <hr>
+  <%= simple_form_for(@travellerride) do |f| %>
+    <%= f.input :validate_status, as: :hidden, input_html: { value: 'accepted'} %>
+    <%= f.button :submit, 'Valider la demande', class:"btn btn-primary"%>
+  <% end %>
+  <%= simple_form_for(@travellerride) do |f| %>
+    <%= f.input :validate_status, as: :hidden, input_html: { value: 'refused'} %>
+    <%= f.button :submit, 'Refuser la demande', class:"btn btn-warning"%>
+  <% end %>
+  </div>
+</div>

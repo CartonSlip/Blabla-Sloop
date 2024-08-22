@@ -2,43 +2,12 @@
   <div class="cards mt-2">
   <div class="row">
     <div>
-      <h1 class="display-4 text-center my-4">Toutes les demande de voyage disponibles</h1>
+      <h1 class="display-4 text-center my-4">Toutes les Ride Requests disponibles</h1>
       <span class="mb-3 d-block"><em><%= "Aucun résultat pour votre recherche, consultez la carte pour voir tous les ridesrequests disponibles" if @riderequests.empty? %></em></span>
       <span class="mb-3 d-block"><em><%= "#{pluralize(@riderequests.count, "résultat")}" if @riderequests.count  %></em></span>
     </div>
-
-      <% @riderequests.each do |riderequest| %>
-      <div class="col-md-4 mb-4">
-        <%= link_to ride_request_path(riderequest), style: "text-decoration: none; color: inherit;" do %>
-          <div class="card-sloop mb-4"  style="width: 20rem;">
-           <% if riderequest %>
-              <%= image_tag "https://data.pixiz.com/output/user/frame/preview/api/big/0/7/0/5/2065070_04609.jpg", class: "card-img-top", height: 250, width: 220, crop: :fill%>
-            <% else %>
-              <img class="card-img-top" src="default_image.jpg" alt="Default image">
-            <% end %>
-            <div class="card-sloop-infos">
-            <div>
-              <p>
-                <i class="fa-solid fa-anchor"></i>
-                <%= riderequest.start_port %> <strong>/</strong> <%= riderequest.end_port %>
-              </p>
-              <hr>
-              <p>
-                  <i class="fa-regular fa-calendar"></i></i>
-                  <%= riderequest.start_date.strftime('%d/%m/%Y') %> <strong>/</strong> <%= riderequest.end_date.strftime('%d/%m/%Y') %>
-                </p>
-              <p class="card-text owner-text">
-                <% if riderequest.user.photo.attached? %>
-                  <%= cl_image_tag riderequest.user.photo.key, class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
-                <% else %>
-                  <%= image_tag "default_avatar.png", class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
-                <% end %>
-              </p>
-            </div>
-          </div>
-        <% end %>
-        </div>
-      <% end %>
+    <% @riderequests.each do |riderequest| %>
+      <%= render "shared/riderequestcard", riderequest: riderequest %>
   </div>
- </div>
+    <% end %>
 </div>
