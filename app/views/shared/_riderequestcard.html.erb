@@ -1,0 +1,27 @@
+<div class="col-md-4 mb-4">
+  <%= link_to ride_requests_path(riderequest), style: "text-decoration: none; color: inherit;" do %>
+  <div class="card-sloop">
+      <%= image_tag "https://data.pixiz.com/output/user/frame/preview/api/big/0/7/0/5/2065070_04609.jpg", class: "card-img-top"%>
+    <div class="card-sloop-infos">
+      <div>
+        <p>
+          <i class="fa-solid fa-anchor"></i>
+          <%= riderequest.start_port %> <strong>/</strong> <%= riderequest.end_port %>
+        </p>
+        <hr>
+        <p>
+          <i class="fa-regular fa-calendar"></i></i>
+          <%= riderequest.start_date.strftime('%d/%m/%Y') %> <strong>/</strong> <%= riderequest.end_date.strftime('%d/%m/%Y') %>
+        </p>
+        <p class="card-text owner-text">
+          <% if riderequest.user.photo.attached? %>
+            <%= cl_image_tag riderequest.user.photo.key, class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+          <% else %>
+            <%= image_tag "default_avatar.png", class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+</div>
+  <% end %>
+</div>

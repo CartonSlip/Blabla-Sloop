@@ -1,1 +1,64 @@
-<h1>Détails d'une ride request</h1>
+<div class="container mt-5 mb-5">
+  <!-- Titre principal -->
+  <div class="text-center mb-4">
+    <h1><%= @riderequest.start_port %> à <%= @riderequest.end_port %></h1>
+    <p class="text-muted">Du <%= @riderequest.start_date.strftime('%d %B %Y') %> au <%= @riderequest.end_date.strftime('%d %B %Y') %></p>
+  </div>
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+  <!-- Carte de détails du voyage -->
+      <h3 class="card-title"><strong>Détails du voyage</strong></h3>
+      <p class="card-text"><%= @riderequest.details %></p>
+      <hr>
+      <!-- Informations utilisateur -->
+      <div class="d-flex align-items-center">
+        <% if @riderequest.user.photo.attached? %>
+          <%= cl_image_tag @riderequest.user.photo.key, class: "rounded-circle me-3", style: "width: 60px; height: 60px;" %>
+        <% else %>
+          <%= image_tag "default_avatar.png", class: "rounded-circle me-3", style: "width: 60px; height: 60px;" %>
+        <% end %>
+        <div>
+          <h5 class="mb-0"><%= @riderequest.user.first_name %> <%= @riderequest.user.last_name %></h5>
+          <p class="mb-0 text-muted">Utilisateur</p>
+        </div>
+
+      </div>
+  </div>
+  <hr>
+      <div class="card-sloop-infos d-flexjustify-content-evenly">
+          <p>
+            <i class="fa-solid fa-anchor"></i>
+            <%= @riderequest.start_port %> <strong>/</strong> <%= @riderequest.end_port %>
+          </p>
+          <hr>
+          <p>
+            <i class="fa-regular fa-calendar"></i></i>
+            <%= @riderequest.start_date.strftime('%d/%m/%Y') %> <strong>/</strong> <%= @riderequest.end_date.strftime('%d/%m/%Y') %>
+          </p>
+    </div>
+
+  <!-- Boutons d'action -->
+</div>
+<br>
+  <div class="d-flex justify-content-evenly align-items-center mb-3">
+    <%= link_to "Retour à la liste", ride_requests_path, class: "btn btn-primary" %>
+    <% if @riderequest.user == current_user %>
+      <%= link_to "Modifier la demande", edit_ride_request_path(@riderequest), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+<div class="col-md-12" style="height: 400px;">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <h4 class="card-title text-center "><i class="fa-solid fa-location-dot text-warning"></i> </h4>
+        <hr>
+        <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
