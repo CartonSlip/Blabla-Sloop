@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_22_100701) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_22_144945) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -90,6 +90,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_22_100701) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "capacity"
+    t.float "start_port_latitude"
+    t.float "start_port_longitude"
+    t.float "end_port_latitude"
+    t.float "end_port_longitude"
     t.index ["sloop_id"], name: "index_rides_on_sloop_id"
   end
 

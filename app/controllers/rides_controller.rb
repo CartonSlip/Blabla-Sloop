@@ -26,6 +26,20 @@ class RidesController < ApplicationController
   def show
     @ride = Ride.find(params[:id])
     # prevoir de montrer tout les voyageurs validés
+    @markers = [
+      {
+        lat: @ride.start_port_latitude,
+        lng: @ride.start_port_longitude,
+        # info_window_html: render_to_string(partial: "info_window", locals: { riderequest: @riderequest }),
+        marker_html: render_to_string(partial: "shared/marker")
+      },
+      {
+        lat: @ride.end_port_latitude,
+        lng: @ride.end_port_longitude,
+        # info_window_html: render_to_string(partial: "info_window", locals: { riderequest: @riderequest }),
+        marker_html: render_to_string(partial: "shared/marker")
+      }
+    ]
   end
 
   def edit

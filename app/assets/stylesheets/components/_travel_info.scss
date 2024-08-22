@@ -1,0 +1,44 @@
+.no_home {
+  height: 200px;
+}
+
+.travel_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 20px;
+}
+
+.map_ride {
+  margin: 15px;
+}
+
+.subtitle {
+  display: flex;
+  margin-left: 25px;
+  margin-top: 20px;
+}
+
+.traveller_info {
+  display: flex;
+  justify-content: center;
+  margin-left: 15px;
+  width: 360px;
+  border-radius: 10%;
+  height: 145px;
+}
+
+.size_large {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  width: 360px;
+}
+
+.card_center {
+  display: flex;
+  justify-content: center;
+  margin: 45px;
+}
