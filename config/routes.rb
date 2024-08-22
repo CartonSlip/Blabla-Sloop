@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "/profil", to: "pages#profil"
   get "/about", to: "pages#about"
   resources :bookmarks, only: [:create, :destroy]
-  resources :dashboards, only: [:edit, :update]
+  resource :profile, only: [:edit, :update] # /profile MAIS ctrl : profiles
+  resource :dashboard, only: [:show] # /dashboard MAIS ctrl : dashboards
   resources :users, only: [:show]
 end
