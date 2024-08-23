@@ -4,11 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :traveller_rides
-  has_many :ride_requests
-  has_many :bookmarks
   has_many :sloops
   has_many :rides, through: :sloops
+
+  has_many :traveller_rides # en tant que voyageur
+  has_many :skipper_traveller_rides, through: :rides, source: :traveller_rides # en tant que skipper
+
+  has_many :ride_requests
+  has_many :bookmarks
   has_many :received_reviews, foreign_key: :receiver_id, class_name: "Review"
   has_many :posted_reviews, foreign_key: :poster_id, class_name: "Review"
   has_one_attached :photo
