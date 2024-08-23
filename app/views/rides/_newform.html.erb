@@ -7,8 +7,15 @@
       label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
     <%= f.input :capacity, input_html: { "data-newride-target": "capacity" } %>
     <%= f.input :details %>
-    <%= f.input :start_port %>
-    <%= f.input :end_port %>
+
+     <%= f.input :start_port, label: 'Port de départ',
+        input_html: { data: { address_autocomplete_target: "startPort" }, class: "d-none" },
+        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
+
+    <%= f.input :end_port, label: "Port d'arrivé",
+        input_html: { data: { address_autocomplete_target: "endPort" }, class: "d-none" },
+        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
+        
     <%= f.submit 'Ajouter', class: "btn btn-primary" %>
   </div>
 <% end %>
