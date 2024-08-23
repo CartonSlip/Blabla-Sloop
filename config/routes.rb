@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:create, :destroy]
   resource :profile, only: [:edit, :update] # /profile MAIS ctrl : profiles
   resource :dashboard, only: [:show] # /dashboard MAIS ctrl : dashboards
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :reviews, only: [:create]
+  end
 end
