@@ -24,12 +24,17 @@
   font-size: 18px;
 }
 
+.traveller_info_container {
+  padding: 0 2em;
+}
+
+.traveller_info_wrapper {
+  width: 100%;
+}
+
 .traveller_info {
   display: flex;
   justify-content: center;
-  margin-left: 15px;
-  width: 360px;
-  border-radius: 10%;
   height: 145px;
 }
 
@@ -70,9 +75,12 @@
   justify-content: center;
 }
 
+.centered_button {
+  padding: 0 2em;
+}
+
 .size_large {
   display: flex;
   justify-content: center;
-  margin: 15px;
-  width: 360px;
+  width: 100%;
 }

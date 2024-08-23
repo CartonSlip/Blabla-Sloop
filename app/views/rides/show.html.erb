@@ -53,12 +53,14 @@
 
   <%= simple_form_for [@ride, @traveller_ride] do |f| %>
 
-  <div class="mb-3 traveller_info">
-    <%= f.input :info, placeholder: "Quelles sont les informations que vous voulez partager/donner au Slooper ?", input_html: { class: "traveller_info" }, label: false %>
+  <div class="mb-3 traveller_info_container">
+    <%= f.input :info, placeholder: "Quelles sont les informations que vous voulez partager/donner au Slooper ?", input_html: { class: "traveller_info" }, wrapper_html: { class:"tranveller_info_wrapper"}, label: false %>
     <%# <label for="exampleFormControlTextarea1" class="form-label"></label> %>
     <%# <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quelles sont les informations que vous voulez partager/donner au Slooper ?" rows="3"></textarea> %>
   </div>
 
-  <%= button_to "Demande de réservation",  dashboard_path, class: "btn btn-primary size_large" %>
+  <div class="centered_button">
+    <%= button_to "Demande de réservation",  dashboard_path, class: "btn btn-primary size_large" %>
+  </div>
   <% end %>
 <% end %>
