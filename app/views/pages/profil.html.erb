@@ -46,6 +46,23 @@
       <%= render "shared/riderequestcard", riderequest: riderequest %>
      <% end %>
 <!-- Commentaires sur l'utlisateur -->
-  <% if current_user.received_reviews.any? %>
-  <% end %>
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <h3>Commentaires reçus</h3>
+      <% if current_user.received_reviews.empty? %>
+        <small><em class="text-muted">Vous n'avez pas encore reçu de commentaires.</em></small>
+      <% end %>
+      <% current_user.received_reviews.each do |review| %>
+        <div>
+          <% review.rating.times do %>
+            <i class="fas fa-star text-info"></i>
+          <% end %>
+          <small><em class="text-muted">Il y a <%= distance_of_time_in_words_to_now(review.created_at) %></em></small>
+          <p class="mb-0"><%= review.comment %></p>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+<%= link_to "Voir le profil public", user_path(current_user), class: "btn btn-primary" %>
+  </div>
 </div>
