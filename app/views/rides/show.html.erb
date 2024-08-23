@@ -27,19 +27,38 @@
     </div>
   </div>
 
+
 <div class="subtitle">
-  <p>Informations pour le Slooper</p>
+  <h2>Le Slooper</h2>
 </div>
-
-<div class="mb-3 traveller_info">
-  <label for="exampleFormControlTextarea1" class="form-label"></label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quelles sont les informations que vous voulez partager/donner au Slooper ?" rows="3"></textarea>
-</div>
-<button type="button" class="btn btn-primary size_large">Ajouter</button>
-
 <div class="card_center">
-<%= render 'usercard', user: @ride.sloop.user %>
+  <%= render 'usercard', user: @ride.sloop.user %>
+</div>
+<div class="subtitle">
+  <h2>Le bateau</h2>
 </div>
 <%= render 'shared/sloopcard', sloop: @ride.sloop %>
 
-<%= button_to "Demande de réservation",  ride_traveller_rides_path(@ride), class: "btn btn-primary size_large" %>
+<% if @ride.max_capacity_reached? %>
+  <div class="capacity_reach sorry_text">
+    <div class="division">
+      <h2><i class="fa-regular fa-face-frown fa-xl"></i>  Désolé, le trajet est complet.</h2>
+      <p>Mais vous pouvez toujours jeter un oeil aux autres propositions.</p>
+    </div>
+  </div>
+<% else %>
+  <div class="subtitle">
+    <p>Informations pour le Slooper</p>
+  </div>
+
+  <%= simple_form_for [@ride, @traveller_ride] do |f| %>
+
+  <div class="mb-3 traveller_info">
+    <%= f.input :info, placeholder: "Quelles sont les informations que vous voulez partager/donner au Slooper ?", label: false %>
+    <%# <label for="exampleFormControlTextarea1" class="form-label"></label> %>
+    <%# <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quelles sont les informations que vous voulez partager/donner au Slooper ?" rows="3"></textarea> %>
+  </div>
+
+  <%= button_to "Demande de réservation",  dashboard_path, class: "btn btn-primary size_large" %>
+  <% end %>
+<% end %>

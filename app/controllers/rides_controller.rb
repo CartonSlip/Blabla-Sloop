@@ -61,6 +61,7 @@ class RidesController < ApplicationController
         marker_html: render_to_string(partial: "shared/marker")
       }
     ]
+    @traveller_ride = TravellerRide.new
   end
 
   def edit
