@@ -1,6 +1,6 @@
 <%= simple_form_for(@ride) do |f| %>
   <div data-controller="newride" data-newride-capacity-by-sloop-value="<%= @capacity_by_sloop.to_json %>">
-    <%= f.input :sloop, collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
+    <%= f.association :sloop, label: "Choisissez votre bateau", collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
     <%= f.input :start_date, as: :string,
       label: "Date de debut", input_html: { data: { controller: "datepicker" } } %>
     <%= f.input :end_date, as: :string,

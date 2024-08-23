@@ -24,7 +24,7 @@
   </div>
 <!-- Sloops de l'utilisateur / Si existants -->
   <% if current_user.sloops.any? %>
-    <h3 class="mb-4"> <%=  @user.sloops.size == 1 ? "Mon Sloop" : "Mes Sloops" %></h3>
+    <h3 class="mb-4"> <%=  current_user.sloops.size == 1 ? "Mon Sloop" : "Mes Sloops" %></h3>
     <div class="row">
     <% current_user.sloops.each do |sloop| %>
     <%= render "shared/sloopcard", sloop: sloop %>
@@ -33,7 +33,7 @@
   <% end %>
 <!-- Les trajets proposés par l'utlisateur -->
   <% if current_user.rides.any? %>
-  <h4 class="mb-4"> <%= @user.rides.size == 1 ? "Mon trajet proposé" : "Mes trajets proposés" %></h4>
+  <h4 class="mb-4"> <%= current_user.rides.size == 1 ? "Mon trajet proposé" : "Mes trajets proposés" %></h4>
     <div class="row">
     <% current_user.rides.each do |ride| %>
     <%= render "shared/cardride", ride: ride %>
@@ -41,7 +41,7 @@
     </div>
   <% end %>
 <!-- Les demandes de trajet de l'utlisateur -->
-    <h4 class="mb-4"> <%= pluralize(@user.ride_requests.size, "Ma demande de Trajet", "Mes demandes de Trajets") %></h4>
+    <h4 class="mb-4"> <%= pluralize(current_user.ride_requests.size, "Ma demande de Trajet", "Mes demandes de Trajets") %></h4>
     <% current_user.ride_requests.each do |riderequest| %>
       <%= render "shared/riderequestcard", riderequest: riderequest %>
      <% end %>
