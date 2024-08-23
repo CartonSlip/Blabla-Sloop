@@ -28,10 +28,9 @@ class RidesController < ApplicationController
   end
 
   def create
-    @rides = Ride.new(ride_params)
-    @rides.user = current_user
-    # penser à installer dans le form le defaut capacity egale au capacity du sloop
-    if @sloop.save
+    @ride = Ride.new(ride_params)
+
+    if @ride.save
       redirect_to rides_path, notice: "Votre ride a bien été ajoutée"
       # refaire un if, puis recuperer la riderequest. PUis creer la traveler ride, en statut accepted, puis suprimer la ride request
     else
@@ -82,7 +81,7 @@ class RidesController < ApplicationController
   private
 
   def ride_params
-    params.require(:ride).permit(:start_date, :end_date, :details, :capacity, :start_port, :end_port, sloop: [:id])
+    params.require(:ride).permit(:start_date, :end_date, :details, :capacity, :start_port, :end_port, :sloop_id)
   end
 
 end
