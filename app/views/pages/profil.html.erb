@@ -64,5 +64,6 @@
       <% end %>
     </div>
 <%= link_to "Voir le profil public", user_path(current_user), class: "btn btn-primary" %>
+<%= link_to "Se déconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-warning" %>
   </div>
 </div>
