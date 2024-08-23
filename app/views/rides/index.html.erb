@@ -1,4 +1,18 @@
 <div class="container mb-3">
+
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: rides_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Recherche"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="cards mt-2">
     <div class="row">
       <div>
@@ -10,7 +24,11 @@
         <%= render "shared/cardride", ride: ride %>
       <% end %>
       <div>
-        <%= link_to "Proposer un voyage", new_ride_path, class: "btn btn-primary" %>
+       <% if current_user.sloops.exists? %>
+          <%= link_to "Proposer un voyage", new_ride_path, class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "Enregistrer un bateau pour proposer un voyage", new_sloop_path, class: "btn btn-primary" %>
+        <% end %>
       </div>
       <p><br></p>
     </div>

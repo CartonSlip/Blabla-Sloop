@@ -1,14 +1,23 @@
 <div class="container mt-4 mb-5">
   <h1>Demande de voyage</h1>
   <hr>
-  <%= simple_form_for [@riderequest] do |f| %>
-      <%= f.input :details, label: 'Commentaires'%>
-      <%= f.input :start_port, label: 'Port de départ'%>
-      <%= f.input :end_port, label: "Port d'arrivé"%>
-      <%= f.input :start_date, as: :string,
-      label: "Date de début", input_html: { data: { controller: "datepicker" } } %>
-      <%= f.input :end_date, as: :string,
-      label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
-      <%= f.button :submit, 'Poster', class:"btn btn-primary"%>
+  <%= simple_form_for @riderequest do |f| %>
+    <%= f.input :details, label: 'Commentaires' %>
+
+    <%= f.input :start_port, label: 'Port de départ',
+        input_html: { data: { address_autocomplete_target: "startPort" }, class: "d-none" },
+        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
+
+    <%= f.input :end_port, label: "Port d'arrivé",
+        input_html: { data: { address_autocomplete_target: "endPort" }, class: "d-none" },
+        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
+
+    <%= f.input :start_date, as: :string,
+        label: "Date de début", input_html: { data: { controller: "datepicker" } } %>
+
+    <%= f.input :end_date, as: :string,
+        label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
+
+    <%= f.button :submit, 'Poster', class: "btn btn-primary" %>
   <% end %>
-  </div>
+</div>

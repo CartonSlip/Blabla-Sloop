@@ -11,6 +11,16 @@ class Ride < ApplicationRecord
   after_validation :geocode_start_port, if: :will_save_change_to_start_port?
   after_validation :geocode_end_port, if: :will_save_change_to_end_port?
 
+  def max_capacity_reached?
+    capacity == traveller_rides.where(validate_status: "accepted").count
+
+    # if capacity == traveller_rides.where(validate_status: "accepted").count
+    #   true
+    # else
+    #   false
+    # end
+  end
+
   private
 
   def geocode_start_port
