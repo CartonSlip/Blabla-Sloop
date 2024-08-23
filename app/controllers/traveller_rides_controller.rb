@@ -12,7 +12,7 @@ class TravellerRidesController < ApplicationController
     @travellerride.ride = @ride
 
     if @travellerride.save
-      redirect_to ride_path(@ride), notice: "Votre demande a bien été enregistrée."
+      redirect_to dashboard_path, notice: "Votre demande a bien été enregistrée."
     else
       redirect_to ride_path(@ride), alert: "Nous n'avons pas pu enregistrer votre demande."
     end
