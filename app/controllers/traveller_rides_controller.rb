@@ -7,7 +7,7 @@ class TravellerRidesController < ApplicationController
   #  le bouton de demande d'embarcation inclus dans new.html.erb est fonctionnel.
   def create
     @ride = Ride.find(params[:ride_id])
-    @travellerride = TravellerRide.new
+    @travellerride = TravellerRide.new(travellerride_create_params)
     @travellerride.user = current_user
     @travellerride.ride = @ride
 
@@ -31,7 +31,7 @@ class TravellerRidesController < ApplicationController
       flash[:alert] = "Vous n'êtes pas le propriétaire du sloop associé au trajet"
       return redirect_to ride_path(@travellerride.ride)
     end
-    if @travellerride.update(travellerride_params)
+    if @travellerride.update(travellerride_update_params)
       flash[:notice] = @travellerride.validate_status == "accepted" ? "Demande acceptée !" : "Demande refusée"
       redirect_to dashboard_path
     else
@@ -41,7 +41,11 @@ class TravellerRidesController < ApplicationController
 
   private
 
-  def travellerride_params
+  def travellerride_create_params
+    params.require(:traveller_ride).permit(:info)
+  end
+
+  def travellerride_update_params
     params.require(:traveller_ride).permit(:validate_status)
   end
 end
