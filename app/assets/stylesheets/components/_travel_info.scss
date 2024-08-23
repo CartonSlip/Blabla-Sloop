@@ -15,10 +15,13 @@
   margin: 15px;
 }
 
-.subtitle {
+.subtitle h2 {
   display: flex;
-  margin-left: 25px;
   margin-top: 20px;
+  margin-left: 25px;
+  color: #023631;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .traveller_info {
@@ -30,15 +33,46 @@
   height: 145px;
 }
 
-.size_large {
+.capacity_reach {
+  background-color: #910F0F;
   display: flex;
-  justify-content: center;
-  margin: 15px;
   width: 360px;
+  justify-content: center;
+  margin-left: 15px;
+  border-radius: 15px;
+  height: 140px;
+}
+
+.fa-face-frown {
+  margin-right: 10px;
+  font-weight: normal;
+}
+
+.sorry_text h2, p {
+  color: #FFFFFF;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+.sorry_text h2 {
+  margin-top: 25px;
+}
+
+.sorry_text p {
+  margin-right: 15px;
 }
 
 .card_center {
   display: flex;
   justify-content: center;
-  margin: 45px;
+}
+
+.size_large {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  width: 360px;
 }

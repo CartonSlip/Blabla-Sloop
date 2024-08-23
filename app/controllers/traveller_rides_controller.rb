@@ -12,7 +12,7 @@ class TravellerRidesController < ApplicationController
     @travellerride.ride = @ride
 
     if @travellerride.save
-      redirect_to ride_path(@ride), notice: "Votre demande a bien été enregistrée."
+      redirect_to dashboard_path, notice: "Votre demande a bien été enregistrée."
     else
       redirect_to ride_path(@ride), alert: "Nous n'avons pas pu enregistrer votre demande."
     end
@@ -33,9 +33,9 @@ class TravellerRidesController < ApplicationController
     end
     if @travellerride.update(travellerride_params)
       flash[:notice] = @travellerride.validate_status == "accepted" ? "Demande acceptée !" : "Demande refusée"
-      redirect_to ride_path(@travellerride.ride)
+      redirect_to dashboard_path
     else
-      redirect_to ride_path(@travellerride.ride), notice: "Nous n'avons pas pu enregistrer votre réponse."
+      redirect_to dashboard_path, notice: "Nous n'avons pas pu enregistrer votre réponse."
     end
   end
 

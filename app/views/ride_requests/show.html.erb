@@ -27,15 +27,17 @@
   </div>
   <hr>
       <div class="card-sloop-infos d-flexjustify-content-evenly">
-          <p>
-            <i class="fa-solid fa-anchor"></i>
-            <%= @riderequest.start_port %> <strong>/</strong> <%= @riderequest.end_port %>
-          </p>
-          <hr>
-          <p>
-            <i class="fa-regular fa-calendar"></i></i>
-            <%= @riderequest.start_date.strftime('%d/%m/%Y') %> <strong>/</strong> <%= @riderequest.end_date.strftime('%d/%m/%Y') %>
-          </p>
+
+      <div class="travel_info">
+        <span><%= @riderequest.start_port %></span>
+        <span><%= l(@riderequest.start_date, format: '%d/%m/%Y') %></span>
+      </div>
+
+      <div class="travel_info">
+        <span><%= @riderequest.end_port %></span>
+        <span><%= l(@riderequest.end_date, format: '%d/%m/%Y') %></span>
+      </div>
+
     </div>
 
   <!-- Boutons d'action -->
@@ -46,10 +48,6 @@
     <% if @riderequest.user == current_user %>
       <%= link_to "Modifier la demande", edit_ride_request_path(@riderequest), class: "btn btn-primary" %>
     <% end %>
-  <% if @riderequest.user != current_user && current_user.sloops.exists? %>
-    <%= link_to "Slooper la demande", new_ride_request_ride_path(@riderequest), class: "btn btn-primary", id:"???" %>
-  <% end %>
-
   </div>
 
 <div class="col-md-12" style="height: 400px;">
@@ -60,8 +58,7 @@
         <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
               data-controller="map"
               data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
     </div>
   </div>

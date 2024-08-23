@@ -1,16 +1,11 @@
 <div class="container mb-4">
-  <div>
-    <h1>Sloop de la demande de <% @ride_request.user.first_name %> </h1>
-    <hr>
-    <p> mettre la photo de l'utilisateur,</p>
-    <p> afficher les détail de l'utilisateur qui prvienne de la demande de voyage</p>
-    <p> afficher la rate de l'utilisateur </p>
-    <hr>
-  </div>
+  <%= render "shared/detailuser" %>
+
+  <%# ################# formulaire de sloop de demande ############ %>
   <h2>Complétez les information avant de slooper la demande</h2>
   <%= simple_form_for([@ride_request, @ride]) do |f| %>
     <div data-controller="newride" data-newride-capacity-by-sloop-value="<%= @capacity_by_sloop.to_json %>">
-      <%= f.input :sloop, label: "Choisissez votre bateau", collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
+      <%= f.association :sloop, label: "Choisissez votre bateau", collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
       <%= f.input :start_date, as: :string,
         label: "Date de début (non modifiable)",  readonly: true %>
       <%= f.input :end_date, as: :string,
