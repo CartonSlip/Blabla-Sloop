@@ -1,4 +1,6 @@
 class TravellerRide < ApplicationRecord
   belongs_to :user
   belongs_to :ride
+  validates :validate_status, inclusion: { in: ["pending", "accepted", "refused"] }
+  scope :accepted, -> { where(validate_status: "accepted") }
 end
