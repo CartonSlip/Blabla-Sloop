@@ -1,0 +1,23 @@
+.form-login {
+  background: white;
+  padding: 10px 24px;
+  margin-top: 50px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  h1 {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 15px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
