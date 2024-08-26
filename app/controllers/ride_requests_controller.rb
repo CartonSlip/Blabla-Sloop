@@ -8,7 +8,20 @@ class RideRequestsController < ApplicationController
       @riderequests = @riderequests.where(sql_subquery, query: "%#{params[:query]}%")
     end
 
- 
+    @markers = @riderequests.geocoded.map do |riderequest|
+      [
+        {
+          lat: riderequest.start_port_latitude,
+          lng: riderequest.start_port_longitude,
+          marker_html: render_to_string(partial: "shared/marker")
+        },
+        {
+          lat: riderequest.end_port_latitude,
+          lng: riderequest.end_port_longitude,
+          marker_html: render_to_string(partial: "shared/marker")
+        }
+      ]
+    end
   end
 
 
