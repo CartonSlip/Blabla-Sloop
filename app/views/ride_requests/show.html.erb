@@ -1,8 +1,11 @@
 <div class="container mt-5 mb-5">
+  <%= link_to ride_requests_path do %>
+    <i class="fa-solid fa-arrow-left-long"></i>
+  <% end %>
   <!-- Titre principal -->
   <div class="text-center mb-4">
     <h1><%= @riderequest.start_port %> à <%= @riderequest.end_port %></h1>
-    <p class="text-muted">Du <%= @riderequest.start_date.strftime('%d %B %Y') %> au <%= @riderequest.end_date.strftime('%d %B %Y') %></p>
+    <p class="text-muted">Du <%= l(@riderequest.start_date, format: '%d %B %Y').capitalize %> au <%= l(@riderequest.end_date, format:'%d %B %Y') %></p>
   </div>
   <div class="card shadow-sm">
     <div class="card-body">
@@ -20,7 +23,7 @@
         <% end %>
         <div>
           <h5 class="mb-0"><%= @riderequest.user.first_name %> <%= @riderequest.user.last_name %></h5>
-          <p class="mb-0 text-muted">Utilisateur</p>
+          <p class="mb-0 text-muted">Utilisateur.rice</p>
         </div>
 
       </div>
@@ -29,12 +32,12 @@
       <div class="card-sloop-infos d-flexjustify-content-evenly">
 
       <div class="travel_info">
-        <span><%= @riderequest.start_port %></span>
+        <span><i class="fa-solid fa-play"></i> <%= @riderequest.start_port %></span>
         <span><%= l(@riderequest.start_date, format: '%d/%m/%Y') %></span>
       </div>
 
       <div class="travel_info">
-        <span><%= @riderequest.end_port %></span>
+        <span><i class="fa-solid fa-flag-checkered"></i> <%= @riderequest.end_port %></span>
         <span><%= l(@riderequest.end_date, format: '%d/%m/%Y') %></span>
       </div>
 
@@ -44,7 +47,6 @@
 </div>
 <br>
   <div class="d-flex justify-content-evenly align-items-center mb-3">
-    <%= link_to "Retour à la liste", ride_requests_path, class: "btn btn-primary" %>
     <% if @riderequest.user == current_user %>
       <%= link_to "Modifier la demande", edit_ride_request_path(@riderequest), class: "btn btn-primary" %>
     <% end %>
@@ -56,7 +58,7 @@
 <div class="col-md-12" style="height: 400px;">
     <div class="card shadow-sm h-100">
       <div class="card-body">
-        <h4 class="card-title text-center "><i class="fa-solid fa-location-dot text-warning"></i> </h4>
+        <h4 class="card-title text-center "><i class="fa-regular fa-map"></i> </h4>
         <hr>
         <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
               data-controller="map"
