@@ -1,0 +1,24 @@
+<div class="container chat">
+  <h1>Vos échanges <%= @chatroom.ride %></h1>
+
+<%= turbo_stream_from "chatroom_#{@chatroom.id}_user_messages" %>
+<div id="messages" class="messages">
+  <% @chatroom.user_messages.each do |user_message| %>
+    <%= render "user_messages/user_message", user_message: user_message, user: current_user %>
+  <% end %>
+</div>
+
+<%= simple_form_for [@chatroom, @user_message],
+  html: {class: "d-flex",
+         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
+%>
+  <% other_user = current_user == @chatroom.skipper ? @chatroom.user : @chatroom.skipper %>
+  <%= f.input :content,
+    label: false,
+    placeholder: "Message #{other_user.first_name}",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+<% end %>
+</div>
+
