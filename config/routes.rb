@@ -12,8 +12,12 @@ Rails.application.routes.draw do
   resources :sloops
   resources :rides do
     resources :traveller_rides, only: %i[new create]
+    resources :chatrooms, only: [:create]
   end
   resources :traveller_rides, only: %i[edit update]
+  resources :chatrooms, only: [:show] do
+    resources :user_messages, only: [:create]
+  end
   resources :ride_requests do
     resources :rides, only: %i[new create]
   end
