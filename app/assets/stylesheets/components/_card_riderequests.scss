@@ -1,0 +1,26 @@
+.card-riderequest {
+  position: relative; /* To allow absolute positioning inside */
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.723);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.img-fluid {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.riderequest-avatar-position {
+  position: absolute;
+  bottom: 90px;
+  right: 10px;
+}
+
+.fixed-map-size {
+  width: 100%; /* Adapte l'image à la largeur du conteneur parent */
+  height: 250px; /* Fixe la hauteur de l'image */
+  object-fit: cover; /* Recadre l'image pour qu'elle couvre le conteneur tout en conservant son aspect ratio */
+  border-top-left-radius: 10px; /* Ajout de coins arrondis pour un look plus harmonieux */
+  border-top-right-radius: 10px;
+}

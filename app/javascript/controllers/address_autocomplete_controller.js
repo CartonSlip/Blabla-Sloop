@@ -14,7 +14,8 @@ export default class extends Controller {
 
     this.geocoder.addTo(this.element)
 
-    this.geocoder.on("result", event => this.#setInputValue(event))
+    // Utiliser une seule fonction pour gérer les résultats
+    this.geocoder.on("result", event => this.#handleResult(event))
     this.geocoder.on("clear", () => this.#clearInputValue())
   }
 
@@ -22,11 +23,15 @@ export default class extends Controller {
     this.geocoder.onRemove()
   }
 
-  #setInputValue(event) {
+  #handleResult(event) {
+    // Récupère le nom du lieu et affiche seulement la première partie
+    const placeName = event.result["place_name"];
+    const firstPart = placeName.split(',')[0]; // Prendre la première partie de l'adresse
+
     if (this.hasStartPortTarget) {
-      this.startPortTarget.value = event.result["place_name"]
+      this.startPortTarget.value = firstPart; // Met à jour avec la première partie
     } else if (this.hasEndPortTarget) {
-      this.endPortTarget.value = event.result["place_name"]
+      this.endPortTarget.value = firstPart; // Met à jour avec la première partie
     }
   }
 

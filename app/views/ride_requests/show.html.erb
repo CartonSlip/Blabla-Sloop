@@ -1,51 +1,46 @@
+<div class="banner no_home" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
+    <h2>Détails de la demande de voyage</h2>
+</div>
+
 <div class="container mt-5 mb-5">
   <%= link_to ride_requests_path do %>
     <i class="fa-solid fa-arrow-left-long"></i>
   <% end %>
   <!-- Titre principal -->
-  <div class="text-center mb-4">
-    <h1><%= @riderequest.start_port %> à <%= @riderequest.end_port %></h1>
-    <p class="text-muted">Du <%= l(@riderequest.start_date, format: '%d %B %Y').capitalize %> au <%= l(@riderequest.end_date, format:'%d %B %Y') %></p>
-  </div>
+  <%# <div class="text-center mb-4"> %>
+    <%# <h1><%= @riderequest.start_port > à <%= @riderequest.end_port ></h1> %>
+    <%# <p class="text-muted">Du <%= l(@riderequest.start_date, format: '%d %B %Y') > au <%= l(@riderequest.end_date, format:'%d %B %Y') ></p> %>
+  <%# </div> %>
+  <!-- Carte de détails du voyage -->
   <div class="card shadow-sm">
     <div class="card-body">
-
-  <!-- Carte de détails du voyage -->
-      <h3 class="card-title"><strong>Détails du voyage</strong></h3>
       <p class="card-text"><%= @riderequest.details %></p>
       <hr>
       <!-- Informations utilisateur -->
       <div class="d-flex align-items-center">
         <% if @riderequest.user.photo.attached? %>
-          <%= cl_image_tag @riderequest.user.photo.key, class: "rounded-circle me-3", style: "width: 60px; height: 60px;" %>
+          <%= link_to (cl_image_tag @riderequest.user.photo.key, class: "rounded-circle me-3", style: "width: 60px; height: 60px;"), user_path(@riderequest.user) %>
         <% else %>
           <%= image_tag "default_avatar.png", class: "rounded-circle me-3", style: "width: 60px; height: 60px;" %>
         <% end %>
         <div>
-          <h5 class="mb-0"><%= @riderequest.user.first_name %> <%= @riderequest.user.last_name %></h5>
-          <p class="mb-0 text-muted">Utilisateur.rice</p>
+          <h5><%= @riderequest.user.first_name %> <%= @riderequest.user.last_name %></h5>
+          <p>Utilisateur.rice</p>
         </div>
-
       </div>
-  </div>
-  <hr>
-      <div class="card-sloop-infos d-flexjustify-content-evenly">
-
-      <div class="travel_info">
-        <span><i class="fa-solid fa-play"></i> <%= @riderequest.start_port %></span>
-        <span><%= l(@riderequest.start_date, format: '%d/%m/%Y') %></span>
-      </div>
-
-      <div class="travel_info">
-        <span><i class="fa-solid fa-flag-checkered"></i> <%= @riderequest.end_port %></span>
-        <span><%= l(@riderequest.end_date, format: '%d/%m/%Y') %></span>
-      </div>
-
     </div>
-
+    <hr>
+    <div class="travel_info">
+      <span><i class="fa-solid fa-play"></i> <%= @riderequest.start_port %></span>
+      <span><%= l(@riderequest.start_date, format: '%d/%m/%Y') %></span>
+    </div>
+    <div class="travel_info">
+      <span><i class="fa-solid fa-flag-checkered"></i> <%= @riderequest.end_port %></span>
+      <span><%= l(@riderequest.end_date, format: '%d/%m/%Y') %></span>
+    </div>
+  </div>
+  <br>
   <!-- Boutons d'action -->
-</div>
-<br>
   <div class="d-flex justify-content-evenly align-items-center mb-3">
     <% if @riderequest.user == current_user %>
       <%= link_to "Modifier la demande", edit_ride_request_path(@riderequest), class: "btn btn-primary" %>
@@ -55,16 +50,16 @@
     <% end %>
   </div>
 
-<div class="col-md-12" style="height: 400px;">
+  <div class="col-md-12" style="height: 400px;">
     <div class="card shadow-sm h-100">
       <div class="card-body">
         <h4 class="card-title text-center "><i class="fa-regular fa-map"></i> </h4>
         <hr>
         <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
-              data-controller="map"
-              data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-              </div>
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
   </div>
