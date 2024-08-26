@@ -2,9 +2,9 @@
   <%= link_to sloop_path(sloop), style: "text-decoration: none; color: inherit;" do %>
   <div class="card-sloop">
     <% if sloop.photos.any? %>
-      <%= cl_image_tag sloop.photos.first.key, class: "card-img-top" %>
+      <%= cl_image_tag sloop.photos.first.key %>
     <% else %>
-      <img class="card-img-top" src="default_image.jpg" alt="Default image">
+      <%= image_tag "2065070_04609.jpg", alt: "Logo" %>
     <% end %>
     <div class="card-sloop-infos">
       <h2 class="card-title"><%= sloop.name %></h2><br>
