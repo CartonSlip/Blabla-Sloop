@@ -55,8 +55,9 @@
           <hr>
         <% end %>
       </div>
-      <!-- Ajout de commentaires -->
-      <div class="col-12 col-sm-6">
+      <!-- Ajout de commentaires suite à un ride -->
+      <% if Ride.ride_exist?(current_user, @user) && current_user != @user %>
+        <div class="col-12 col-sm-6">
         <div class="bg-white rounded p-3">
           <h5>Ajoutez un commentaire suite à votre voyage</h5>
           <%= simple_form_for [@user, @review] do |f| %>
@@ -68,6 +69,8 @@
           <% end %>
         </div>
       </div>
+      <% end %>
+
     </div>
   </div>
 </div>
