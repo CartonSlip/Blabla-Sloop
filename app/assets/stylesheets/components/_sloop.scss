@@ -1,9 +1,14 @@
 .card-sloop {
   overflow: hidden;
-  background: white;
+  background: rgba(255, 255, 255, 0.723);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 15px;
 }
+
+// .card-sloop:hover {
+//   transform: translateY(-5px);
+
+// }
 
 .card-sloop > img {
   height: 250px;
@@ -32,9 +37,15 @@
   position: relative;
 }
 
-.card-sloop-infos .card-sloop-user {
+.card-sloop-user {
   position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.ride-avatar-position {
+  position: absolute;
+  bottom: 90px;
+  right: 10px;
 }
