@@ -14,32 +14,68 @@
     <span><i class="fa-solid fa-flag-checkered"></i> <%= @ride.end_port %></span>
     <span><%= l(@ride.end_date, format: '%d/%m/%Y') %></span>
   </div>
+  <hr>
 
   <div class="col-md-12 map_ride" style="height: 400px;">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-          <h4 class="card-title text-center "><i class="fa-regular fa-map"></i> </h4>
-          <hr>
-          <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
-                data-controller="map"
-                data-map-markers-value="<%= @markers.to_json %>"
-                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
+    <div class="card shadow-sm h-100 mb-3">
+      <div class="card-body">
+        <h4 class="card-title text-center "><i class="fa-regular fa-map"></i> </h4>
+        <hr>
+        <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
     </div>
-
-
-  <div class="subtitle">
-    <h2>Le Slooper</h2>
   </div>
+  <hr>
+
+  <%# <h2 class="subtitle">Le Slooper</h2>
   <div class="card_center">
-    <%= render 'usercard', user: @ride.sloop.user %>
+    <%= render 'usercard', user: @ride.sloop.user >
   </div>
-  <div class="subtitle">
-    <h2>Le bateau</h2>
+  <hr> %>
+
+  <!-- Carte de détails du voyage -->
+      <h3><strong>Détails de l'utilisateur.rice</strong></h3>
+  <div class="card shadow-sm mb-3">
+    <div class="card-body">
+      <p class="card-text"><%= @ride.details %></p>
+      <hr>
+      <!-- Informations utilisateur -->
+      <div class="d-flex align-items-center">
+        <% if @ride.sloop.user.photo.attached? %>
+          <%= link_to (cl_image_tag @ride.sloop.user.photo.key, class: "rounded-circle me-3", style: "width: 60px; height: 60px;"), user_path(@ride.sloop.user) %>
+        <% else %>
+          <%= image_tag "default_avatar.png", class: "rounded-circle me-3", style: "width: 60px; height: 60px;" %>
+        <% end %>
+        <div>
+          <h5 class="mb-0"><%= @ride.sloop.user.first_name %> <%= @ride.sloop.user.last_name %></h5>
+          <p class="mb-0">Utilisateur.rice</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="card-sloop-infos d-flexjustify-content-evenly">
+      <div class="travel_info">
+        <span><i class="fa-solid fa-play"></i> <%= @ride.start_port %></span>
+        <span><%= l(@ride.start_date, format: '%d/%m/%Y') %></span>
+      </div>
+      <div class="travel_info">
+        <span><i class="fa-solid fa-flag-checkered"></i> <%= @ride.end_port %></span>
+        <span><%= l(@ride.end_date, format: '%d/%m/%Y') %></span>
+      </div>
+    </div>
+    <br>
   </div>
-  <%= render 'shared/sloopcard', sloop: @ride.sloop %>
+  <hr>
+
+  <h2 class="subtitle">Le bateau</h2>
+  <div class="card_center">
+    <%= render 'shared/sloopcard', sloop: @ride.sloop %>
+  </div>
+  <hr>
 
   <% if @ride.max_capacity_reached? %>
     <div class="capacity_reach sorry_text">
@@ -49,9 +85,9 @@
       </div>
     </div>
   <% else %>
-    <div class="subtitle">
-      <p>Informations pour le Slooper</p>
-    </div>
+  <div class="subtitle card_center">
+    <h2>Informations pour le Slooper</p>
+  </div>
 
     <%= simple_form_for [@ride, @traveller_ride] do |f| %>
 
