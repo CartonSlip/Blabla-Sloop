@@ -2,7 +2,7 @@
   <%= link_to sloop_path(sloop), style: "text-decoration: none; color: inherit;" do %>
   <div class="card-sloop">
     <% if sloop.photos.any? %>
-      <%= cl_image_tag sloop.photos.first.key, class: "card-img-top" %>
+      <%= cl_image_tag sloop.photos.first.key %>
     <% else %>
       <img class="card-img-top" src="default_image.jpg" alt="Default image">
     <% end %>
@@ -17,6 +17,10 @@
         <%= sloop.category%>
         <%= sloop.user.first_name %>
         <%= sloop.user.last_name %></p>
+        <%# Si je possède le sloop et qu'il n'a pas de rides, je peux le supprimer %>
+        <% if current_user == sloop.user && sloop.rides.empty? %>
+          <%= link_to "Supprimer",sloop_path(sloop), data: { turbo_method: :delete }, class: "text-danger text-decoration-none" %>
+        <% end %>
       </div>
     </div>
   <% end %>
