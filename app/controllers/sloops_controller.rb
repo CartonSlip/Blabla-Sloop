@@ -12,8 +12,7 @@ class SloopsController < ApplicationController
     @sloop.user = current_user
 
     if @sloop.save
-      # redirect_to profil_path(@current_user)
-      redirect_to sloops_path, notice: "Votre sloop a bien été ajoutée"
+      redirect_to profil_path, notice: "Votre sloop a bien été ajoutée"
     else
       render :new, status: :unprocessable_entity
     end

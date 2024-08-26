@@ -3,38 +3,35 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 15px;
-}
+  img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
 
-.card-sloop img {
-  height: 250px;
-  width: 100%;
-  object-fit: cover;
+  }
 
-}
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  p {
+    font-size: 12px;
+    margin: 0;
+  }
+  .card-sloop-infos {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+  }
+  .card-sloop-user {
+    position: absolute;
+    right: 16px;
+    top: -20px;
+    width: 40px;
+  }
 
-.card-sloop h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-sloop p {
-  font-size: 12px;
-  margin: 0;
-}
-
-
-.card-sloop .card-sloop-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-sloop-infos .card-sloop-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
 }
