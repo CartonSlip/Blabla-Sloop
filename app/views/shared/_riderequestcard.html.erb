@@ -16,7 +16,7 @@
 
 
             # Construct the Mapbox Static Images API URL with markers
-            map_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/pin-s-l+000(#{riderequest.start_port_longitude},#{riderequest.start_port_latitude}),pin-s-l+000(#{riderequest.end_port_longitude},#{riderequest.end_port_latitude})/auto/600x400?access_token=#{ENV['MAPBOX_API_KEY']}"
+            map_url = "https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/static/pin-s-s+000(#{riderequest.start_port_longitude},#{riderequest.start_port_latitude}),pin-s-e+000(#{riderequest.end_port_longitude},#{riderequest.end_port_latitude})/auto/600x400?access_token=#{ENV['MAPBOX_API_KEY']}"
             %>
 
             <%= image_tag map_url, alt: "Map showing locations", class: "img-fluid" %>
