@@ -1,18 +1,39 @@
 <div class="banner no_home" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
-    <h2>Détails du trajet</h2>
+    <h2>Détails du voyage</h2>
 </div><br>
 
 <div class="container">
   <%= link_to rides_path do %>
     <i class="fa-solid fa-arrow-left-long"></i>
   <% end %><br>
-  <div class="travel_info">
-    <span><i class="fa-solid fa-play"></i> <%= @ride.start_port %></span>
-    <span><%= l(@ride.start_date, format: '%d/%m/%Y') %></span>
-  </div>
-  <div class="travel_info">
-    <span><i class="fa-solid fa-flag-checkered"></i> <%= @ride.end_port %></span>
-    <span><%= l(@ride.end_date, format: '%d/%m/%Y') %></span>
+  <!-- Carte de détails du voyage -->
+  <div class="card shadow-sm mb-3">
+    <div class="card-body">
+      <p class="card-text"><%= @ride.details %></p>
+      <hr>
+      <!-- Informations utilisateur -->
+      <div class="d-flex align-items-center">
+        <% if @ride.sloop.user.photo.attached? %>
+          <%= link_to (cl_image_tag @ride.sloop.user.photo.key, class: "rounded-circle me-3", style: "width: 60px; height: 60px;"), user_path(@ride.sloop.user) %>
+        <% else %>
+          <%= image_tag "default_avatar.png", class: "rounded-circle me-3", style: "width: 60px; height: 60px;" %>
+        <% end %>
+        <div>
+          <h5 class="mb-0"><%= @ride.sloop.user.first_name %> <%= @ride.sloop.user.last_name %></h5>
+          <p class="mb-0">Utilisateur.rice</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+      <div class="travel_info">
+        <span><i class="fa-solid fa-play"></i> <%= @ride.start_port %></span>
+        <span><%= l(@ride.start_date, format: '%d/%m/%Y') %></span>
+      </div>
+      <div class="travel_info">
+        <span><i class="fa-solid fa-flag-checkered"></i> <%= @ride.end_port %></span>
+        <span><%= l(@ride.end_date, format: '%d/%m/%Y') %></span>
+      </div>
+    <br>
   </div>
   <hr>
 
@@ -37,39 +58,6 @@
   </div>
   <hr> %>
 
-  <!-- Carte de détails du voyage -->
-      <h3><strong>Détails de l'utilisateur.rice</strong></h3>
-  <div class="card shadow-sm mb-3">
-    <div class="card-body">
-      <p class="card-text"><%= @ride.details %></p>
-      <hr>
-      <!-- Informations utilisateur -->
-      <div class="d-flex align-items-center">
-        <% if @ride.sloop.user.photo.attached? %>
-          <%= link_to (cl_image_tag @ride.sloop.user.photo.key, class: "rounded-circle me-3", style: "width: 60px; height: 60px;"), user_path(@ride.sloop.user) %>
-        <% else %>
-          <%= image_tag "default_avatar.png", class: "rounded-circle me-3", style: "width: 60px; height: 60px;" %>
-        <% end %>
-        <div>
-          <h5 class="mb-0"><%= @ride.sloop.user.first_name %> <%= @ride.sloop.user.last_name %></h5>
-          <p class="mb-0">Utilisateur.rice</p>
-        </div>
-      </div>
-    </div>
-    <hr>
-    <div class="card-sloop-infos d-flexjustify-content-evenly">
-      <div class="travel_info">
-        <span><i class="fa-solid fa-play"></i> <%= @ride.start_port %></span>
-        <span><%= l(@ride.start_date, format: '%d/%m/%Y') %></span>
-      </div>
-      <div class="travel_info">
-        <span><i class="fa-solid fa-flag-checkered"></i> <%= @ride.end_port %></span>
-        <span><%= l(@ride.end_date, format: '%d/%m/%Y') %></span>
-      </div>
-    </div>
-    <br>
-  </div>
-  <hr>
 
   <h2 class="subtitle">Le bateau</h2>
   <div class="card_center">

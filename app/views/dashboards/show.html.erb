@@ -11,9 +11,10 @@
               <div class="card-body">
                 <h5>Demande effectuée par <strong><%= traveller_ride.user.first_name %></strong>
                   <% if traveller_ride.user.photo.attached? %>
-                    <%= cl_image_tag traveller_ride.user.photo.key, class: "avatar" %>
+                    <%# <%= cl_image_tag traveller_ride.user.photo.key, class: "avatar" > %>
+                    <%= link_to (cl_image_tag traveller_ride.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(traveller_ride.user) %>
                   <% elsif %>
-                    <% image_tag "logo.png", class: "avatar" %>
+                    <% link_to (image_tag "logo.png", class: "avatar me-2"), user_path(traveller_ride.user) %>
                   <% end %>
                 </h5>
                 <div class="travel_info">
@@ -65,7 +66,8 @@
               <div class="card-body">
                 <h5>Demande effectuée à <strong><%= traveller_ride.sloop.user.first_name %></strong>
                   <% if traveller_ride.sloop.user.photo.attached? %>
-                    <%= cl_image_tag traveller_ride.sloop.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+                    <%# <%= cl_image_tag traveller_ride.sloop.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" > %>
+                    <%= link_to (cl_image_tag traveller_ride.sloop.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(traveller_ride.sloop.user) %>
                   <% else %>
                     <%= image_tag "default_avatar.png", class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
                   <% end %>
