@@ -1,13 +1,15 @@
 .card-sloop {
   overflow: hidden;
-  background: white;
+  background: rgba(255, 255, 255, 0.723);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 15px;
+
   img {
     height: 250px;
     width: 100%;
     object-fit: cover;
     position: relative;
+
 
   }
 
@@ -20,6 +22,7 @@
     font-size: 12px;
     margin: 0;
   }
+}
   .card-sloop-infos {
     padding: 16px;
     display: flex;
@@ -34,4 +37,9 @@
     width: 40px;
   }
 
+
+.ride-avatar-position {
+  position: absolute;
+  bottom: 90px;
+  right: 10px;
 }

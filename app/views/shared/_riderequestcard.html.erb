@@ -1,47 +1,39 @@
 <div class="col-md-4 mb-4">
   <%= link_to ride_request_path(riderequest), style: "text-decoration: none; color: inherit;" do %>
-    <div class="card-sloop">
+    <div class="card-riderequest">
       <!-- Static map image for each RideRequest -->
-      <div class="col-md-12" style="height: 250px;">
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <%
-            start_lat = riderequest.start_port_latitude
-            start_lng = riderequest.start_port_longitude
-            end_lat = riderequest.end_port_latitude
-            end_lng = riderequest.end_port_longitude
-            center_lat = (start_lat + end_lat) / 2.0
-            center_lng = (start_lng + end_lng) / 2.0
+      <div class="card-body ">
+        <%
+        start_lat = riderequest.start_port_latitude
+        start_lng = riderequest.start_port_longitude
+        end_lat = riderequest.end_port_latitude
+        end_lng = riderequest.end_port_longitude
+        center_lat = (start_lat + end_lat) / 2.0
+        center_lng = (start_lng + end_lng) / 2.0
 
-
-
-            # Construct the Mapbox Static Images API URL with markers
-            map_url = "https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/static/pin-s-s+000(#{riderequest.start_port_longitude},#{riderequest.start_port_latitude}),pin-s-e+000(#{riderequest.end_port_longitude},#{riderequest.end_port_latitude})/auto/600x400?access_token=#{ENV['MAPBOX_API_KEY']}"
-            %>
-
-            <%= image_tag map_url, alt: "Map showing locations", class: "img-fluid" %>
-          </div>
-        </div>
+        # Construct the Mapbox Static Images API URL with markers
+        map_url = "https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/static/pin-s-s+999(#{riderequest.start_port_longitude},#{riderequest.start_port_latitude}),pin-s-e+999(#{riderequest.end_port_longitude},#{riderequest.end_port_latitude})/auto/600x400?access_token=#{ENV['MAPBOX_API_KEY']}"
+        %>
+        <%= image_tag map_url, alt: "Map des demande de voyage", class: "img-fluid fixed-map-size" %> <!-- Added fixed-map-size class -->
       </div>
 
-      <div class="card-sloop-infos">
-        <p>
-          <i class="fa-solid fa-anchor"></i>
-          <%= riderequest.start_port %> <strong>/</strong> <%= riderequest.end_port %>
-        </p>
-        <hr>
-        <p>
-          <i class="fa-regular fa-calendar"></i>
-          <%= riderequest.start_date.strftime('%d/%m/%Y') %> <strong>/</strong> <%= riderequest.end_date.strftime('%d/%m/%Y') %>
-        </p>
-        <p class="card-text owner-text">
-          <% if riderequest.user.photo.attached? %>
-            <%= cl_image_tag riderequest.user.photo.key, class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
-          <% else %>
-            <%= image_tag "default_avatar.png", class: "card-sloop-user avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
-          <% end %>
-        </p>
+      <div class="travel_info">
+        <span><i class="fa-solid fa-play"></i> <%= riderequest.start_port %></span>
+        <span><%= l(riderequest.start_date, format: '%d/%m/%Y') %></span>
       </div>
+
+      <div class="travel_info">
+        <span><i class="fa-solid fa-flag-checkered"></i> <%= riderequest.end_port %></span>
+        <span><%= l(riderequest.end_date, format: '%d/%m/%Y') %></span>
+      </div>
+
+      <p class="card-text owner-text">
+        <% if riderequest.user.photo.attached? %>
+          <%= cl_image_tag riderequest.user.photo.key, class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+        <% else %>
+          <%= image_tag "default_avatar.png", class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+        <% end %>
+      </p>
     </div>
   <% end %>
 </div>
