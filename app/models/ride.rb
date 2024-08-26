@@ -21,6 +21,22 @@ class Ride < ApplicationRecord
     # end
   end
 
+  def skipper
+    sloop.user
+  end
+
+  # Retourne vrai si il existe un ride entre deux users
+  def self.ride_exist?(user1, user2)
+    # test1 => les deux users ont ils un ride en commun as voyageur
+    user1_traveller_rides = user1.traveller_rides
+    user2_traveller_rides = user2.traveller_rides
+    test1 = user1_traveller_rides.any? { |traveller_ride| traveller_ride.ride.users.include?(user2) } || user2_traveller_rides.any? {|traveller_ride| traveller_ride.ride.users.include?(user1) }
+    # test2 => le user1 a t il voyager avec le skipper user2?
+    # tester si les user1.rides.exist?
+    test2 = user1_traveller_rides.any? { |traveller_ride| traveller_ride.ride.skipper == user2 }
+    test1 || test2
+  end
+
   private
 
   def geocode_start_port
@@ -34,4 +50,7 @@ class Ride < ApplicationRecord
     results = Geocoder.search(end_port)
     self.end_port_latitude, self.end_port_longitude = results.first.coordinates
   end
+
+
+
 end
