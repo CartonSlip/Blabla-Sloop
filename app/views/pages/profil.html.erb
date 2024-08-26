@@ -20,11 +20,11 @@
   </div>
 <!-- Sloops de l'utilisateur / Si existants -->
   <% if current_user.sloops.any? %>
-    <h3 class="mb-4"> <%=  current_user.sloops.size == 1 ? "Mon Sloop" : "Mes Sloops" %></h3>
+    <h3 class="mb-4"> <%= current_user.sloops.size == 1 ? "Mon Sloop" : "Mes Sloops" %></h3>
     <div class="row">
     <% current_user.sloops.each do |sloop| %>
-    <%= render "shared/sloopcard", sloop: sloop %>
-      <% end %>
+      <%= render "shared/sloopcard", sloop: sloop %>
+    <% end %>
     </div>
   <% end %>
   <div class="text-center mb-4">
@@ -50,6 +50,12 @@
         <% end %>
       </div>
     <hr>
+  <% end %>
+  <% if current_user.ride_requests.any? %>
+   <h4 class="mb-4"> <%= current_user.ride_requests.size == 1 ?  "Ma demande de Trajet" : "Mes demandes de Trajets" %></h4>
+   <% current_user.ride_requests.each do |riderequest| %>
+    <%= render "shared/riderequestcard", riderequest: riderequest %>
+   <% end %>
   <% end %>
 <!-- Commentaires sur l'utlisateur -->
   <div class="row">
