@@ -16,7 +16,9 @@
                     <% image_tag "logo.png", class: "avatar" %>
                   <% end %>
                 </h5>
-                <p class="card-text">Pour le Sloop <strong><%= traveller_ride.sloop.name %></strong></p>
+                <div class="travel_info">
+                  <span><i class="fa-solid fa-sailboat"></i> <%= traveller_ride.sloop.name %></span>
+                </div>
                 <div class="travel_info">
                   <span><i class="fa-solid fa-play"></i> <%= traveller_ride.ride.start_port %></span>
                   <span><%= l(traveller_ride.ride.start_date, format: '%d/%m/%Y') %></span>
@@ -26,10 +28,10 @@
                   <span><%= l(traveller_ride.ride.end_date, format: '%d/%m/%Y') %></span>
                 </div>
                 <hr>
-                <p class="card-text"><strong><i class="fa-regular fa-comments"></i> </strong> <%= traveller_ride.info %></p>
+                <span><i class="fa-regular fa-comments"></i> <%= traveller_ride.info %></span>
                 <hr>
-                <% if traveller_ride.validate_status == "pending" %>
-                  <div class="text-center">
+                <div class="text-center">
+                  <% if traveller_ride.validate_status == "pending" %>
                     <%= simple_form_for(traveller_ride) do |f| %>
                       <%= f.input :validate_status, as: :hidden, input_html: { value: 'accepted'} %>
                       <%= f.button :submit, 'Valider la demande', class:"btn btn-primary"%>
@@ -38,12 +40,12 @@
                       <%= f.input :validate_status, as: :hidden, input_html: { value: 'refused'} %>
                       <%= f.button :submit, 'Refuser la demande', class:"btn btn-warning"%>
                     <% end %>
-                  </div>
-                <% elsif traveller_ride.validate_status == "accepted" %>
-                  <p class="text-center"><i class="fa-solid fa-circle-check text-center text-success"></i> Demande de voyage <strong class="text-success">validée ! </strong></p>
-                <% else %>
-                  <p class="text-center"><i class="fa-solid fa-xmark text-center text-danger"></i></i> Demande de voyage <strong class="text-danger">refusée ! </strong></p>
-                <% end %>
+                  <% elsif traveller_ride.validate_status == "accepted" %>
+                    <span class='text-center'><i class="fa-solid fa-circle-check text-center text-success"></i> Demande de voyage <strong class="text-success">validée ! </strong></span>
+                  <% else %>
+                    <span class='text-center'><i class="fa-solid fa-xmark text-center text-danger"></i></i> Demande de voyage <strong class="text-danger">refusée ! </strong></span>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
@@ -68,7 +70,9 @@
                     <%= image_tag "default_avatar.png", class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
                   <% end %>
                 </h5>
-                <p>Pour le Sloop <strong><%= traveller_ride.sloop.name %></strong></p>
+                <div class="travel_info">
+                  <span><i class="fa-solid fa-sailboat"></i> <%= traveller_ride.sloop.name %></span>
+                </div>
                 <div class="travel_info">
                   <span><i class="fa-solid fa-play"></i> <%= traveller_ride.ride.start_port %></span>
                   <span><%= l(traveller_ride.ride.start_date, format: '%d/%m/%Y') %></span>
@@ -78,15 +82,17 @@
                   <span><%= l(traveller_ride.ride.end_date, format: '%d/%m/%Y') %></span>
                 </div>
                 <hr>
-                <p class="card-text"><strong><i class="fa-regular fa-comments"></i> </strong> <%= traveller_ride.ride.details %></p>
+                <span><i class="fa-regular fa-comments"></i> <%= traveller_ride.ride.details %></span>
                 <hr>
-                <% if traveller_ride.validate_status == "pending" %>
-                    <p class="text-center"><i class="fa-solid fa-hourglass-start text-center"></i> Demande de voyage <strong>en attente.</strong></p>
-                <% elsif traveller_ride.validate_status == "accepted" %>
-                    <p class="text-center"><i class="fa-solid fa-circle-check text-center text-success"></i> Demande de voyage <strong class="text-success">validée !</strong></p>
-                <% else %>
-                    <p class="text-center"><i class="fa-solid fa-xmark text-center text-danger"></i></i> Demande de voyage <strong class="text-danger">refusée !</strong></p>
-                <% end %>
+                <div class="text-center">
+                  <% if traveller_ride.validate_status == "pending" %>
+                      <span><i class="fa-solid fa-hourglass-start text-center"></i> Demande de voyage <strong>en attente.</strong></span>
+                  <% elsif traveller_ride.validate_status == "accepted" %>
+                      <span><i class="fa-solid fa-circle-check text-center text-success"></i> Demande de voyage <strong class="text-success">validée !</strong></span>
+                  <% else %>
+                      <span><i class="fa-solid fa-xmark text-center text-danger"></i></i> Demande de voyage <strong class="text-danger">refusée !</strong></span>
+                  <% end %>
+                </div>
                 </p>
               </div>
             </div>
@@ -95,5 +101,4 @@
       </div>
     </div>
   <% end %>
-  <hr>
 </div>
