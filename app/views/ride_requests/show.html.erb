@@ -42,18 +42,18 @@
       </div>
 
     </div>
-
-  <!-- Boutons d'action -->
 </div>
 <br>
-  <div class="d-flex justify-content-evenly align-items-center mb-3">
-    <% if @riderequest.user == current_user %>
-      <%= link_to "Modifier la demande", edit_ride_request_path(@riderequest), class: "btn btn-primary" %>
-    <% end %>
-    <% if @riderequest.user != current_user && current_user.sloops.any?%>
-      <%= link_to "Valider l'embarquement", new_ride_request_ride_path(@riderequest), class: "btn btn-primary" %>
-    <% end %>
-  </div>
+
+<!-- Boutons d'action -->
+<div class="d-flex justify-content-evenly align-items-center mb-3">
+  <% if @riderequest.user == current_user %>
+    <%= link_to "Modifier la demande", edit_ride_request_path(@riderequest), class: "btn btn-primary" %>
+  <% end %>
+  <% if @riderequest.user != current_user && current_user.sloops.any?%>
+    <%= link_to "Valider l'embarquement", new_ride_request_ride_path(@riderequest), class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <div class="col-md-12" style="height: 400px;">
     <div class="card shadow-sm h-100">
