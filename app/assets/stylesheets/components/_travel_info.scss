@@ -53,13 +53,16 @@
   font-weight: normal;
 }
 
-.sorry_text h2, p {
-  color: #FFFFFF;
-  display: flex;
-  text-align: left;
-  align-items: center;
-  font-size: 16px;
-  margin-left: 15px;
+.sorry_text {
+  h2{
+
+    color: #FFFFFF;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    font-size: 16px;
+    margin-left: 15px;
+  }
 }
 
 .sorry_text h2 {

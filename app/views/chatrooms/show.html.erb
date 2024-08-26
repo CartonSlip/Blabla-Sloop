@@ -1,23 +1,18 @@
 <div class="container chat">
   <h1>Vos échanges <%= @chatroom.ride %></h1>
 
-  <div id="messages" class="messages">
-    <% @chatroom.user_messages.each do |user_message| %>
-      <div id="message-<%= user_message.id %>">
-        <small>
-          <strong><%= user_message.user.first_name %></strong>
-          <i><%= user_message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= user_message.content %></p>
-      </div>
-    <% end %>
-  </div>
+<%= turbo_stream_from "chatroom_#{@chatroom.id}_user_messages" %>
+<div id="messages" class="messages">
+  <% @chatroom.user_messages.each do |user_message| %>
+    <%= render "user_messages/user_message", user_message: user_message, user: current_user %>
+  <% end %>
 </div>
 
 <%= simple_form_for [@chatroom, @user_message],
-  html: {class: "d-flex"} do |f|
+  html: {class: "d-flex",
+         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
 %>
-  <% other_user = current_user == @chatroom.ride.sloop.user ? @chatroom. : @chatroom.ride.user %>
+  <% other_user = current_user == @chatroom.skipper ? @chatroom.user : @chatroom.skipper %>
   <%= f.input :content,
     label: false,
     placeholder: "Message #{other_user.first_name}",
@@ -25,3 +20,5 @@
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
 <% end %>
+</div>
+
