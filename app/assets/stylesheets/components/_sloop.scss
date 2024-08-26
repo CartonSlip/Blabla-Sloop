@@ -1,4 +1,5 @@
 .card-sloop {
+
   overflow: hidden;
   background: rgba(255, 255, 255, 0.723);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -32,14 +33,14 @@
   }
   .card-sloop-user {
     position: absolute;
-    right: 16px;
-    top: -20px;
+    right: -40px;
+    top: -35px;
     width: 40px;
   }
 
 
 .ride-avatar-position {
   position: absolute;
-  bottom: 90px;
+  bottom: 180px;
   right: 10px;
 }

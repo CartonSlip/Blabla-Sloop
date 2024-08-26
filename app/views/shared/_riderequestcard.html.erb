@@ -29,9 +29,9 @@
 
       <p class="card-text owner-text">
         <% if riderequest.user.photo.attached? %>
-          <%= cl_image_tag riderequest.user.photo.key, class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+          <%= cl_image_tag riderequest.user.photo.key, class: "riderequest-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
         <% else %>
-          <%= image_tag "default_avatar.png", class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+          <%= image_tag "default_avatar.png", class: "riderequest-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
         <% end %>
       </p>
     </div>
