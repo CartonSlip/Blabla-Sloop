@@ -1,0 +1,35 @@
+           # Construct GeoJSON data for start and end markers
+            start_marker = {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [start_lng, start_lat]
+              },
+              properties: {
+                "marker-color": "#ff0000",
+                "marker-size": "medium",
+                "marker-symbol": "a"
+              }
+            }
+
+            end_marker = {
+              type: "Feature",
+              geometry: {
+                type: "Point",
+                coordinates: [end_lng, end_lat]
+              },
+              properties: {
+                "marker-color": "#0000ff",
+                "marker-size": "medium",
+                "marker-symbol": "b"
+              }
+            }
+
+            # Combine the start and end markers into a FeatureCollection
+            markers_geojson = {
+              type: "FeatureCollection",
+              features: [start_marker, end_marker]
+            }.to_json
+
+            # URL encode the GeoJSON data
+            encoded_geojson = CGI.escape(markers_geojson)

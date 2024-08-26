@@ -12,16 +12,15 @@
   </div>
 </div>
   <div class="cards mt-2">
-  <div class="row ">
+  <div class="row">
     <div>
-      <h2 class="display-4 text-center my-4">Toutes les Demande de Voyage disponibles</h2>
-      <br>
+      <h2 class="display-4 text-center my-4">Toutes les demandes de voyage</h2>
       <div class="d-flex justify-content-evenly align-items-center mb-3">
-        <%= link_to "faire une demande de voyage", new_ride_request_path, class: "btn btn-primary" %>
+        <%= link_to "Faire une demande de voyage", new_ride_request_path, class: "btn btn-primary" %>
       </div>
       <hr>
       <span class="mb-3 d-block"><em><%= "Aucun résultat pour votre recherche, consultez la carte pour voir tous les ridesrequests disponibles" if @riderequests.empty? %></em></span>
-      <span class="mb-3 d-block"><em><%= "#{pluralize(@riderequests.count, "résultat")}" if @riderequests.count  %></em></span>
+      <span class="mb-3 d-block"><em><%= "#{pluralize(@riderequests.count, "Résultat(s)")}" if @riderequests.count  %></em></span>
     </div>
     <% @riderequests.each do |riderequest| %>
       <%= render "shared/riderequestcard", riderequest: riderequest %>

@@ -39,33 +39,33 @@ celia.photo.attach(io: file11, filename: "nes.png", content_type: "image/png")
 celia.save
 puts "Celia created!!"
 
-file12 = URI.open("https://randomuser.me/api/portraits/men/42.jpg")
-thomas = User.new(
-  email: "thomas@gmail.com",
+file12 = URI.open("https://avatars.githubusercontent.com/u/173157022?v=4")
+alex = User.new(
+  email: "alex@gmail.com",
   password: "password",
-  description: "Naviguer, c'est ma passion. Mon voilier 'Aventure' m'a emmené aux quatre coins du monde.",
-  first_name: "Thomas",
-  last_name: "Martin",
+  description: "J'ai toujours eu un esprit de partage et de communauté. J'aime échanger avec les autres, mais je prends aussi plaisir à la tranquillité que m'offrent la campagne et la mer. Mon temps libre est partagé entre mes amis, ma famille et l'océan, où je trouve le calme que je recherche.",
+  first_name: "Alex",
+  last_name: "Rudeau",
   phone_number: "+33 6 98 76 54 32",
   age: "34"
 )
-thomas.photo.attach(io: file12, filename: "nes.png", content_type: "image/png")
-thomas.save
-puts "Thomas created!!"
+alex.photo.attach(io: file12, filename: "nes.png", content_type: "image/png")
+alex.save
+puts "Alex Rudeau created!!"
 
-file13 = URI.open("https://randomuser.me/api/portraits/men/85.jpg")
-luc = User.new(
-  email: "luc@gmail.com",
+file13 = URI.open("https://avatars.githubusercontent.com/u/133055509?v=4")
+fabien = User.new(
+  email: "fabien@gmail.com",
   password: "password",
-  description: "Je n'ai pas encore de bateau, mais je rêve de parcourir les mers en solitaire.",
-  first_name: "Luc",
-  last_name: "Bernard",
-  phone_number: "+33 6 23 45 67 89",
-  age: "29"
+  description: "Passionné par la mer, j'ai déjà de nombreux amis avec des voiliers. Même si je n'ai pas encore mon propre bateau, j'adore embarquer, prêter main-forte et participer aux aventures maritimes.",
+  first_name: "Fabien",
+  last_name: "Lihar",
+  phone_number: "+33 6 98 76 54 32",
+  age: "34"
 )
-luc.photo.attach(io: file13, filename: "nes.png", content_type: "image/png")
-luc.save
-puts "Luc created!!"
+fabien.photo.attach(io: file13, filename: "nes.png", content_type: "image/png")
+fabien.save
+puts "Fabien created!!"
 
 file14 = URI.open("https://randomuser.me/api/portraits/men/55.jpg")
 maxime = User.new(
@@ -81,19 +81,20 @@ maxime.photo.attach(io: file14, filename: "nes.png", content_type: "image/png")
 maxime.save
 puts "Maxime created!!"
 
-file15 = URI.open("https://randomuser.me/api/portraits/men/64.jpg")
-antoine = User.new(
-  email: "antoine@gmail.com",
+file15 = URI.open("https://avatars.githubusercontent.com/u/121019053?v=4")
+david = User.new(
+  email: "david@gmail.com",
   password: "password",
-  description: "Je rêve de vivre sur un bateau, voguer d'île en île, et découvrir des cultures fascinantes.",
-  first_name: "Antoine",
-  last_name: "Lemoine",
-  phone_number: "+33 6 54 32 10 98",
-  age: "25"
+  description: "J'ai le goût de l'aventure, et partir en mer me permet de recharger mes batteries sociales. J'aime le calme, les discussions philosophiques et les mathématiques. Mais j'aime bien aussi quand on peut faire la fête.",
+  first_name: "David",
+  last_name: "Chardon",
+  phone_number: "+33 6 98 76 54 32",
+  age: "34"
 )
-antoine.photo.attach(io: file15, filename: "nes.png", content_type: "image/png")
-antoine.save
-puts "Antoine created!!"
+david.photo.attach(io: file15, filename: "nes.png", content_type: "image/png")
+david.save
+puts "David created!!"
+
 
 file16 = URI.open("https://randomuser.me/api/portraits/men/73.jpg")
 julien = User.new(
@@ -109,19 +110,19 @@ julien.photo.attach(io: file16, filename: "nes.png", content_type: "image/png")
 julien.save
 puts "Julien created!!"
 
-file17 = URI.open("https://randomuser.me/api/portraits/women/25.jpg")
-marie = User.new(
-  email: "marie@gmail.com",
+file17 = URI.open("https://avatars.githubusercontent.com/u/174318195?v=4")
+thais = User.new(
+  email: "thais@gmail.com",
   password: "password",
-  description: "J'ai navigué le long des côtes méditerranéennes avec mon bateau 'Sirène'. La mer est ma maison.",
-  first_name: "Marie",
-  last_name: "Dubois",
-  phone_number: "+33 6 34 56 78 90",
-  age: "32"
+  description: "Je suis développeuse web et graphiste. J'aime profiter de mon bateau et travailler en voyageant.",
+  first_name: "Thaïs",
+  last_name: "Hervouët",
+  phone_number: "+33 6 98 76 54 32",
+  age: "34"
 )
-marie.photo.attach(io: file17, filename: "nes.png", content_type: "image/png")
-marie.save
-puts "Marie created!!"
+thais.photo.attach(io: file17, filename: "nes.png", content_type: "image/png")
+thais.save
+puts "Thaïs created!!"
 
 file18 = URI.open("https://randomuser.me/api/portraits/women/48.jpg")
 elise = User.new(
@@ -179,13 +180,30 @@ claire.photo.attach(io: file21, filename: "nes.png", content_type: "image/png")
 claire.save
 puts "Claire created!!"
 
+# Pour Massi
+file24 = URI.open("https://avatars.githubusercontent.com/u/116439098?v=4")
+massi = User.new(
+  email: "massi@gmail.com",
+  password: "password",
+  description: "Jeune développeur, je viens d'acheter un petit bateau. Je n'ai pas une grande expérience du voyage, et j'aime être accompagné par des personnes ayant de l'expérience. Voyager me permet de travailler tout en profitant de l'ensemble du monde. J'aime apprendre des langues, actuellement j'apprends le japonais.",
+  first_name: "Massi",
+  last_name: "Mondeguer",
+  phone_number: "+33 6 98 76 54 32",
+  age: "34"
+)
+massi.photo.attach(io: file24, filename: "nes.png", content_type: "image/png")
+massi.save
+puts "Massi created!!"
+
 puts "create sloop"
+
+# ###############sloop######################""""
 
 file22 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/presentation-dun-bateau-trimaran-1024x512_wealuo.jpg?_s=public-apps")
 sloop1 = Sloop.new(
   name: "Josette",
   description: "Un trimarant récent, rapide",
-  user: thomas,
+  user: alex,
   capacity: "2",
   category: "trimarant"
 )
@@ -194,33 +212,20 @@ sloop1.save!
 puts "Sloop Josette created!!"
 
 # Pour Thomas John
-file22 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/voilier-gip-sea-32-1984-3-chambres-32-1815795811_z2dg9x.jpg?_s=public-apps")
-sloop1 = Sloop.new(
+file23 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724663643/2006-bavaria-46-cruiser-sail-9394355-20240527071039100-1_XLARGE.3906a204b68c1c3d610ef1057aaa8523_zuurvo.jpg?_s=public-apps")
+sloop2 = Sloop.new(
   name: "Le pigeon",
   description: "petite frégate humble et chill",
   user: john,
   capacity: "3",
   category: "Voilier 1 mats"
 )
-sloop1.photos.attach(io: file22, filename: "sloop_thomas.png", content_type: "image/png")
-sloop1.save!
+sloop2.photos.attach(io: file23, filename: "sloop_thomas.png", content_type: "image/png")
+sloop2.save!
 puts "Sloop de Thomas created!!"
 
-# Pour Maxime Dupont
-file23 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/8623882_20221213040615804_1_LARGE.340145c699812070efe55904aab595aa_yyhglj.jpg?_s=public-apps")
-sloop2 = Sloop.new(
-  name: "La victorieuse",
-  description: "Mon voilier à déja remporter le paris dakar",
-  user: maxime,
-  capacity: "2",
-  category: "Fregate"
-)
-sloop2.photos.attach(io: file23, filename: "sloop_maxime.png", content_type: "image/png")
-sloop2.save!
-puts "Sloop de Maxime created!!"
-
 # Pour Julien Rousseau
-file24 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/8623882_20221213040617666_1_LARGE.d84197b2845c03880e2467953142ba20_o4jfaq.jpg?_s=public-apps")
+file25 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/8623882_20221213040617666_1_LARGE.d84197b2845c03880e2467953142ba20_o4jfaq.jpg?_s=public-apps")
 sloop3 = Sloop.new(
   name: "Black Peral",
   description: "Il est assez vieux, mais toujours bien entretenu",
@@ -228,25 +233,25 @@ sloop3 = Sloop.new(
   capacity: "1",
   category: "Monocoque"
 )
-sloop3.photos.attach(io: file24, filename: "sloop_julien.png", content_type: "image/png")
+sloop3.photos.attach(io: file25, filename: "sloop_julien.png", content_type: "image/png")
 sloop3.save!
 puts "Sloop de Julien created!!"
 
-# Pour Marie Dubois
-file25 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/le-trois-mats-barque-belem-toutes-voiles-dehors_lgqdjs.jpg?_s=public-apps")
+# Pour fabien Dubois
+file26 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/le-trois-mats-barque-belem-toutes-voiles-dehors_lgqdjs.jpg?_s=public-apps")
 sloop4 = Sloop.new(
   name: "Le belem",
   description: "N'avez vous jamais révé de revivre les voyage d'autrefois?",
-  user: marie,
+  user: thais,
   capacity: "10",
   category: "Voilier ancien de cargaison"
 )
-sloop4.photos.attach(io: file25, filename: "sloop_marie.png", content_type: "image/png")
+sloop4.photos.attach(io: file26, filename: "sloop_marie.png", content_type: "image/png")
 sloop4.save!
-puts "Sloop de Marie created!!"
+puts "Sloop de fabien created!!"
 
 # Pour Isabelle Girard
-file22 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/voilier-gip-sea-32-1984-3-chambres-32-1815795811_z2dg9x.jpg?_s=public-apps") # Réutilisation de l'image
+file27 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724663644/tir-de-bateau-%C3%A0-voile-agains-la-lumi%C3%A8re-du-soleil_kzj2it.jpg?_s=public-apps") # Réutilisation de l'image
 sloop5 = Sloop.new(
   name: "La franchise",
   description: "Petite ambarcation conviviale",
@@ -254,16 +259,17 @@ sloop5 = Sloop.new(
   capacity: "3",
   category: "Monocoque"
 )
-sloop5.photos.attach(io: file22, filename: "sloop_isabelle.png", content_type: "image/png")
+sloop5.photos.attach(io: file27, filename: "sloop_isabelle.png", content_type: "image/png")
 sloop5.save!
-puts "Sloop d'Isabelle created!!"
+puts "Sloop 5 isabelle created!!"
 
+# ########################## rides #########################""
 puts "Creating Rides..."
 request1 = Ride.new(
   start_date: "2024-09-01",  # Date de départ
-  start_port: "Brest",
+  start_port: "Brest, France",
   end_date: "2024-09-10",    # Date d'arrivée
-  end_port: "Nantes",
+  end_port: "Nantes, France",
   details: "Voyage relaxant avec escales dans des petites criques cachées. Prévoir des vêtements légers et une bonne humeur.",
   sloop: sloop5,
   capacity: sloop5.capacity
@@ -273,9 +279,9 @@ puts "rides request1 created!"
 
 request2 = Ride.new(
   start_date: "2024-10-05",  # Date de départ
-  start_port: "Marseille",
+  start_port: "Marseille, France",
   end_date: "2024-10-15",    # Date d'arrivée
-  end_port: "Nice",
+  end_port: "Nice, France",
   details: "Croisière à travers la Côte d'Azur avec des visites de vignobles locaux. Accueil chaleureux garanti.",
   sloop: sloop1,
   capacity: sloop1.capacity
@@ -285,9 +291,9 @@ puts "rides request2 created!"
 
 request3 = Ride.new(
   start_date: "2024-11-01",  # Date de départ
-  start_port: "La Rochelle",
+  start_port: "La Rochelle, France",
   end_date: "2024-11-20",    # Date d'arrivée
-  end_port: "Bordeaux",
+  end_port: "Bordeaux, France",
   details: "Aventure automnale avec exploration des îles alentours. Prévoir des vêtements chauds et des jumelles pour observer les oiseaux.",
   sloop: sloop2,
   capacity: sloop2.capacity
@@ -299,9 +305,9 @@ puts "create rides request ..."
 
 request4 = RideRequest.new(
   start_date: "2024-11-01",  # Date de départ
-  start_port: "La Rochelle",
+  start_port: "La Rochelle, France",
   end_date: "2024-11-20",    # Date d'arrivée
-  end_port: "Bordeaux",
+  end_port: "Bordeaux, France",
   details: "J'en ai mare de la vie parisien, du metro et du speed. A la recherche d'un marin pour me faire découvrir autre chose...",
   user: celia
 )
@@ -311,11 +317,11 @@ puts "rides request3 created!"
 # Pour Luc Bernard
 request5 = RideRequest.new(
   start_date: "2024-12-01",  # Date de départ
-  start_port: "Nantes",
+  start_port: "Nantes, France",
   end_date: "2024-12-10",    # Date d'arrivée
-  end_port: "Saint-Malo",
+  end_port: "Saint-Malo, France",
   details: "À la recherche d'une expérience de navigation tranquille le long des côtes bretonnes. Préférences pour des petites marinas et des paysages côtiers magnifiques.",
-  user: luc
+  user: fabien
 )
 request5.save!
 puts "rides request5 created!"
@@ -323,9 +329,9 @@ puts "rides request5 created!"
 # Pour Elise Moreau
 request6 = RideRequest.new(
   start_date: "2024-12-15",  # Date de départ
-  start_port: "Toulon",
+  start_port: "Toulon, France",
   end_date: "2025-01-05",    # Date d'arrivée
-  end_port: "Cannes",
+  end_port: "Cannes, France",
   details: "Voyage en mer le long de la Côte d'Azur pour découvrir les charmantes villes côtières et les calanques. Prévoir des moments de détente et des visites culturelles.",
   user: elise
 )
@@ -335,9 +341,9 @@ puts "rides request6 created!"
 # Pour Sophie Durand
 request7 = RideRequest.new(
   start_date: "2025-01-10",  # Date de départ
-  start_port: "Bordeaux",
+  start_port: "Bordeaux, France",
   end_date: "2025-01-25",    # Date d'arrivée
-  end_port: "La Rochelle",
+  end_port: "La Rochelle, France",
   details: "Ancien professeur de mathématiques passionné par l'analyse et la cartographie, je rêve de parfaire mes connaissances en géographie maritime. Je cherche une expérience de navigation qui me permettra de découvrir les subtilités des courants océaniques, des routes maritimes et des caractéristiques géographiques des côtes. Mon objectif est de combiner mon amour des chiffres et des cartes avec une aventure en mer enrichissante. Préférences pour des itinéraires éducatifs et des escales dans des lieux d'intérêt géographique.",
   user: sophie
 )
@@ -363,14 +369,14 @@ review0.save!
 puts "review created!"
 
 # Commentaire : "L'expérience en mer a été très agréable. Le bateau était confortable et l'itinéraire parfait."
-thomas_id = User.find_by(first_name: "Thomas").id
-luc_id = User.find_by(first_name: "Luc").id
+massi_id = User.find_by(first_name: "Massi").id
+fabien_id = User.find_by(first_name: "Fabien").id
 
 review2 = Review.new(
   comment: "L'expérience en mer a été très agréable. Le bateau était confortable et l'itinéraire parfait.",
   rating: 4,
-  receiver_id: thomas_id,
-  poster_id: luc_id,
+  receiver_id: massi_id,
+  poster_id: fabien_id,
   created_at: 2.months.ago
 )
 review2.save!
@@ -378,13 +384,13 @@ puts "review2 created!"
 
 # Commentaire : "Le voyage était bien, mais j'aurais préféré plus de détails sur les escales prévues."
 maxime_id = User.find_by(first_name: "Maxime").id
-antoine_id = User.find_by(first_name: "Antoine").id
+thais_id = User.find_by(first_name: "Thaïs").id
 
 review3 = Review.new(
   comment: "Le voyage était bien, mais j'aurais préféré plus de détails sur les escales prévues.",
   rating: 3,
   receiver_id: maxime_id,
-  poster_id: antoine_id,
+  poster_id: thais_id,
   created_at: 17.months.ago
 )
 review3.save!
@@ -392,26 +398,26 @@ puts "review3 created!"
 
 # Commentaire : "Un excellent voyage avec un hôte très sympathique. Je recommande vivement!"
 julien_id = User.find_by(first_name: "Julien").id
-marie_id = User.find_by(first_name: "Marie").id
+david_id = User.find_by(first_name: "David").id
 
 review4 = Review.new(
   comment: "Un excellent voyage avec un hôte très sympathique. Je recommande vivement!",
   rating: 5,
   receiver_id: julien_id,
-  poster_id: marie_id,
+  poster_id: david_id,
   created_at: 6.months.ago
 )
 review4.save!
 puts "review4 created!"
 
 # Commentaire : "Bien que le bateau soit agréable, la communication pourrait être améliorée."
-marie_id = User.find_by(first_name: "Marie").id
+alex_id = User.find_by(first_name: "Alex").id
 john_id = User.find_by(first_name: "John").id
 
 review5 = Review.new(
   comment: "Bien que le bateau soit agréable, la communication pourrait être améliorée.",
   rating: 3,
-  receiver_id: marie_id,
+  receiver_id: alex_id,
   poster_id: john_id,
   created_at: 5.months.ago
 )
@@ -419,14 +425,14 @@ review5.save!
 puts "review5 created!"
 
 # Commentaire : "Voyage agréable avec de belles vues. Cependant, le confort du bateau pourrait être amélioré."
-antoine_id = User.find_by(first_name: "Antoine").id
-marie_id = User.find_by(first_name: "Marie").id
+julien_id = User.find_by(first_name: "Julien").id
+fabfien_id = User.find_by(first_name: "Fabien").id
 
 review6 = Review.new(
   comment: "Voyage agréable avec de belles vues. Cependant, le confort du bateau pourrait être amélioré.",
   rating: 4,
-  receiver_id: antoine_id,
-  poster_id: marie_id,
+  receiver_id: julien_id,
+  poster_id: fabien_id,
   created_at: 1.months.ago
 )
 review6.save!
@@ -434,27 +440,27 @@ puts "review6 created!"
 
 # Commentaire : "Une expérience en mer mémorable. Le bateau était en excellent état et l'équipage très professionnel."
 isabelle_id = User.find_by(first_name: "Isabelle").id
-luc_id = User.find_by(first_name: "Luc").id
+david_id = User.find_by(first_name: "David").id
 
 review7 = Review.new(
   comment: "Une expérience en mer mémorable. Le bateau était en excellent état et l'équipage très professionnel.",
   rating: 5,
   receiver_id: isabelle_id,
-  poster_id: luc_id,
+  poster_id: david_id,
   created_at: 6.days.ago
 )
 review7.save!
 puts "review7 created!"
 
 # Commentaire : "La croisière était agréable, mais il y a eu des problèmes avec la météo."
-claire_id = User.find_by(first_name: "Claire").id
-sophie_id = User.find_by(first_name: "Sophie").id
+david_id = User.find_by(first_name: "David").id
+thais_id = User.find_by(first_name: "Thaïs").id
 
 review8 = Review.new(
   comment: "La croisière était agréable, mais il y a eu des problèmes avec la météo.",
   rating: 3,
-  receiver_id: claire_id,
-  poster_id: sophie_id,
+  receiver_id: thais_id,
+  poster_id: david_id,
   created_at: 16.days.ago
 )
 review8.save!
@@ -503,13 +509,13 @@ review11.save!
 puts "review11 created!"
 
 # Commentaire : "Le voyage était agréable mais le bateau avait quelques problèmes techniques."
-marie_id = User.find_by(first_name: "Marie").id
+fabien_id = User.find_by(first_name: "Fabien").id
 claire_id = User.find_by(first_name: "Claire").id
 
 review12 = Review.new(
-  comment: "Le voyage était agréable mais le bateau avait quelques problèmes techniques.",
-  rating: 3,
-  receiver_id: marie_id,
+  comment: "Passager dynamique, à l'écoute et ouvert d'esprit, je recommande!!",
+  rating: 4,
+  receiver_id: fabien_id,
   poster_id: claire_id,
   created_at: 2.months.ago
 )
@@ -517,28 +523,28 @@ review12.save!
 puts "review12 created!"
 
 # Commentaire : "Super voyage, mais la météo n'était pas toujours clémente. Le reste était parfait!"
-luc_id = User.find_by(first_name: "Luc").id
-john_id = User.find_by(first_name: "John").id
+massi_id = User.find_by(first_name: "Massi").id
+fabien_id = User.find_by(first_name: "Fabien").id
 
 review13 = Review.new(
-  comment: "Super voyage, mais la météo n'était pas toujours clémente. Le reste était parfait!",
+  comment: "Super voyage, j'ai beaucoup aimer voyager avec Massi. Il n'est pas encore trés à l'aise avec son bateau, mais ça viendra. Le reste était parfait!",
   rating: 4,
-  receiver_id: luc_id,
-  poster_id: john_id,
+  receiver_id: massi_id,
+  poster_id: fabien_id,
   created_at: 4.months.ago
 )
 review13.save!
 puts "review13 created!"
 
 # Commentaire : "Bonne organisation et beau bateau, mais le confort était un peu en dessous de mes attentes."
-thomas_id = User.find_by(first_name: "Thomas").id
-sophie_id = User.find_by(first_name: "Sophie").id
+alex_id = User.find_by(first_name: "Alex").id
+fabien_id = User.find_by(first_name: "Fabien").id
 
 review14 = Review.new(
-  comment: "Bonne organisation et beau bateau, mais le confort était un peu en dessous de mes attentes.",
+  comment: "Je dois avouer que j'ai fait une bonne rencontre avec Fabien. Il a son carractére mais c'est ce qui fait qu'on peut compter sur lui.",
   rating: 3,
-  receiver_id: thomas_id,
-  poster_id: sophie_id,
+  receiver_id: fabien_id,
+  poster_id: alex_id,
   created_at: 4.months.ago
 )
 review14.save!
@@ -546,13 +552,13 @@ puts "review14 created!"
 
 # Commentaire : "Voyage agréable avec des escales intéressantes. Le bateau était très propre et bien entretenu."
 isabelle_id = User.find_by(first_name: "Isabelle").id
-marie_id = User.find_by(first_name: "Marie").id
+fabien_id = User.find_by(first_name: "Fabien").id
 
 review15 = Review.new(
   comment: "Voyage agréable avec des escales intéressantes. Le bateau était très propre et bien entretenu.",
   rating: 4,
   receiver_id: isabelle_id,
-  poster_id: marie_id,
+  poster_id: fabien_id,
   created_at: 45.months.ago
 )
 review15.save!
@@ -564,14 +570,14 @@ isabelle = User.find_by(first_name: "Isabelle")
 john = User.find_by(first_name: "John")
 celia = User.find_by(first_name: "Celia")
 thomas = User.find_by(first_name: "Thomas")
-marie = User.find_by(first_name: "Marie")
+fabien = User.find_by(first_name: "Fabien")
 
 # Récupérer les sloops (bateaux)
 sloop1 = Sloop.find_by(name: "Le pigeon")
 sloop2 = Sloop.find_by(name: "La franchise")
 sloop3 = Sloop.find_by(name: "Le belem")
 sloop4 = Sloop.find_by(name: "Black Peral")
-sloop5 = Sloop.find_by(name: "La victorieuse")
+sloop5 = Sloop.find_by(name: "Josette")
 
 # Créer les bookmarks
 book1 = Bookmark.new(user: isabelle, sloop: sloop1, created_at: Time.now)
@@ -579,11 +585,10 @@ book2 = Bookmark.new(user: isabelle, sloop: sloop2, created_at: Time.now)
 book3 = Bookmark.new(user: john, sloop: sloop3, created_at: Time.now)
 book4 = Bookmark.new(user: john, sloop: sloop4, created_at: Time.now)
 book5 = Bookmark.new(user: celia, sloop: sloop5, created_at: Time.now)
-book6 = Bookmark.new(user: celia, sloop: sloop1, created_at: Time.now)
-book7 = Bookmark.new(user: thomas, sloop: sloop2, created_at: Time.now)
-book8 = Bookmark.new(user: marie, sloop: sloop3, created_at: Time.now)
-book9 = Bookmark.new(user: marie, sloop: sloop4, created_at: Time.now)
-book10 = Bookmark.new(user: marie, sloop: sloop5, created_at: Time.now)
+book7 = Bookmark.new(user: alex, sloop: sloop2, created_at: Time.now)
+book8 = Bookmark.new(user: fabien, sloop: sloop3, created_at: Time.now)
+book9 = Bookmark.new(user: fabien, sloop: sloop4, created_at: Time.now)
+book10 = Bookmark.new(user: fabien, sloop: sloop4, created_at: Time.now)
 
 # Sauvegarder les bookmarks
 book1.save!
@@ -591,7 +596,6 @@ book2.save!
 book3.save!
 book4.save!
 book5.save!
-book6.save!
 book7.save!
 book8.save!
 book9.save!

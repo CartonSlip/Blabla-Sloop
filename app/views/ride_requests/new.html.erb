@@ -2,7 +2,7 @@
   <h1>Demande de voyage</h1>
   <hr>
   <%= simple_form_for @riderequest do |f| %>
-    <%= f.input :details, label: 'Commentaires' %>
+    <%= f.input :details, label: 'Commentaire' %>
 
     <%= f.input :start_port, label: 'Port de départ',
         input_html: { data: { address_autocomplete_target: "startPort" }, class: "d-none" },
@@ -18,6 +18,6 @@
     <%= f.input :end_date, as: :string,
         label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
 
-    <%= f.button :submit, 'Poster', class: "btn btn-primary" %>
+    <%= f.button :submit, 'Publier', class: "btn btn-primary" %>
   <% end %>
 </div>
