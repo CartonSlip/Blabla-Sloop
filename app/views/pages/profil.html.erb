@@ -78,6 +78,6 @@
   </div>
 <!-- Se déconnecter -->
   <div class="text-center">
-    <%= link_to "Se déconnecter", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn-warning" %>
+    <%= button_to "Se déconnecter", destroy_user_session_path,  method: :delete, class: "btn btn-warning" %>
   </div>
 </div>
