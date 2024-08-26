@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-3">
   <div class="text-center mb-3">
     <h2><strong><%= @sloop.name %></strong></h2>
   </div>
@@ -57,17 +57,17 @@
               </p>
             </div>
             <div class=" d-flex justify-content-evenly align-items-end mb-3 ">
-                <% if @sloop.user == current_user %>
-                  <%= link_to "Modifier le Sloop", edit_sloop_path, class: "text-info text-decoration-none" %>
-                <% end %>
-                <%# Si je possède le sloop et qu'il n'a pas de rides, je peux le supprimer %>
-                <% if current_user == @sloop.user && @sloop.rides.empty? %>
-                  <%= link_to "Supprimer",sloop_path(@sloop), data: { turbo_method: :delete }, class: "text-danger text-decoration-none" %>
-                <% end %>
+              <% if @sloop.user == current_user %>
+                <%= link_to "Modifier le Sloop", edit_sloop_path, class: "text-info text-decoration-none" %>
+              <% end %>
+              <%# Si je possède le sloop et qu'il n'a pas de rides, je peux le supprimer %>
+              <% if current_user == @sloop.user && @sloop.rides.empty? %>
+                <%= link_to "Supprimer",sloop_path(@sloop), data: { turbo_method: :delete }, class: "text-danger text-decoration-none" %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-</div>
-</div>
+  </div>
 </div>

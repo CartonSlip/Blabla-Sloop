@@ -5,8 +5,8 @@
     <%= f.input :name, label: 'Nom du Sloop'%>
     <%= f.input :category, label: 'Catégorie' %>
     <%= f.input :description, label: 'Description du Sloop' %>
-    <%= f.input :capacity, label: 'Capacité voyageurs' %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :capacity, label: 'Capacité de voyageurs' %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Photo(s)' %>
     <%= f.submit 'Ajouter' , class:"btn btn-primary"%>
   <% end %>
 </div>
