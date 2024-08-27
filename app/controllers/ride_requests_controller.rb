@@ -13,12 +13,10 @@ class RideRequestsController < ApplicationController
         {
           lat: riderequest.start_port_latitude,
           lng: riderequest.start_port_longitude,
-          marker_html: render_to_string(partial: "shared/marker")
         },
         {
           lat: riderequest.end_port_latitude,
           lng: riderequest.end_port_longitude,
-          marker_html: render_to_string(partial: "shared/marker")
         }
       ]
     end
