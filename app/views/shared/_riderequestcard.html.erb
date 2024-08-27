@@ -12,19 +12,20 @@
         center_lng = (start_lng + end_lng) / 2.0
 
         # Construct the Mapbox Static Images API URL with markers
-        map_url = "https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/static/pin-s-d+295(#{riderequest.start_port_longitude},#{riderequest.start_port_latitude}),pin-s-a+900(#{riderequest.end_port_longitude},#{riderequest.end_port_latitude})/auto/600x400?access_token=#{ENV['MAPBOX_API_KEY']}"
+        map_url = "https://api.mapbox.com/styles/v1/mapbox/outdoors-v12/static/pin-s-d+295(#{riderequest.start_port_longitude},#{riderequest.start_port_latitude}),pin-s-a+900(#{riderequest.end_port_longitude},#{riderequest.end_port_latitude})/auto/600x400?access_token=#{ENV['MAPBOX_API_KEY']}"
         %>
         <%= image_tag map_url, alt: "Map des demande de voyage", class: "img-fluid fixed-map-size" %> <!-- Added fixed-map-size class -->
       </div>
+       <h3 class="mt-3"><%= riderequest.user.first_name %></h3>
 
       <div class="travel_info">
-        <span><i class="fa-solid fa-play"></i> <%= riderequest.start_port %></span>
-        <span><%= l(riderequest.start_date, format: '%d/%m/%Y') %></span>
+        <span><i class="avatar fa-solid fa-play"></i> <%= riderequest.start_port %></span>
+        <span class="me-2"><%= l(riderequest.start_date, format: '%d/%m/%Y') %></span>
       </div>
 
       <div class="travel_info">
-        <span><i class="fa-solid fa-flag-checkered"></i> <%= riderequest.end_port %></span>
-        <span><%= l(riderequest.end_date, format: '%d/%m/%Y') %></span>
+        <span><i class="avatar fa-solid fa-flag-checkered"></i> <%= riderequest.end_port %></span>
+        <span class="me-2"><%= l(riderequest.end_date, format: '%d/%m/%Y') %></span>
       </div>
 
       <p class="card-text owner-text">

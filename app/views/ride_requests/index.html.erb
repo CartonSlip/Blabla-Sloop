@@ -1,20 +1,25 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
+  <h1 class="text-center my-4">Tous les voyages demandés</h1>
+</div>
 <div class="container mb-3">
 <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
     <%= form_with url: ride_requests_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Recherche"
+        params[:query],
+        class: "form-control",
+        placeholder: "Recherche",
+        id: "search-query"
         %>
-      <%= submit_tag "Rechercher", name: "", class: "btn btn-primary" %>
+      <%= button_tag :submit, class: "btn btn-primary",id: "search-btn" do %>
+        <i class="fa-solid fa-magnifying-glass --paleyellow"></i>
+      <% end %>
     <% end %>
   </div>
 </div>
   <div class="cards mt-2">
   <div class="row">
     <div>
-      <h2 class="display-4 text-center my-4">Toutes les demandes de voyage</h2>
       <div class="d-flex justify-content-evenly align-items-center mb-3">
         <% if current_user.sloops.exists? %>
           <%= link_to "Proposer un voyage", new_ride_path, class: "btn btn-primary" %>
@@ -23,8 +28,21 @@
         <% end %>
       </div>
       <hr>
-      <span class="mb-3 d-block"><em><%= "Aucun résultat pour votre recherche, consultez la carte pour voir tous les ridesrequests disponibles" if @riderequests.empty? %></em></span>
-      <span class="mb-3 d-block"><em><%= "#{pluralize(@riderequests.count, "Résultat(s)")}" if @riderequests.count  %></em></span>
+      <span class="mb-3 d-block">
+        <% if @riderequests.empty? %>
+          <em><%= " Aucun résultat pour votre recherche, consultez la carte pour voir tous les ridesrequests disponibles" %>
+          </em>
+          <br>
+          <br>
+          <%= link_to ride_requests_path do %>
+            <i class="fa-solid fa-arrow-left-long"> Retrouvez toutes les demandes de voyages disponnibles</i>
+          <% end %>
+        <% else %>
+          <span class="mb-3 d-block"><em>
+            <%= "#{pluralize(@riderequests.count, @riderequests.size == 1 ? "Résultat" : "Résultats")}"  %></em>
+          </span>
+        <% end %>
+      </span>
     </div>
     <% @riderequests.each do |riderequest| %>
       <%= render "shared/riderequestcard", riderequest: riderequest %>

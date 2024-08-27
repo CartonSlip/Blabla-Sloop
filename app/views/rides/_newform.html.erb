@@ -1,24 +1,33 @@
-<%= simple_form_for(@ride) do |f| %>
-  <div data-controller="newride" data-newride-capacity-by-sloop-value="<%= @capacity_by_sloop.to_json %>">
-    <%= f.association :sloop, label: "Choisissez votre bateau", collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
-    <%= f.input :start_date, as: :string,
-      label: "Date de debut", input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :end_date, as: :string,
-      label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :capacity, label: "Capacité de voyageurs", input_html: { "data-newride-target": "capacity" } %>
-    <%= f.input :details %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-sm-8 col-lg-4">
+      <div class="form-login">
+        <h2><%= image_tag "logo-sloop.png", height: 30, width: 30, alt: "Logo" %> BlablaSloop</h1>
+          <h4>Proposer un Voyage</h2>
+        <%= simple_form_for(@ride) do |f| %>
+          <div data-controller="newride" data-newride-capacity-by-sloop-value="<%= @capacity_by_sloop.to_json %>">
+            <%= f.association :sloop, label: "Choisissez votre bateau", collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
+            <%= f.input :start_date, as: :string,
+              label: "Date de debut", input_html: { data: { controller: "datepicker" } } %>
+            <%= f.input :end_date, as: :string,
+              label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
+            <%= f.input :capacity, label: "Capacité de voyageurs", input_html: { "data-newride-target": "capacity" } %>
+            <%= f.input :details %>
 
-     <%= f.input :start_port, label: 'Port de départ',
-        input_html: { data: { address_autocomplete_target: "startPort" }, class: "d-none" },
-        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
+            <%= f.input :start_port, label: 'Port de départ',
+                input_html: { data: { address_autocomplete_target: "startPort" }, class: "d-none" },
+                wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
 
-    <%= f.input :end_port, label: "Port d'arrivée",
-        input_html: { data: { address_autocomplete_target: "endPort" }, class: "d-none" },
-        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
+            <%= f.input :end_port, label: "Port d'arrivée",
+                input_html: { data: { address_autocomplete_target: "endPort" }, class: "d-none" },
+                wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
 
-    <%= f.submit 'Publier', class: "btn btn-primary" %>
+            <%= f.submit 'Publier', class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
-
+</div>
 
 <%# flatpicker pour les dates %>

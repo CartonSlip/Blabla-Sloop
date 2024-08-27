@@ -2,7 +2,7 @@
 <!-- Infos principales de l'utilisateur -->
   <div class="text-center">
     <%= cl_image_tag current_user.photo.key, height: 175, class: "my-3", alt: "photo de profil", radius: "max" %>
-    <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+    <h1 id="h1-profil"><%= current_user.first_name %> <%= current_user.last_name %></h1>
     <span><%= current_user.age %> ans</span>
     <ul class="list-inline ">
       <li class="list-inline-item bg-white"><i class="fa-regular fa-envelope"></i> <%= current_user.email %></li>
@@ -15,8 +15,10 @@
   <div class="text-start">
     <h4 class="">À propos</h4>
     <p class="border rounded-3 p-3"><%= current_user.description %></p>
-    <h4 class="">Mes préférences</h4>
-    <p class="border rounded-3 p-3"><%= current_user.preferences %></p>
+    <% if current_user.preferences != nil %>
+      <h4 class="">Mes préférences</h4>
+      <p class="border rounded-3 p-3"><%= current_user.preferences %></p>
+    <% end %>
   </div>
 <!-- Sloops de l'utilisateur / Si existants -->
   <% if current_user.sloops.any? %>
@@ -33,7 +35,7 @@
   <hr>
 <!-- Les trajets proposés par l'utlisateur -->
   <% if current_user.rides.any? %>
-    <h4 class="mb-4"> <%= current_user.rides.size == 1 ? "Mon trajet proposé" : "Mes trajets proposés" %></h4>
+    <h4 class="mb-4"> <%= current_user.rides.size == 1 ? "Mon voyage proposé" : "Mes voyages proposés" %></h4>
       <div class="row">
         <% current_user.rides.each do |ride| %>
           <%= render "shared/cardride", ride: ride %>
@@ -55,7 +57,7 @@
   <% if current_user.all_favorites.any? %>
       <!-- Les Sloops favoris de l'utlisateur -->
       <div class="row">
-       <h4 class="mb-4"> <%= @favorite_sloops.size == 1 ? "Sloop favori" : "Mes Sloops Favoris" %></h4>
+       <h4 class="mb-4"> <%= @favorite_sloops.size == 1 ? "Mon Sloop favori" : "Mes Sloops Favoris" %></h4>
         <% @favorite_sloops.each do |sloop| %>
           <%= render "shared/sloopcard", sloop: sloop %>
         <% end %>
@@ -75,9 +77,10 @@
           <% review.rating.times do %>
             <i class="fas fa-star text-info"></i>
           <% end %>
-          <small><em class="text-muted">Il y a <%= distance_of_time_in_words_to_now(review.created_at) %></em></small>
-          <p class="mb-0"><%= review.comment %></p>
+          <small><em class="text-muted">Il y a <%= distance_of_time_in_words_to_now(review.created_at) %> par <%= review.poster.first_name %></em></small>
+          <p class="mb-0 review"><%= cl_image_tag review.poster.photo.key, class:"avatar" %> <%= review.comment %></p>
         </div>
+        <br>
       <% end %>
       <hr>
     </div>

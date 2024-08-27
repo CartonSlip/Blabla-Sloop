@@ -1,6 +1,7 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
+    <h1 class="text-center mt-3">Mon tableau de bord</h1>
+</div>
 <div class="container">
-  <h1 class="text-center mt-3">Mon tableau de bord</h1>
-  <hr>
   <% if current_user.skipper_traveller_rides.any? %>
     <div class="container mt-3">
       <h2 class="mb-3" id="last_propal">Les demandes pour mes voyages</h2>
@@ -9,7 +10,7 @@
           <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
               <div class="card-body">
-                <h5>Demande effectuée par <strong><%= traveller_ride.user.first_name %></strong>
+                <h5>Demande faite par <strong><%= traveller_ride.user.first_name %></strong>
                   <% if traveller_ride.user.photo.attached? %>
                     <%# <%= cl_image_tag traveller_ride.user.photo.key, class: "avatar" > %>
                     <%= link_to (cl_image_tag traveller_ride.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(traveller_ride.user) %>
@@ -64,7 +65,7 @@
           <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
               <div class="card-body">
-                <h5>Demande effectuée à <strong><%= traveller_ride.sloop.user.first_name %></strong>
+                <h5>Demande faite à <strong><%= traveller_ride.sloop.user.first_name %></strong>
                   <% if traveller_ride.sloop.user.photo.attached? %>
                     <%# <%= cl_image_tag traveller_ride.sloop.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" > %>
                     <%= link_to (cl_image_tag traveller_ride.sloop.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(traveller_ride.sloop.user) %>
