@@ -1,3 +1,6 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
+  <h1 class="text-center my-4">Tous les voyages demandés</h1>
+</div>
 <div class="container mb-3">
 <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
@@ -14,7 +17,6 @@
   <div class="cards mt-2">
   <div class="row">
     <div>
-      <h2 class="display-4 text-center my-4">Toutes les demandes de voyage</h2>
       <div class="d-flex justify-content-evenly align-items-center mb-3">
         <% if current_user.sloops.exists? %>
           <%= link_to "Proposer un voyage", new_ride_path, class: "btn btn-primary" %>

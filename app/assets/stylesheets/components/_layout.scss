@@ -4,12 +4,35 @@
   margin-bottom: 80px;
 }
 
-h1, h2, h3, h4, h5 {
-  color: #023631;
+h3, h4, h5 {
+  font-family: $body-font;
+  color: $darkgreen;
   text-align: center;
   font-weight: bold;
 }
 
+h2 {
+  font-family: $headers-font;
+  color: $darkgreen;
+  text-align: center;
+  font-weight: bold;
+}
+
+h1 {
+  font-family: $headers-font;
+  color: $paleyellow;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+}
+
 p, i, span {
-  color: #023631;
+  color: $darkgreen;
+  font-family: $body-font;
+}
+
+.btn-primary {
+  font-family: $body-font;
+  color: $paleyellow;
+  font-size: 20px;
 }
