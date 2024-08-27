@@ -58,6 +58,8 @@ class RideRequestsController < ApplicationController
         marker_html: render_to_string(partial: "shared/marker")
       }
     ]
+    @start_port_coordinates = [@riderequest.start_port_latitude, @riderequest.start_port_longitude]
+    @end_port_coordinates = [@riderequest.end_port_latitude, @riderequest.end_port_longitude]
   end
 
   private

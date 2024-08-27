@@ -37,12 +37,10 @@
   </div>
   <hr>
 
-  <div class="col-md-12 map_ride" style="height: 400px;">
-    <div class="card shadow-sm h-100 mb-3">
+  <div class="col-md-12 map_ride" style="height: 350px;">
+    <div class="card shadow-sm h-100">
       <div class="card-body">
-        <h4 class="card-title text-center "><i class="fa-regular fa-map"></i> </h4>
-        <hr>
-        <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
+        <div style="height: 100%;"
               data-controller="map"
               data-map-markers-value="<%= @markers.to_json %>"
               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
