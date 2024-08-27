@@ -1,6 +1,7 @@
 require "open-uri"
 
 puts "Cleaning DB..."
+Chatroom.destroy_all
 TravellerRide.destroy_all
 Bookmark.destroy_all
 Review.destroy_all
