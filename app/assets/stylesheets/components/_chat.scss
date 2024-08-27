@@ -21,6 +21,18 @@
   }
 
   .message.sent .message-content {
+    align-self: flex-end;
+    background: $gray-200;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+
+  .message.sent .message-info {
+    align-self: flex-end;
+  }
+
+  .message.received .message-content {
     align-self: flex-start;
     background: $ourgreen;
     color: #FFFFFF;
@@ -29,19 +41,28 @@
     border-bottom-right-radius: 15px;
   }
 
-  .message.sent .message-info {
+  .message.received .message-info {
     align-self: flex-start;
   }
 
-  .message.received .message-content {
-    align-self: flex-end;
-    background: $gray-200;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
+  .chatwritebox {
+    position: sticky;
   }
 
-  .message.received .message-info {
-    align-self: flex-end;
+  .chatbox {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+
+  .chatsend {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
   }
 }
