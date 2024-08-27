@@ -2,7 +2,7 @@
 <!-- Infos principales de l'utilisateur -->
   <div class="text-center">
     <%= cl_image_tag current_user.photo.key, height: 175, class: "my-3", alt: "photo de profil", radius: "max" %>
-    <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+    <h1 id="h1-profil"><%= current_user.first_name %> <%= current_user.last_name %></h1>
     <span><%= current_user.age %> ans</span>
     <ul class="list-inline ">
       <li class="list-inline-item bg-white"><i class="fa-regular fa-envelope"></i> <%= current_user.email %></li>
@@ -15,8 +15,10 @@
   <div class="text-start">
     <h4 class="">À propos</h4>
     <p class="border rounded-3 p-3"><%= current_user.description %></p>
-    <h4 class="">Mes préférences</h4>
-    <p class="border rounded-3 p-3"><%= current_user.preferences %></p>
+    <% if current_user.preferences != nil %>
+      <h4 class="">Mes préférences</h4>
+      <p class="border rounded-3 p-3"><%= current_user.preferences %></p>
+    <% end %>
   </div>
 <!-- Sloops de l'utilisateur / Si existants -->
   <% if current_user.sloops.any? %>
