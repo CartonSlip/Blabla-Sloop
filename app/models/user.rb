@@ -15,7 +15,8 @@ class User < ApplicationRecord
   has_many :received_reviews, foreign_key: :receiver_id, class_name: "Review"
   has_many :posted_reviews, foreign_key: :poster_id, class_name: "Review"
   has_one_attached :photo
-
+  acts_as_favoritor
+  
   validates :first_name, :last_name, presence: true
   validates :phone_number, presence: true, length: { minimum: 10 }
   validates :age, numericality: true, exclusion: { in: 0...18, message: "Vous devez avoir au moins 18 ans pour vous inscrire" }

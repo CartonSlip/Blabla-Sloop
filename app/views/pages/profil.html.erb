@@ -51,12 +51,18 @@
       </div>
     <hr>
   <% end %>
-  <% if current_user.ride_requests.any? %>
-   <h4 class="mb-4"> <%= current_user.ride_requests.size == 1 ?  "Ma demande de Trajet" : "Mes demandes de Trajets" %></h4>
-   <% current_user.ride_requests.each do |riderequest| %>
-    <%= render "shared/riderequestcard", riderequest: riderequest %>
-   <% end %>
+  <!-- Les favoris de l'utlisateur -->
+  <% if current_user.all_favorites.any? %>
+      <!-- Les Sloops favoris de l'utlisateur -->
+      <div class="row">
+       <h4 class="mb-4"> <%= @favorite_sloops.size == 1 ? "Sloop favori" : "Mes Sloops Favoris" %></h4>
+        <% @favorite_sloops.each do |sloop| %>
+          <%= render "shared/sloopcard", sloop: sloop %>
+        <% end %>
+      </div>
+    <hr>
   <% end %>
+
 <!-- Commentaires sur l'utlisateur -->
   <div class="row">
     <div class="col-12 col-sm-6">

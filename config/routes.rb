@@ -9,7 +9,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :sloops
+  resources :sloops do
+    member do
+      get :favorite, to: "sloops#favorite"
+    end
+  end
+
   resources :rides do
     resources :traveller_rides, only: %i[new create]
     resources :chatrooms, only: [:create]
