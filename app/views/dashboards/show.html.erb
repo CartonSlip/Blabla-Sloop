@@ -3,7 +3,7 @@
   <hr>
   <% if current_user.skipper_traveller_rides.any? %>
     <div class="container mt-3">
-      <h2 class="mb-3">Les demandes d'embarquement pour mes trajets proposés</h2>
+      <h2 class="mb-3" id="last_propal">Les demandes pour mes voyages</h2>
       <div class="row">
         <% current_user.skipper_traveller_rides.each do |traveller_ride| %>
           <div class="col-md-4 mb-4">
@@ -58,7 +58,7 @@
   <% if current_user.traveller_rides.any? %>
     <br><hr>
     <div class="container mt-3">
-      <h2 class="mb-3">Mes demandes d'embarquement effectuées</h2>
+      <h2 class="mb-3" id="last_ask">Mes demandes</h2>
       <div class="row">
         <% current_user.traveller_rides.each do |traveller_ride| %>
           <div class="col-md-4 mb-4">

@@ -1,15 +1,12 @@
 
 <%# ##########Banner########################### %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
-  <div class="container" id="banner-content">
-    <h2><strong>Vous avez un bateau</strong>
-    </h2>
-    <strong><%= link_to "Voir les voyages demandés", ride_requests_path, class: "btn btn-primary", id:"banner-bouton" %></strong>
+  <h1 class="logo-title"><%= image_tag "logo-sloop.png", class: "avatar" %> Blabla'Sloop</h1>
+  <div class="container mt-5" id="banner-content">
+    <strong><%= link_to "Vous avez un bateau", ride_requests_path, class: "btn btn-primary", id:"banner-bouton" %></strong>
   </div>
   <div class="container mt-5" id="banner-content">
-    <h2><strong>Vous cherchez un bateau</strong>
-    </h2>
-    <strong><%= link_to "Voir les voyages proposés", rides_path, class: "btn btn-primary", id:"banner-bouton" %></strong>
+    <strong><%= link_to "Vous cherchez un bateau", rides_path, class: "btn btn-primary", id:"banner-bouton" %></strong>
   </div>
 </div>
 

@@ -16,7 +16,11 @@
     <div>
       <h2 class="display-4 text-center my-4">Toutes les demandes de voyage</h2>
       <div class="d-flex justify-content-evenly align-items-center mb-3">
-        <%= link_to "Faire une demande de voyage", new_ride_request_path, class: "btn btn-primary" %>
+        <% if current_user.sloops.exists? %>
+          <%= link_to "Proposer un voyage", new_ride_path, class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "Enregistrer un bateau pour proposer", new_sloop_path, class: "btn btn-primary" %>
+        <% end %>
       </div>
       <hr>
       <span class="mb-3 d-block"><em><%= "Aucun résultat pour votre recherche, consultez la carte pour voir tous les ridesrequests disponibles" if @riderequests.empty? %></em></span>
