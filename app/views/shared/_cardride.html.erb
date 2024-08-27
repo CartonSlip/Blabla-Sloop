@@ -11,21 +11,21 @@
 
 
       </div>
-       <h3><%= ride.sloop.name %></h3>
+       <h3 class="mt-1"><%= ride.sloop.name %></h3>
 
-       <div class="travel_info">
-        <span><i class="fa-solid fa-play"></i> <%= ride.start_port %></span>
-        <span><%= l(ride.start_date, format: '%d/%m/%Y') %></span>
+       <div class="travel_info ">
+        <span><i class="avatar fa-solid fa-play"></i> <%= ride.start_port %></span>
+        <span class="me-2"><%= l(ride.start_date, format: '%d/%m/%Y') %></span>
       </div>
 
       <div class="travel_info">
-        <span><i class="fa-solid fa-flag-checkered"></i> <%= ride.end_port %></span>
-        <span><%= l(ride.end_date, format: '%d/%m/%Y') %></span>
+        <span><i class="avatar fa-solid fa-flag-checkered"></i> <%= ride.end_port %></span>
+        <span class="me-2"><%= l(ride.end_date, format: '%d/%m/%Y') %></span>
       </div>
 
         <div class="travel_info">
-          <span><i class="fa-solid fa-users"></i> <%= ride.traveller_rides.accepted.count %> voyageurs</span>
-          <span><i class="fa-solid fa-person-circle-exclamation"></i> <%= ride.capacity %> <strong>MAX</strong></span>
+          <span><i class="avatar  fa-solid fa-users"></i> <%= ride.traveller_rides.accepted.count %> voyageurs</span>
+          <span><i class="  fa-solid fa-person-circle-exclamation"></i> <%= ride.capacity %> <strong class="me-2">MAX</strong></span>
         </div>
 
          <p class="card-text owner-text">
