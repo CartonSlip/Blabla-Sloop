@@ -60,7 +60,7 @@ fabien = User.new(
   password: "password",
   description: "Passionné par la mer, j'ai déjà de nombreux amis avec des voiliers. Même si je n'ai pas encore mon propre bateau, j'adore embarquer, prêter main-forte et participer aux aventures maritimes.",
   first_name: "Fabien",
-  last_name: "Lihar",
+  last_name: "Lihard",
   phone_number: "+33 6 98 76 54 32",
   age: "34"
 )
@@ -267,9 +267,9 @@ puts "Sloop 5 isabelle created!!"
 # ########################## rides #########################""
 puts "Creating Rides..."
 request1 = Ride.new(
-  start_date: "2024-09-01",  # Date de départ
+  start_date: "2024-10-01",  # Date de départ
   start_port: "La Rochelle",
-  end_date: "2024-09-10",    # Date d'arrivée
+  end_date: "2024-10-10",    # Date d'arrivée
   end_port: "Nantes",
   details: "Voyage relaxant avec escales dans des petites criques cachées. Prévoir des vêtements légers et une bonne humeur.",
   sloop: sloop5,
@@ -333,7 +333,7 @@ request6 = RideRequest.new(
   start_port: "Saint-Tropez",
   end_date: "2025-01-05",    # Date d'arrivée
   end_port: "Cannes",
-  details: "Voyage en mer le long de la Côte d'Azur pour découvrir les charmantes villes côtières et les calanques. Prévoir des moments de détente et des visites culturelles.",
+  details: "Noël en mar?? Voyage en mer le long de la Côte d'Azur pour découvrir les charmantes villes côtières et les calanques. ",
   user: elise
 )
 request6.save!

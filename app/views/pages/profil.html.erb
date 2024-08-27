@@ -75,9 +75,10 @@
           <% review.rating.times do %>
             <i class="fas fa-star text-info"></i>
           <% end %>
-          <small><em class="text-muted">Il y a <%= distance_of_time_in_words_to_now(review.created_at) %></em></small>
-          <p class="mb-0"><%= review.comment %></p>
+          <small><em class="text-muted">Il y a <%= distance_of_time_in_words_to_now(review.created_at) %> par <%= review.poster.first_name %></em></small>
+          <p class="mb-0 review"><%= cl_image_tag review.poster.photo.key, class:"avatar" %> <%= review.comment %></p>
         </div>
+        <br>
       <% end %>
       <hr>
     </div>
