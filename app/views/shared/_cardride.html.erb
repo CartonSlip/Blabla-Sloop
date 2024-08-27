@@ -1,38 +1,41 @@
 <div class="col-md-4 mb-4">
   <%= link_to ride_path(ride), style: "text-decoration: none; color: inherit;" do %>
     <div class="card-riderequest"> <!-- Utiliser la même classe que la carte riderequest -->
+
+      <div class="card-body"> <!-- Ajout de card-body pour uniformiser avec riderequest -->
       <% if ride.sloop.photos.any? %>
         <%= cl_image_tag ride.sloop.photos.first.key, class: "card-img-top fixed-map-size"%> <!-- Ajout de la classe pour la taille fixe -->
       <% else %>
         <img class="card-img-top fixed-map-size" src="default_image.jpg" alt="Default image"> <!-- Ajout de la classe pour la taille fixe -->
       <% end %>
 
-      <div class="card-body"> <!-- Ajout de card-body pour uniformiser avec riderequest -->
-        <div class="travel_info">
-          <h2 class="card-title"><%= ride.sloop.name %></h2>
-          <p class="card-text owner-text">
-            <% if ride.sloop.user.photo.attached? %>
-              <%= cl_image_tag ride.sloop.user.photo.key, class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
-            <% else %>
-              <%= image_tag "default_avatar.png", class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
-            <% end %>
-            <%= ride.sloop.user.first_name %>
-          </p>
-        </div>
 
-        <div class="travel_info">
-          <span><i class="fa-regular fa-calendar"></i> <%= l(ride.start_date, format: '%d/%m/%Y') %> - <%= l(ride.end_date, format: '%d/%m/%Y') %></span>
-        </div>
+      </div>
+       <h2 class="card-title"><%= ride.sloop.name %></h2>
 
-        <div class="travel_info">
-          <span><i class="fa-solid fa-anchor"></i> <%= ride.start_port %> <strong>/</strong> <%= ride.end_port %></span>
-        </div>
+       <div class="travel_info">
+        <span><i class="fa-solid fa-play"></i> <%= ride.start_port %></span>
+        <span><%= l(ride.start_date, format: '%d/%m/%Y') %></span>
+      </div>
+
+      <div class="travel_info">
+        <span><i class="fa-solid fa-flag-checkered"></i> <%= ride.end_port %></span>
+        <span><%= l(ride.end_date, format: '%d/%m/%Y') %></span>
+      </div>
 
         <div class="travel_info">
           <span><i class="fa-solid fa-users"></i> <%= ride.traveller_rides.accepted.count %> voyageurs</span>
           <span><i class="fa-solid fa-person-circle-exclamation"></i> <%= ride.capacity %> <strong>MAX</strong></span>
         </div>
+
+         <p class="card-text owner-text">
+        <% if ride.sloop.user.photo.attached? %>
+          <%= cl_image_tag ride.sloop.user.photo.key, class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+        <% else %>
+          <%= image_tag "default_avatar.png", class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+        <% end %>
+      </p>
+
       </div>
-    </div>
   <% end %>
-</div>
+    </div>
