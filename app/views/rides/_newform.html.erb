@@ -2,8 +2,8 @@
   <div class="row justify-content-center">
     <div class="col col-sm-8 col-lg-4">
       <div class="form-login">
-        <h1><%= image_tag "logo-sloop.png", height: 30, width: 30, alt: "Logo" %> BlablaSloop</h1>
-          <h2>Crée un Voyage</h2>
+        <h2><%= image_tag "logo-sloop.png", height: 30, width: 30, alt: "Logo" %> BlablaSloop</h1>
+          <h4>Proposer un Voyage</h2>
         <%= simple_form_for(@ride) do |f| %>
           <div data-controller="newride" data-newride-capacity-by-sloop-value="<%= @capacity_by_sloop.to_json %>">
             <%= f.association :sloop, label: "Choisissez votre bateau", collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>

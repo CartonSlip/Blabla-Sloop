@@ -1,23 +1,26 @@
-<div class="container mb-4">
-  <%= render "shared/detailuser" %>
-
-  <%# ################# formulaire de sloop de demande ############ %>
-  <h2>Complétez les information avant de slooper la demande</h2>
-  <%= simple_form_for([@ride_request, @ride]) do |f| %>
-    <div data-controller="newride" data-newride-capacity-by-sloop-value="<%= @capacity_by_sloop.to_json %>">
-      <%= f.association :sloop, label: "Choisissez votre bateau", collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
-      <%= f.input :start_date, as: :string,
-        label: "Date de début (non modifiable)",  readonly: true %>
-      <%= f.input :end_date, as: :string,
-        label: "Date de fin (non modifiable)",  readonly: true  %>
-      <%= f.input :capacity, input_html: { "data-newride-target": "capacity" } %>
-      <%= f.input :details %>
-      <%= f.input :start_port, label: "Port de départ (non modifiable)", readonly: true  %>
-      <%= f.input :end_port,  label: "Port d'arrivée (non modifiable)", readonly: true %>
-      <%= f.submit 'Ajouter', class: "btn btn-primary" %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-sm-8 col-lg-4">
+      <div class="form-login">
+      <%# ################# formulaire de sloop de demande ############ %>
+      <h2><%= image_tag "logo-sloop.png", height: 30, width: 30, alt: "Logo" %> BlablaSloop</h1>
+      <h4>Compléter les informations pour l'embarquement</h2>
+      <%= render "shared/detailuser" %>
+      <%= simple_form_for([@ride_request, @ride]) do |f| %>
+        <div data-controller="newride" data-newride-capacity-by-sloop-value="<%= @capacity_by_sloop.to_json %>">
+          <%= f.association :sloop, label: "Choisissez votre bateau", collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
+          <%= f.input :start_date, as: :string,
+            label: "Date de début (non modifiable)",  readonly: true %>
+          <%= f.input :end_date, as: :string,
+            label: "Date de fin (non modifiable)",  readonly: true  %>
+          <%= f.input :capacity, input_html: { "data-newride-target": "capacity" } %>
+          <%= f.input :details %>
+          <%= f.input :start_port, label: "Port de départ (non modifiable)", readonly: true  %>
+          <%= f.input :end_port,  label: "Port d'arrivée (non modifiable)", readonly: true %>
+          <%= f.submit 'Ajouter', class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      </div>
     </div>
-  <% end %>
-</div>
-
-
+  </div>
 </div>

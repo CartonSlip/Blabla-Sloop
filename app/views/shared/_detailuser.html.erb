@@ -1,19 +1,18 @@
-  <div>
-  <div>
-    <h1>Sloop de la demande de <%= @ride_request.user.first_name %></h1>
-    <hr>
-    <p>
-      <%= image_tag @ride_request.user.photo.attached? ? url_for(@ride_request.user.photo) : "default_avatar.png", class: "user-avatar" %>
-    </p>
-    <p>
-      <strong>Détails de l'utilisateur :</strong> <br>
-      Nom : <%= @ride_request.user.first_name %> <%= @ride_request.user.last_name %> <br>
-      Âge : <%= @ride_request.user.age %> <br>
-      Description : <%= @ride_request.user.description %>
-    </p>
-    <p>
-      <strong>Note :  probléme à regler en commentaire</strong>
-      <%# <%= @ride_request.user.reviews.average(:rating) || "Pas encore de notes" / 5 %>
-    </p>
-    <hr>
-  </div>
+<div>
+  <p>
+    <strong>Détails de l'utilisateur :
+    <% if @ride_request.user.photo.attached? %>
+      <%= link_to (cl_image_tag @ride_request.user.photo.key, style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(@ride_request.user) %>
+    <% else %>
+      <%= image_tag "default_avatar.png", class: "riderequest-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+    <% end %></strong> <br>
+    Nom : <%= @ride_request.user.first_name %> <%= @ride_request.user.last_name %> <br>
+    Âge : <%= @ride_request.user.age %> <br>
+    Description : <%= @ride_request.user.description %>
+  </p>
+  <p>
+    <strong>Note :  probléme à regler en commentaire</strong>
+    <%# <%= @ride_request.user.reviews.average(:rating) || "Pas encore de notes" / 5 %>
+  </p>
+  <hr>
+</div>

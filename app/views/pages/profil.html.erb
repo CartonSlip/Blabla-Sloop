@@ -35,7 +35,7 @@
   <hr>
 <!-- Les trajets proposés par l'utlisateur -->
   <% if current_user.rides.any? %>
-    <h4 class="mb-4"> <%= current_user.rides.size == 1 ? "Mon trajet proposé" : "Mes trajets proposés" %></h4>
+    <h4 class="mb-4"> <%= current_user.rides.size == 1 ? "Mon voyage proposé" : "Mes voyages proposés" %></h4>
       <div class="row">
         <% current_user.rides.each do |ride| %>
           <%= render "shared/cardride", ride: ride %>
@@ -57,7 +57,7 @@
   <% if current_user.all_favorites.any? %>
       <!-- Les Sloops favoris de l'utlisateur -->
       <div class="row">
-       <h4 class="mb-4"> <%= @favorite_sloops.size == 1 ? "Sloop favori" : "Mes Sloops Favoris" %></h4>
+       <h4 class="mb-4"> <%= @favorite_sloops.size == 1 ? "Mon Sloop favori" : "Mes Sloops Favoris" %></h4>
         <% @favorite_sloops.each do |sloop| %>
           <%= render "shared/sloopcard", sloop: sloop %>
         <% end %>
