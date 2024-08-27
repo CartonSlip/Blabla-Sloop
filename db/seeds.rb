@@ -426,7 +426,7 @@ puts "review5 created!"
 
 # Commentaire : "Voyage agréable avec de belles vues. Cependant, le confort du bateau pourrait être amélioré."
 julien_id = User.find_by(first_name: "Julien").id
-fabfien_id = User.find_by(first_name: "Fabien").id
+fabien_id = User.find_by(first_name: "Fabien").id
 
 review6 = Review.new(
   comment: "Voyage agréable avec de belles vues. Cependant, le confort du bateau pourrait être amélioré.",
@@ -602,7 +602,6 @@ book9.save!
 book10.save!
 
 puts "10 bookmarks created!"
-
 
 puts "creation chatroom celia & request1sloop5.user"
 chat1 = Chatroom.new(user: celia, ride: request1, skipper_id: request1.sloop.user.id)
