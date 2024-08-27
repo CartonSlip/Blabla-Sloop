@@ -1,0 +1,24 @@
+.chatbanner {
+  width: 100%;
+  margin: 0px;
+  background-size: cover;
+  background-position: center;
+  padding: 25px 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+
+    h1 {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+}
+
+.chatroompic {
+  border-radius: 50%;
+  height: 50px;
+  margin: 10px;
+}

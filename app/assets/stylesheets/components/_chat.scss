@@ -5,6 +5,8 @@
     flex-direction: column;
     margin-bottom: 1rem;
     width: 100%;
+    position: relative;
+    bottom: 60px;
   }
 
   .message-info {
@@ -22,7 +24,7 @@
 
   .message.sent .message-content {
     align-self: flex-end;
-    background: $gray-200;
+    background: rgba(8, 104, 94, 0.2);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
@@ -46,7 +48,15 @@
   }
 
   .chatwritebox {
-    position: sticky;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 10px;
+    bottom: 70px;
+    width: calc(100% - 20px);
   }
 
   .chatbox {
