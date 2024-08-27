@@ -1,7 +1,6 @@
 <div class="banner no_home" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
     <h1>Détails du voyage demandé</h1>
 </div>
-
 <div class="container mt-5 mb-5">
   <%= link_to ride_requests_path do %>
     <i class="fa-solid fa-arrow-left-long"></i>
@@ -49,11 +48,11 @@
       <%= link_to "Valider l'embarquement", new_ride_request_ride_path(@riderequest), class: "btn btn-primary" %>
     <% end %>
   </div>
-
   <div class="col-md-12" style="height: 400px;">
     <div class="card shadow-sm h-100">
       <div class="card-body">
-        <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
+        <div  style="height: 100%;"
+
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

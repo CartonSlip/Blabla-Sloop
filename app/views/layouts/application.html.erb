@@ -29,6 +29,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" %>
+    <%= javascript_include_tag "https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js" %>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
