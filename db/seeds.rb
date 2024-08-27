@@ -333,7 +333,7 @@ request6 = RideRequest.new(
   start_port: "Saint-Tropez",
   end_date: "2025-01-05",    # Date d'arrivée
   end_port: "Cannes",
-  details: "Noël en mar?? Voyage en mer le long de la Côte d'Azur pour découvrir les charmantes villes côtières et les calanques. ",
+  details: "Noël en mer?? Voyage en mer le long de la Côte d'Azur pour découvrir les charmantes villes côtières et les calanques. ",
   user: elise
 )
 request6.save!
