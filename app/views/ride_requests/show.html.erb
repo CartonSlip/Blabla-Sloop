@@ -1,5 +1,5 @@
 <div class="banner no_home" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
-    <h2 class="logo-title">Détails de la demande</h2>
+    <h1>Détails du voyage demandé</h1>
 </div>
 <div class="container mt-5 mb-5">
   <%= link_to ride_requests_path do %>
@@ -52,6 +52,7 @@
     <div class="card shadow-sm h-100">
       <div class="card-body">
         <div  style="height: 100%;"
+
           data-controller="map"
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

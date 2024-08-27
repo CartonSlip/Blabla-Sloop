@@ -35,7 +35,7 @@
   <hr>
 <!-- Les trajets proposés par l'utlisateur -->
   <% if current_user.rides.any? %>
-    <h4 class="mb-4"> <%= current_user.rides.size == 1 ? "Mon trajet proposé" : "Mes trajets proposés" %></h4>
+    <h4 class="mb-4"> <%= current_user.rides.size == 1 ? "Mon voyage proposé" : "Mes voyages proposés" %></h4>
       <div class="row">
         <% current_user.rides.each do |ride| %>
           <%= render "shared/cardride", ride: ride %>
@@ -57,7 +57,7 @@
   <% if current_user.all_favorites.any? %>
       <!-- Les Sloops favoris de l'utlisateur -->
       <div class="row">
-       <h4 class="mb-4"> <%= @favorite_sloops.size == 1 ? "Sloop favori" : "Mes Sloops Favoris" %></h4>
+       <h4 class="mb-4"> <%= @favorite_sloops.size == 1 ? "Mon Sloop favori" : "Mes Sloops Favoris" %></h4>
         <% @favorite_sloops.each do |sloop| %>
           <%= render "shared/sloopcard", sloop: sloop %>
         <% end %>
@@ -77,9 +77,10 @@
           <% review.rating.times do %>
             <i class="fas fa-star text-info"></i>
           <% end %>
-          <small><em class="text-muted">Il y a <%= distance_of_time_in_words_to_now(review.created_at) %></em></small>
-          <p class="mb-0"><%= review.comment %></p>
+          <small><em class="text-muted">Il y a <%= distance_of_time_in_words_to_now(review.created_at) %> par <%= review.poster.first_name %></em></small>
+          <p class="mb-0 review"><%= cl_image_tag review.poster.photo.key, class:"avatar" %> <%= review.comment %></p>
         </div>
+        <br>
       <% end %>
       <hr>
     </div>

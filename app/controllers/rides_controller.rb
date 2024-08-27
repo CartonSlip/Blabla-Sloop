@@ -63,14 +63,14 @@ class RidesController < ApplicationController
       {
         lat: @ride.start_port_latitude,
         lng: @ride.start_port_longitude,
-        # info_window_html: render_to_string(partial: "info_window", locals: { riderequest: @riderequest }),
-        marker_html: render_to_string(partial: "shared/marker")
+        info_window_html: render_to_string(partial: "shared/startport"),
+        marker_html: render_to_string(partial: "shared/markerstart")
       },
       {
         lat: @ride.end_port_latitude,
         lng: @ride.end_port_longitude,
-        # info_window_html: render_to_string(partial: "info_window", locals: { riderequest: @riderequest }),
-        marker_html: render_to_string(partial: "shared/marker")
+        info_window_html: render_to_string(partial: "shared/endport"),
+        marker_html: render_to_string(partial: "shared/markerend")
       }
     ]
     @traveller_ride = TravellerRide.new

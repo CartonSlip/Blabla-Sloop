@@ -13,12 +13,10 @@ class RideRequestsController < ApplicationController
         {
           lat: riderequest.start_port_latitude,
           lng: riderequest.start_port_longitude,
-          marker_html: render_to_string(partial: "shared/marker")
         },
         {
           lat: riderequest.end_port_latitude,
           lng: riderequest.end_port_longitude,
-          marker_html: render_to_string(partial: "shared/marker")
         }
       ]
     end
@@ -48,14 +46,14 @@ class RideRequestsController < ApplicationController
       {
         lat: @riderequest.start_port_latitude,
         lng: @riderequest.start_port_longitude,
-        # info_window_html: render_to_string(partial: "info_window", locals: { riderequest: @riderequest }),
-        marker_html: render_to_string(partial: "shared/marker")
+        info_window_html: render_to_string(partial: "shared/startrequestport"),
+        marker_html: render_to_string(partial: "shared/markerstart")
       },
       {
         lat: @riderequest.end_port_latitude,
         lng: @riderequest.end_port_longitude,
-        # info_window_html: render_to_string(partial: "info_window", locals: { riderequest: @riderequest }),
-        marker_html: render_to_string(partial: "shared/marker")
+        info_window_html: render_to_string(partial: "shared/endrequestport"),
+        marker_html: render_to_string(partial: "shared/markerend")
       }
     ]
     @start_port_coordinates = [@riderequest.start_port_latitude, @riderequest.start_port_longitude]
