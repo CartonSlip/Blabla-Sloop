@@ -268,9 +268,9 @@ puts "Sloop 5 isabelle created!!"
 puts "Creating Rides..."
 request1 = Ride.new(
   start_date: "2024-09-01",  # Date de départ
-  start_port: "Brest, France",
+  start_port: "La Rochelle",
   end_date: "2024-09-10",    # Date d'arrivée
-  end_port: "Nantes, France",
+  end_port: "Nantes",
   details: "Voyage relaxant avec escales dans des petites criques cachées. Prévoir des vêtements légers et une bonne humeur.",
   sloop: sloop5,
   capacity: sloop5.capacity
@@ -280,9 +280,9 @@ puts "rides request1 created!"
 
 request2 = Ride.new(
   start_date: "2024-10-05",  # Date de départ
-  start_port: "Marseille, France",
+  start_port: "Marseille",
   end_date: "2024-10-15",    # Date d'arrivée
-  end_port: "Nice, France",
+  end_port: "Nice",
   details: "Croisière à travers la Côte d'Azur avec des visites de vignobles locaux. Accueil chaleureux garanti.",
   sloop: sloop1,
   capacity: sloop1.capacity
@@ -292,9 +292,9 @@ puts "rides request2 created!"
 
 request3 = Ride.new(
   start_date: "2024-11-01",  # Date de départ
-  start_port: "La Rochelle, France",
+  start_port: "La Rochelle",
   end_date: "2024-11-20",    # Date d'arrivée
-  end_port: "Bordeaux, France",
+  end_port: "Bordeaux",
   details: "Aventure automnale avec exploration des îles alentours. Prévoir des vêtements chauds et des jumelles pour observer les oiseaux.",
   sloop: sloop2,
   capacity: sloop2.capacity
@@ -306,9 +306,9 @@ puts "create rides request ..."
 
 request4 = RideRequest.new(
   start_date: "2024-11-01",  # Date de départ
-  start_port: "La Rochelle, France",
+  start_port: "La Rochelle",
   end_date: "2024-11-20",    # Date d'arrivée
-  end_port: "Bordeaux, France",
+  end_port: "Bordeaux",
   details: "J'en ai mare de la vie parisien, du metro et du speed. A la recherche d'un marin pour me faire découvrir autre chose...",
   user: celia
 )
@@ -318,9 +318,9 @@ puts "rides request3 created!"
 # Pour Luc Bernard
 request5 = RideRequest.new(
   start_date: "2024-12-01",  # Date de départ
-  start_port: "Nantes, France",
+  start_port: "Nantes",
   end_date: "2024-12-10",    # Date d'arrivée
-  end_port: "Saint-Malo, France",
+  end_port: "Saint-Malo",
   details: "À la recherche d'une expérience de navigation tranquille le long des côtes bretonnes. Préférences pour des petites marinas et des paysages côtiers magnifiques.",
   user: fabien
 )
@@ -330,9 +330,9 @@ puts "rides request5 created!"
 # Pour Elise Moreau
 request6 = RideRequest.new(
   start_date: "2024-12-15",  # Date de départ
-  start_port: "Toulon, France",
+  start_port: "Saint-Tropez",
   end_date: "2025-01-05",    # Date d'arrivée
-  end_port: "Cannes, France",
+  end_port: "Cannes",
   details: "Voyage en mer le long de la Côte d'Azur pour découvrir les charmantes villes côtières et les calanques. Prévoir des moments de détente et des visites culturelles.",
   user: elise
 )
@@ -342,9 +342,9 @@ puts "rides request6 created!"
 # Pour Sophie Durand
 request7 = RideRequest.new(
   start_date: "2025-01-10",  # Date de départ
-  start_port: "Bordeaux, France",
+  start_port: "Bordeaux",
   end_date: "2025-01-25",    # Date d'arrivée
-  end_port: "La Rochelle, France",
+  end_port: "La Rochelle",
   details: "Ancien professeur de mathématiques passionné par l'analyse et la cartographie, je rêve de parfaire mes connaissances en géographie maritime. Je cherche une expérience de navigation qui me permettra de découvrir les subtilités des courants océaniques, des routes maritimes et des caractéristiques géographiques des côtes. Mon objectif est de combiner mon amour des chiffres et des cartes avec une aventure en mer enrichissante. Préférences pour des itinéraires éducatifs et des escales dans des lieux d'intérêt géographique.",
   user: sophie
 )
