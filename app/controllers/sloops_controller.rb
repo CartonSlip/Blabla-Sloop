@@ -41,6 +41,17 @@ class SloopsController < ApplicationController
     redirect_to profil_path, status: :see_other
   end
 
+  def favorite
+    @sloop = Sloop.find(params[:id])
+    current_user.favorited?(@sloop) ? current_user.unfavorite(@sloop) : current_user.favorite(@sloop)
+
+    respond_to do |format|
+      format.html { redirect_to sloop_path(@sloop) }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace(@sloop, partial: "shared/favorite_btn" , locals: { sloop: @sloop}) }
+    end
+
+  end
+
   private
 
   def sloop_params

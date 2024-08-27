@@ -1,5 +1,5 @@
 <div class="banner no_home" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
-    <h2>Détails du voyage</h2>
+    <h2 class="logo-title">Détails du voyage</h2>
 </div><br>
 
 <div class="container">
@@ -80,7 +80,11 @@
     <%= simple_form_for [@ride, @traveller_ride] do |f| %>
 
     <div class="mb-3 traveller_info_container">
-      <%= f.input :info, placeholder: "Quelles sont les informations que vous voulez partager/donner au Slooper ?", input_html: { class: "traveller_info" }, wrapper_html: { class:"tranveller_info_wrapper"}, label: false %>
+      <%= f.input :info,
+        placeholder: "Quelles sont les informations que vous voulez partager/donner au Slooper ?",
+        input_html: { class: "traveller_info" },
+        wrapper_html: { class:"traveller_info_wrapper"},
+        label: false %>
       <%# <label for="exampleFormControlTextarea1" class="form-label"></label> %>
       <%# <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quelles sont les informations que vous voulez partager/donner au Slooper ?" rows="3"></textarea> %>
     </div>

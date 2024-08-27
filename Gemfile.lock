@@ -6,6 +6,13 @@ GIT
       actionpack (>= 5.2)
       activemodel (>= 5.2)
 
+GIT
+  remote: https://github.com/jonhue/acts_as_favoritor.git
+  revision: 224dc91d4296b67c066c55f5e59cbf7dd31925f2
+  specs:
+    acts_as_favoritor (6.0.2)
+      activerecord (>= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -330,6 +337,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+
+  acts_as_favoritor!
   actioncable-enhanced-postgresql-adapter
   autoprefixer-rails
   bootsnap

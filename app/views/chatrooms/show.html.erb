@@ -9,16 +9,16 @@
 </div>
 
 <%= simple_form_for [@chatroom, @user_message],
-  html: {class: "d-flex",
+  html: {class: "d-flex chatwritebox",
          data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
 %>
   <% other_user = current_user == @chatroom.skipper ? @chatroom.user : @chatroom.skipper %>
   <%= f.input :content,
     label: false,
-    placeholder: "Message #{other_user.first_name}",
-    wrapper_html: {class: "flex-grow-1"}
+    placeholder: "Ecrire à #{other_user.first_name}",
+    wrapper_html: {class: "flex-grow-1"},
+    input_html: { class: "chatbox" }
   %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <%= f.submit "Send", class: "btn btn-primary mb-3 chatsend" %>
 <% end %>
 </div>
-
