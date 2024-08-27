@@ -64,7 +64,7 @@ group :development, :test do
 end
 
 gem "cloudinary"
-
+gem 'acts_as_favoritor', github: 'jonhue/acts_as_favoritor'
 gem "open-uri"
 
 group :development do
