@@ -33,6 +33,10 @@
         <span><i class="fa-solid fa-flag-checkered"></i> <%= @ride.end_port %></span>
         <span><%= l(@ride.end_date, format: '%d/%m/%Y') %></span>
       </div>
+      <div class="travel_info">
+        <span><i class="avatar  fa-solid fa-users"></i> <%= @ride.traveller_rides.accepted.count %> voyageurs</span>
+        <span><i class="  fa-solid fa-person-circle-exclamation"></i> <%= @ride.capacity %> <strong class="me-2">MAX</strong></span>
+      </div>
     <br>
   </div>
   <hr>
@@ -40,8 +44,6 @@
   <div class="col-md-12 map_ride" style="height: 400px;">
     <div class="card shadow-sm h-100 mb-3">
       <div class="card-body">
-        <h4 class="card-title text-center "><i class="fa-regular fa-map"></i> </h4>
-        <hr>
         <div class="my-3 shadow p-3 mb-5" style="height: 85%;"
               data-controller="map"
               data-map-markers-value="<%= @markers.to_json %>"
@@ -51,13 +53,6 @@
     </div>
   </div>
   <hr>
-
-  <%# <h2 class="subtitle">Le Slooper</h2>
-  <div class="card_center">
-    <%= render 'usercard', user: @ride.sloop.user >
-  </div>
-  <hr> %>
-
 
   <h2 class="subtitle">Le bateau</h2>
   <div class="card_center">
