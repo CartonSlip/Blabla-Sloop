@@ -1,23 +1,29 @@
-<div class="container mt-4 mb-5">
-  <h1>Demande de voyage</h1>
-  <hr>
-  <%= simple_form_for @riderequest do |f| %>
-    <%= f.input :details, label: 'Commentaire' %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-sm-8 col-lg-4">
+      <div class="form-login">
+        <h1><%= image_tag "logo-sloop.png", height: 30, width: 30, alt: "Logo" %> BlablaSloop</h1>
+          <h2>Demande de voyage</h2>
+        <%= simple_form_for @riderequest do |f| %>
+          <%= f.input :details, label: 'Commentaire' %>
 
-    <%= f.input :start_port, label: 'Port de départ',
-        input_html: { data: { address_autocomplete_target: "startPort" }, class: "d-none" },
-        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
+          <%= f.input :start_port, label: 'Port de départ',
+              input_html: { data: { address_autocomplete_target: "startPort" }, class: "d-none" },
+              wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
 
-    <%= f.input :end_port, label: "Port d'arrivé",
-        input_html: { data: { address_autocomplete_target: "endPort" }, class: "d-none" },
-        wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
+          <%= f.input :end_port, label: "Port d'arrivé",
+              input_html: { data: { address_autocomplete_target: "endPort" }, class: "d-none" },
+              wrapper_html: { data: { controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"] } } %>
 
-    <%= f.input :start_date, as: :string,
-        label: "Date de début", input_html: { data: { controller: "datepicker" } } %>
+          <%= f.input :start_date, as: :string,
+              label: "Date de début", input_html: { data: { controller: "datepicker" } } %>
 
-    <%= f.input :end_date, as: :string,
-        label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
+          <%= f.input :end_date, as: :string,
+              label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
 
-    <%= f.button :submit, 'Publier', class: "btn btn-primary" %>
-  <% end %>
+          <%= f.button :submit, 'Publier', class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,12 +1,18 @@
-<div class="container my-3">
-  <h1>Votre nouveau Sloop</h1>
-  <hr>
-  <%= simple_form_for(@sloop) do |f| %>
-    <%= f.input :name, label: 'Nom du Sloop'%>
-    <%= f.input :category, label: 'Catégorie' %>
-    <%= f.input :description, label: 'Description du Sloop' %>
-    <%= f.input :capacity, label: 'Capacité de voyageurs' %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Photo(s)' %>
-    <%= f.submit 'Ajouter' , class:"btn btn-primary"%>
-  <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-sm-8 col-lg-4">
+      <div class="form-login">
+        <h1><%= image_tag "logo-sloop.png", height: 30, width: 30, alt: "Logo" %> BlablaSloop</h1>
+  <h2>Crée un Sloop</h2>
+        <%= simple_form_for(@sloop) do |f| %>
+          <%= f.input :name, label: 'Nom du Sloop'%>
+          <%= f.input :category, label: 'Catégorie' %>
+          <%= f.input :description, label: 'Description du Sloop' %>
+          <%= f.input :capacity, label: 'Capacité de voyageurs' %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Photo(s)' %>
+          <%= f.submit 'Ajouter' , class:"btn btn-primary"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
