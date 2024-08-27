@@ -4,10 +4,10 @@
     <%= form_with url: ride_requests_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
-            class: "searchbox",
+            class: "form-control",
             placeholder: "Recherche"
         %>
-      <%= submit_tag "Rechercher", name: "", class: "btn searchsend" %>
+      <%= submit_tag "Rechercher", name: "", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
