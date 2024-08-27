@@ -12,7 +12,7 @@
         center_lng = (start_lng + end_lng) / 2.0
 
         # Construct the Mapbox Static Images API URL with markers
-        map_url = "https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/static/pin-s-s+999(#{riderequest.start_port_longitude},#{riderequest.start_port_latitude}),pin-s-e+999(#{riderequest.end_port_longitude},#{riderequest.end_port_latitude})/auto/600x400?access_token=#{ENV['MAPBOX_API_KEY']}"
+        map_url = "https://api.mapbox.com/styles/v1/mapbox/navigation-day-v1/static/pin-s-d+295(#{riderequest.start_port_longitude},#{riderequest.start_port_latitude}),pin-s-a+900(#{riderequest.end_port_longitude},#{riderequest.end_port_latitude})/auto/600x400?access_token=#{ENV['MAPBOX_API_KEY']}"
         %>
         <%= image_tag map_url, alt: "Map des demande de voyage", class: "img-fluid fixed-map-size" %> <!-- Added fixed-map-size class -->
       </div>
@@ -29,9 +29,9 @@
 
       <p class="card-text owner-text">
         <% if riderequest.user.photo.attached? %>
-          <%= cl_image_tag riderequest.user.photo.key, class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+          <%= cl_image_tag riderequest.user.photo.key, class: "riderequest-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
         <% else %>
-          <%= image_tag "default_avatar.png", class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+          <%= image_tag "default_avatar.png", class: "riderequest-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
         <% end %>
       </p>
     </div>

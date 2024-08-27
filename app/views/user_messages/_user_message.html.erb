@@ -1,0 +1,11 @@
+<div
+    id="message-<%= user_message.id %>"
+    class="message <%= user_message.user === user ? 'sent' : 'received' %>"
+    data-controller="message"
+    data-message-user-id-value="<%= user_message.user.id %>">
+  <small class="message-info <%= user_message.user === user ? 'sent' : 'received' %>">
+    <strong><%= user_message.user.first_name %></strong>
+    <i><%= l(user_message.created_at, format: "le %d %B %Y à %H:%M") %></i>
+  </small>
+  <p class="message-content"><%= user_message.content %></p>
+</div>
