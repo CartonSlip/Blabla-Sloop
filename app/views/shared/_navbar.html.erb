@@ -4,14 +4,14 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "/" do %>
-              <i class="fa-solid fa-sailboat"></i>
+            <%= link_to do %>
+              <i class="fa-regular fa-map"></i>
             <% end %>
             <%= link_to dashboard_path do %>
               <i class="fa-regular fa-calendar-check"></i>
             <% end %>
-            <%= link_to do %>
-              <i class="fa-regular fa-map"></i>
+            <%= link_to "/" do %>
+              <% image_tag "logo-sloop.png", class: "logo-nav" %>
             <% end %>
             <%= link_to do %>
               <i class="fa-regular fa-comment"></i>
