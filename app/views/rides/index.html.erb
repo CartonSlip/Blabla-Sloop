@@ -6,9 +6,10 @@
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              placeholder: "Recherche"
+              placeholder: "Recherche",
+              id: "search-query"
           %>
-        <%= submit_tag "Rechercher", name: "", class: "btn btn-primary" %>
+        <%= submit_tag "Rechercher", name: "", class: "btn btn-primary",id: "search-btn"  %>
       <% end %>
     </div>
   </div>
@@ -21,8 +22,20 @@
           <%= link_to "Demander un voyage", new_ride_request_path, class: "btn btn-primary" %>
         </div>
         <hr>
-        <span class="mb-3 d-block"><em><%= "Aucune proposition de voyage disponible pour le moment." if @rides.empty? %></em></span>
-        <span class="mb-3 d-block"><em><%= "#{pluralize(@rides.count, "Résultat(s)")}" if @rides.count  %></em></span>
+        <span class="mb-3 d-block">
+          <% if @rides.empty? %>
+            <em><%= " Aucune proposition de voyage disponible pour le moment." %>
+            </em>
+            <br>
+            <%= link_to rides_path do %>
+              <i class="fa-solid fa-arrow-left-long"> Retrouvez tous les voyages disponnibles</i>
+            <% end %>
+          <% else %>
+            <span class="mb-3 d-block"><em>
+              <%= "#{pluralize(@rides.count, @rides.size == 1 ? "Résultat" : "Résultats")}"  %></em>
+            </span>
+          <% end %>
+        </span>
       </div>
       <% @rides.each do |ride| %>
         <%= render "shared/cardride", ride: ride %>
