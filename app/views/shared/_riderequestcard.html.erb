@@ -18,13 +18,13 @@
       </div>
 
       <div class="travel_info">
-        <span><i class="fa-solid fa-play"></i> <%= riderequest.start_port %></span>
-        <span><%= l(riderequest.start_date, format: '%d/%m/%Y') %></span>
+        <span><i class="avatar fa-solid fa-play"></i> <%= riderequest.start_port %></span>
+        <span class="me-2"><%= l(riderequest.start_date, format: '%d/%m/%Y') %></span>
       </div>
 
       <div class="travel_info">
-        <span><i class="fa-solid fa-flag-checkered"></i> <%= riderequest.end_port %></span>
-        <span><%= l(riderequest.end_date, format: '%d/%m/%Y') %></span>
+        <span><i class="avatar fa-solid fa-flag-checkered"></i> <%= riderequest.end_port %></span>
+        <span class="me-2"><%= l(riderequest.end_date, format: '%d/%m/%Y') %></span>
       </div>
 
       <p class="card-text owner-text">
