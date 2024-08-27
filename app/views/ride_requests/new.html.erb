@@ -2,8 +2,8 @@
   <div class="row justify-content-center">
     <div class="col col-sm-8 col-lg-4">
       <div class="form-login">
-        <h1><%= image_tag "logo-sloop.png", height: 30, width: 30, alt: "Logo" %> BlablaSloop</h1>
-          <h2>Demande de voyage</h2>
+        <h2><%= image_tag "logo-sloop.png", height: 30, width: 30, alt: "Logo" %> BlablaSloop</h1>
+          <h4>Demander un voyage</h2>
         <%= simple_form_for @riderequest do |f| %>
           <%= f.input :details, label: 'Commentaire' %>
 
