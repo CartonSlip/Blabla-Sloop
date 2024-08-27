@@ -1,42 +1,29 @@
 .card-sloop {
-
+  position: relative;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.723);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 15px;
-
-  img {
-    height: 250px;
-    width: 100%;
-    object-fit: cover;
-    position: relative;
-
-
-  }
-
-  h2 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-  }
-  p {
-    font-size: 12px;
-    margin: 0;
-  }
 }
-  .card-sloop-infos {
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    position: relative;
-  }
-  .card-sloop-user {
-    position: absolute;
-    right: -40px;
-    top: -35px;
-    width: 40px;
-  }
+.fixed-cover {
+  width: 100%; /* Adapte l'image à la largeur du conteneur parent */
+  height: 250px; /* Fixe la hauteur de l'image */
+  object-fit: cover; /* Recadre l'image pour qu'elle couvre le conteneur tout en conservant son aspect ratio */
+}
+.card-sloop-infos {
+  padding: 16px;
+
+}
+.card-sloop-user {
+  position: absolute;
+  bottom: 80px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: 1px $darkgreen;
+}
 
 
 .ride-avatar-position {

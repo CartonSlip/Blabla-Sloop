@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.1].define(version: 2024_08_26_151705) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +51,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_26_151705) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "skipper_id", null: false
+    t.bigint "ride_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ride_id"], name: "index_chatrooms_on_ride_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.string "favoritable_type", null: false
@@ -70,16 +77,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_26_151705) do
     t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
     t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor"
     t.index ["scope"], name: "index_favorites_on_scope"
-
-  create_table "chatrooms", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.integer "skipper_id", null: false
-    t.bigint "ride_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ride_id"], name: "index_chatrooms_on_ride_id"
-    t.index ["user_id"], name: "index_chatrooms_on_user_id"
-
   end
 
   create_table "reviews", force: :cascade do |t|
