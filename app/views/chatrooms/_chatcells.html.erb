@@ -21,8 +21,7 @@
       <% if  chat.user_messages.empty?%>
       <% else %>
         <div class="card-cellchat-time">
-          il y a
-          <p><%= distance_of_time_in_words(Time.now, chat.user_messages.last.updated_at) %></p>
+          <p>il y a <%= distance_of_time_in_words(Time.now, chat.user_messages.last.updated_at) %></p>
         </div>
       <% end %>
     </div>

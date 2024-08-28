@@ -9,26 +9,33 @@
   align-items: center;
 }
 
-.card-cellchat img {
+.card-cellchat {
+  img {
   height: 80%;
   width: 90px;
   object-fit: cover;
+  }
 }
 
 
-.card-cellchat h2 {
+.card-cellchat {
+  h2 {
   font-family: "Nunito";
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  text-align: left;
+  }
 }
 
-.card-cellchat p {
+.card-cellchat {
+  p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  }
 }
 
 .card-cellchat .card-cellchat-infos {
