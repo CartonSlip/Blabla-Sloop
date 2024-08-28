@@ -9,4 +9,7 @@ class PagesController < ApplicationController
   def profil
     @favorite_sloops = current_user.favorites_by_type('Sloop').map { |fav| fav.favoritable }
   end
+
+  def map
+  end
 end
