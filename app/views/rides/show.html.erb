@@ -56,11 +56,16 @@ style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0
       <p class='m-0'>Utilisateur.rice</p>
     </div>
   </div>
+
   <div class="chatbubble">
-    <%= link_to chatroom_ride_path, data: {turbo_method: :put} do %>
-      <i class="fa-regular fa-comment fa-2xl" style="color: #023631;"></i>
+    <% unless current_user == @ride.skipper %>
+      <%= link_to chatroom_ride_path, data: {turbo_method: :put} do %>
+        <i class="fa-regular fa-comment fa-2xl" style="color: #023631;"></i>
+      <% end %>
     <% end %>
   </div>
+
+
 </div>
 <div class="card-body">
   <p class="card-text ride_description">
