@@ -22,7 +22,6 @@ class RideRequestsController < ApplicationController
     end
   end
 
-
   def new
     @riderequest = RideRequest.new
   end
@@ -31,9 +30,8 @@ class RideRequestsController < ApplicationController
     @riderequest = RideRequest.new(riderequest_params)
     @riderequest.user = current_user
 
-    if @riderequest.save
-      # redirect_to profil_path(@current_user)
-      redirect_to ride_requests_path, notice: "Votre demande de voyage a bien été ajoutée"
+    if @riderequest.save*
+      redirect_to dashboard_path, notice: "Votre demande de voyage a bien été ajoutée"
     else
       render :new, status: :unprocessable_entity
     end
