@@ -1,6 +1,6 @@
   <div class="chatbanner" style="background-image: url(<%= image_path "chatbanner.jpg" %>);">
-    <%= link_to dashboard_path do %>
-      <i class="fa-solid fa-arrow-left-long"></i>
+    <%= link_to chatrooms_path, class:"back-arrow" do %>
+      <i class="fa-solid fa-angle-left fa-2xl" style="color: #08685E;"></i>
     <% end %>
     <h1>
       <% other_user = current_user == @chatroom.skipper ? @chatroom.user : @chatroom.skipper %>
