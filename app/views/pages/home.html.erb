@@ -1,7 +1,7 @@
 
 <%# ##########Banner########################### %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
-  <h1><%= image_tag "logo-sloop.png", class: "avatar" %> Blabla'Sloop</h1>
+  <h1 id="hometitle"><%= image_tag "logo-sloop.png", class: "avatar" %> Blabla'Sloop</h1>
   <div class="container mt-5" id="banner-content">
     <strong><%= link_to "Vous avez un bateau", ride_requests_path, class: "btn btn-primary", id:"banner-bouton" %></strong>
   </div>
