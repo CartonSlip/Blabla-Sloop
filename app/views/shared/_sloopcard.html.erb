@@ -1,26 +1,22 @@
 <div class="col-md-4 mb-4">
   <%= link_to sloop_path(sloop), style: "text-decoration: none; color: inherit;" do %>
   <div class="card-sloop">
+      <h2 class="mt-3"><%= sloop.name %></h2>
       <% if sloop.photos.any? %>
         <%= cl_image_tag sloop.photos.first.key, class: "card-img-top fixed-cover" %>
       <% else %>
         <%= image_tag "2065070_04609.jpg", alt: "Logo" %>
       <% end %>
-      <% if sloop.user.photo.attached? %>
-          <%= cl_image_tag sloop.user.photo.key, class: "card-sloop-user" %>
-        <% else %>
-          <%= image_tag "default_avatar.png", class: "card-sloop-user" %>
-        <% end %>
-    <div class="row mt-2">
-      <div class="col-8">
-      <p class="ms-3"><strong><%= sloop.name %></strong></p>
-      <p class="ms-3"><%= sloop.category %></p>
-      </div>
-      <div class="col-4">
-        <p class="mt-3 me-3"><%= sloop.user.first_name %> <%= sloop.user.last_name %></p>
-      </div>
-      </p>
-      </div>
+        <div class=" d-flex justify-content-between mt-3 mx-2">
+          <p>
+            <%= image_tag "logo-sloop.png", class: "avatar-mini me-2", alt: "Logo" %><%= sloop.category %>
+          </p>
+          <p>
+              <%= sloop.capacity %> places
+            <i class="avatar  fa-solid fa-users fa-xl ms-2"></i>
+          </p>
+        </div>
+
     </div>
   <% end %>
 </div>
