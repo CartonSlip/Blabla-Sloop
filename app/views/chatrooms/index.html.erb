@@ -5,5 +5,8 @@
     <%= render "chatrooms/chatcells", chat: chat %>
   <% end %>
 <%  if @chatrooms.empty? %>
-  <p>Vous n'avez pas de messages</p>
+  <div class="container">
+    <br>
+    <p>Vous n'avez pas de messages</p>
+  </div>
 <% end %>
