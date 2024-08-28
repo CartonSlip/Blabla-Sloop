@@ -2,10 +2,10 @@
     <h1 class="text-center mt-3">Mon tableau de bord</h1>
 </div>
 <div class="container mt-3">
-  <% if current_user.skipper_traveller_rides.empty? && current_user.traveller_rides.empty? && current_user.rides.empty? %>
-    <h4 class="text-center">Vous êtes perdu en mer ? <br><br> Pas de panique,<br> Vous n'avez pas encore de voyage !</h4>
+  <% if current_user.skipper_traveller_rides.empty? && current_user.traveller_rides.empty? && current_user.rides.empty? && current_user.ride_requests.empty? %>
+    <h4 class="text-center mb-3">Vous êtes perdu en mer ? <br><br> Pas de panique,<br> Vous n'avez pas encore de voyage !</h4>
     <div class="text-center mb-3">
-      <%= image_tag "lost-in-sea.jpg", class: "avatar me-2", style: "width: 93%; height: 315px; border-radius: 5%;" %>
+      <%= image_tag "lost-in-sea.jpg", style: "width: 354px; height: 315px; border-radius: 5%;" %>
     </div>
     <div class="text-center">
       <%= link_to "Choisir votre prochaine navigation", root_path, class: "btn btn-primary" %>
