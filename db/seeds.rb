@@ -325,17 +325,6 @@ request4 = RideRequest.new(
 request4.save!
 puts "rides request3 created!"
 
-# Pour Luc Bernard
-request5 = RideRequest.new(
-  start_date: "2024-12-01",  # Date de départ
-  start_port: "Nantes",
-  end_date: "2024-12-10",    # Date d'arrivée
-  end_port: "Saint-Malo",
-  details: "À la recherche d'une expérience de navigation tranquille le long des côtes bretonnes. Préférences pour des petites marinas et des paysages côtiers magnifiques.",
-  user: fabien
-)
-request5.save!
-puts "rides request5 created!"
 
 # Pour Elise Moreau
 request6 = RideRequest.new(
