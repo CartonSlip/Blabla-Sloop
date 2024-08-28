@@ -1,0 +1,24 @@
+<%= link_to chatroom_path(chat), class: "--text-deco-none" do %>
+    <div class="card-cellchat">
+    <%# Set le other_user en fonction de si le current user est le skiper ou le user %>
+      <% other_user = current_user == chat.ride.skipper ? chat.ride.user : chat.ride.skipper %>
+      <%# photo du other_user %>
+      <%= cl_image_tag other_user.photo.key, class: "chatroompic", alt: "photo de profil" %>
+      <div class="card-cellchat-infos">
+      <%# recuperer le dernier message  %>
+        <h2><%= other_user.first_name%></h2>
+        <P class="message-content">
+          <% if chat.user_messages.last.content.length > 45 %>
+            <%= "#{chat.user_messages.last.content[0, 45]}..." %>
+          <% else %>
+            <%= chat.user_messages.last.content unless  chat.user_messages.empty?%>
+          <% end %>
+        </p>
+      </div>
+        <%# recuperer l'heure et la date du dernier message a l'aide de chatroom_id.updated_at , calculer la différence et afficher la diférence %>
+      <div class="card-cellchat-time">
+        il y a
+        <p><%= distance_of_time_in_words(Time.now, chat.user_messages.last.updated_at) %></p>
+      </div>
+    </div>
+<% end %>

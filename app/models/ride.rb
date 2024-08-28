@@ -51,6 +51,4 @@ class Ride < ApplicationRecord
     self.end_port_latitude, self.end_port_longitude = results.first.coordinates
   end
 
-
-
 end
