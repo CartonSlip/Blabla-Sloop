@@ -2,15 +2,16 @@
     <h1 class="text-center mt-3">Mon tableau de bord</h1>
 </div>
 <div class="container mt-3">
-  <h4 class="text-center mb-3">Vous êtes perdu.e en mer ? <br><br> Pas de panique,<br> Vous n'avez pas encore de voyage !</h4>
-  <div class="text-center mb-3">
-    <%= image_tag "lost-in-sea.jpg", class: "avatar me-2", style: "width: 93%; height: 310px; border-radius: 5%;" %>
-  </div>
-  <div class="text-center">
-    <%= link_to "Choisir votre prochaine navigation", root_path, class: "btn btn-primary" %>
-  </div>
-  <hr>
-
+  <% if current_user.skipper_traveller_rides.empty? && current_user.traveller_rides.empty? && current_user.rides.empty? %>
+    <h4 class="text-center">Vous êtes perdu en mer ? <br><br> Pas de panique,<br> Vous n'avez pas encore de voyage !</h4>
+    <div class="text-center mb-3">
+      <%= image_tag "lost-in-sea.jpg", class: "avatar me-2", style: "width: 93%; height: 315px; border-radius: 5%;" %>
+    </div>
+    <div class="text-center">
+      <%= link_to "Choisir votre prochaine navigation", root_path, class: "btn btn-primary" %>
+    </div>
+    <hr>
+  <% end %>
   <% if current_user.skipper_traveller_rides.any? %>
     <div class="container mt-3">
       <h2 class="mb-3 py-2" id="last_propal"><%= current_user.rides.size == 1 ? "La demande pour mon voyage" : "Les demandes pour mon voyage" %></h2>
