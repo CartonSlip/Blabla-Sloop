@@ -68,7 +68,7 @@
 
   <% if current_user.traveller_rides.any? %>
     <div class="container mt-3">
-      <h2 class="mb-3 py-2" id="last_ask"><%= current_user.rides.size == 1 ? "Ma demande pour un voyage" : "Mes demandes pour des voyages" %></h2>
+      <h2 class="mb-3 py-2" id="last_ask"><%= current_user.traveller_rides.size == 1 ? "Ma demande à un skipper" : "Mes demandes à des skippers" %></h2>
       <div class="row">
         <% current_user.traveller_rides.each do |traveller_ride| %>
           <div class="col-md-4 mb-4">
