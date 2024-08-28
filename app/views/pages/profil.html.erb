@@ -33,26 +33,6 @@
     <%= link_to "Ajouter un Sloop", new_sloop_path, class: "btn btn-primary" %>
   </div>
   <hr>
-<!-- Les trajets proposés par l'utlisateur -->
-  <% if current_user.rides.any? %>
-    <h4 class="mb-4"> <%= current_user.rides.size == 1 ? "Mon voyage proposé" : "Mes voyages proposés" %></h4>
-      <div class="row">
-        <% current_user.rides.each do |ride| %>
-          <%= render "shared/cardride", ride: ride %>
-        <% end %>
-      </div>
-    <hr>
-  <% end %>
-<!-- Les demandes de trajet de l'utlisateur -->
-  <% if current_user.ride_requests.any? %>
-    <h4 class="mb-4"> <%= current_user.ride_requests.size == 1 ? "Ma demande de Trajet" : "Mes demandes de Trajets" %></h4>
-      <div class="row">
-        <% current_user.ride_requests.each do |riderequest| %>
-          <%= render "shared/riderequestcard", riderequest: riderequest %>
-        <% end %>
-      </div>
-    <hr>
-  <% end %>
   <!-- Les favoris de l'utlisateur -->
   <% if current_user.all_favorites.any? %>
       <!-- Les Sloops favoris de l'utlisateur -->

@@ -12,7 +12,7 @@ class SloopsController < ApplicationController
     @sloop.user = current_user
 
     if @sloop.save
-      redirect_to profil_path, notice: "Votre sloop a bien été ajoutée"
+      redirect_to profil_path, notice: "Votre sloop a bien été ajouté !"
     else
       render :new, status: :unprocessable_entity
     end
@@ -49,7 +49,6 @@ class SloopsController < ApplicationController
       format.html { redirect_to sloop_path(@sloop) }
       format.turbo_stream { render turbo_stream: turbo_stream.replace(@sloop, partial: "shared/favorite_btn" , locals: { sloop: @sloop}) }
     end
-
   end
 
   private

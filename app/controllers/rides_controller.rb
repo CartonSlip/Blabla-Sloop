@@ -1,10 +1,10 @@
 class RidesController < ApplicationController
   def index
-    @rides = Ride.all
-
     if params[:query].present?
       sql_subquery = "start_port ILIKE :query OR end_port ILIKE :query"
       @rides = @rides.where(sql_subquery, query: "%#{params[:query]}%")
+    else
+      @rides = Ride.all
     end
   end
 
@@ -35,7 +35,7 @@ class RidesController < ApplicationController
     @ride = Ride.new(ride_params)
 
     if @ride.save
-      redirect_to rides_path, notice: "Votre ride a bien été ajoutée"
+      redirect_to dashboard_path, notice: "Votre trajet a bien été ajouté !"
       # refaire un if, puis recuperer la riderequest.
       if params[:ride_request_id].present?
         @ride_request = RideRequest.find(params[:ride_request_id])

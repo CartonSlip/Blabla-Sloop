@@ -1,46 +1,54 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
     <h1 class="text-center mt-3">Mon tableau de bord</h1>
 </div>
-<div class="container">
+<div class="container mt-3">
+  <% if current_user.skipper_traveller_rides.empty? && current_user.traveller_rides.empty? %>
+    <h4 class="text-center">Vous êtes perdu en mer ? Pas de panique, vous n'avez pas encore de voyage !</h4>
+    <div class="text-center">
+    <%= image_tag "lost-in-sea.jpg", class: "avatar me-2", style: "width: 400px; height: 350px; border-radius: 5%;" %>
+    </div>
+    <hr>
+    <%= link_to "Choisir votre prochaine navigation", root_path, class: "btn btn-primary" %>
+  <% end %>
   <% if current_user.skipper_traveller_rides.any? %>
     <div class="container mt-3">
-      <h2 class="mb-3" id="last_propal">Les demandes pour mes voyages</h2>
+      <h2 class="mb-3 py-2" id="last_propal"><%= current_user.rides.size == 1 ? "La demande pour mon voyage" : "Les demandes pour mon voyage" %></h2>
       <div class="row">
         <% current_user.skipper_traveller_rides.each do |traveller_ride| %>
           <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
               <div class="card-body">
                 <h5>Demande faite par <strong><%= traveller_ride.user.first_name %></strong>
-                  <% if traveller_ride.user.photo.attached? %>
-                    <%# <%= cl_image_tag traveller_ride.user.photo.key, class: "avatar" > %>
-                    <%= link_to (cl_image_tag traveller_ride.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(traveller_ride.user) %>
-                  <% elsif %>
-                    <% link_to (image_tag "logo.png", class: "avatar me-2"), user_path(traveller_ride.user) %>
-                  <% end %>
+                <% if traveller_ride.user.photo.attached? %>
+                  <%# <%= cl_image_tag traveller_ride.user.photo.key, class: "avatar" > %>
+                  <%= link_to (cl_image_tag traveller_ride.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(traveller_ride.user) %>
+                <% elsif %>
+                  <% link_to (image_tag "logo.png", class: "avatar me-2"), user_path(traveller_ride.user) %>
+                <% end %>
                 </h5>
                 <div class="travel_info">
-                  <span><i class="fa-solid fa-sailboat"></i> <%= traveller_ride.sloop.name %></span>
+                  <span><i class="avatar fa-solid fa-sailboat"></i> <%= traveller_ride.sloop.name %></span>
                 </div>
                 <div class="travel_info">
-                  <span><i class="fa-solid fa-play"></i> <%= traveller_ride.ride.start_port %></span>
+                  <span><i class="avatar fa-solid fa-play"></i> <%= traveller_ride.ride.start_port %></span>
                   <span><%= l(traveller_ride.ride.start_date, format: '%d/%m/%Y') %></span>
                 </div>
                 <div class="travel_info">
-                  <span><i class="fa-solid fa-flag-checkered"></i> <%= traveller_ride.ride.end_port %></span>
+                  <span><i class="avatar fa-solid fa-flag-checkered"></i> <%= traveller_ride.ride.end_port %></span>
                   <span><%= l(traveller_ride.ride.end_date, format: '%d/%m/%Y') %></span>
                 </div>
                 <hr>
-                <span><i class="fa-regular fa-comments"></i> <%= traveller_ride.info %></span>
+                <span><i class="avatar fa-regular fa-comments"></i> <%= traveller_ride.info %></span>
                 <hr>
                 <div class="text-center">
                   <% if traveller_ride.validate_status == "pending" %>
                     <%= simple_form_for(traveller_ride) do |f| %>
                       <%= f.input :validate_status, as: :hidden, input_html: { value: 'accepted'} %>
-                      <%= f.button :submit, 'Valider la demande', class:"btn btn-primary"%>
+                      <%= f.button :submit, 'Valider', class:"btn btn-primary", id:"btn-dash" %>
                     <% end %>
                     <%= simple_form_for(traveller_ride) do |f| %>
                       <%= f.input :validate_status, as: :hidden, input_html: { value: 'refused'} %>
-                      <%= f.button :submit, 'Refuser la demande', class:"btn btn-warning"%>
+                      <%= f.button :submit, 'Refuser', class:"btn btn-info", id:"btn-dash" %>
                     <% end %>
                   <% elsif traveller_ride.validate_status == "accepted" %>
                     <span class='text-center'><i class="fa-solid fa-circle-check text-center text-success"></i> Demande de voyage <strong class="text-success">validée ! </strong></span>
@@ -54,12 +62,12 @@
         <% end %>
       </div>
     </div>
+    <hr>
   <% end %>
 
   <% if current_user.traveller_rides.any? %>
-    <br><hr>
     <div class="container mt-3">
-      <h2 class="mb-3" id="last_ask">Mes demandes</h2>
+      <h2 class="mb-3 py-2" id="last_ask"><%= current_user.rides.size == 1 ? "Ma demande pour un voyage" : "Mes demandes pour des voyages" %></h2>
       <div class="row">
         <% current_user.traveller_rides.each do |traveller_ride| %>
           <div class="col-md-4 mb-4">
@@ -74,14 +82,14 @@
                   <% end %>
                 </h5>
                 <div class="travel_info">
-                  <span><i class="fa-solid fa-sailboat"></i> <%= traveller_ride.sloop.name %></span>
+                  <span><i class="avatar fa-solid fa-sailboat"></i> <%= traveller_ride.sloop.name %></span>
                 </div>
                 <div class="travel_info">
-                  <span><i class="fa-solid fa-play"></i> <%= traveller_ride.ride.start_port %></span>
+                  <span><i class="avatar fa-solid fa-play"></i> <%= traveller_ride.ride.start_port %></span>
                   <span><%= l(traveller_ride.ride.start_date, format: '%d/%m/%Y') %></span>
                 </div>
                 <div class="travel_info">
-                  <span><i class="fa-solid fa-flag-checkered"></i> <%= traveller_ride.ride.end_port %></span>
+                  <span><i class="avatar fa-solid fa-flag-checkered"></i> <%= traveller_ride.ride.end_port %></span>
                   <span><%= l(traveller_ride.ride.end_date, format: '%d/%m/%Y') %></span>
                 </div>
                 <hr>
@@ -93,13 +101,37 @@
                   <% elsif traveller_ride.validate_status == "accepted" %>
                       <span><i class="fa-solid fa-circle-check text-center text-success"></i> Demande de voyage <strong class="text-success">validée !</strong></span>
                   <% else %>
-                      <span><i class="fa-solid fa-xmark text-center text-danger"></i></i> Demande de voyage <strong class="text-danger">refusée !</strong></span>
+                      <span><i class="fa-solid fa-xmark text-center text-danger"></i> Demande de voyage <strong class="text-danger">refusée !</strong></span>
                   <% end %>
                 </div>
                 </p>
               </div>
             </div>
           </div>
+        <% end %>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+  <!-- Les trajets proposés par l'utlisateur -->
+  <% if current_user.rides.any? %>
+  <div class="container mt-3">
+    <h2 class="mb-3 py-2" id="last_propal"><%= current_user.rides.size == 1 ? "Mon voyage proposé" : "Mes voyages proposés" %></h2>
+    <div class="row">
+      <% current_user.rides.each do |ride| %>
+        <%= render "shared/cardride", ride: ride %>
+      <% end %>
+    </div>
+  </div>
+  <hr>
+  <% end %>
+<!-- Les demandes de trajet de l'utlisateur -->
+  <% if current_user.ride_requests.any? %>
+    <div class="container mt-3">
+      <h2 class="mb-3 py-2" id="last_ask"><%= current_user.ride_requests.size == 1 ? "Mon voyage demandé" : "Mes voyages demandés" %></h2>
+      <div class="row">
+        <% current_user.ride_requests.each do |riderequest| %>
+          <%= render "shared/riderequestcard", riderequest: riderequest %>
         <% end %>
       </div>
     </div>
