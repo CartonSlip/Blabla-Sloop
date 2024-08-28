@@ -22,6 +22,9 @@
           <h5 class="mb-0"><%= @ride.sloop.user.first_name %> <%= @ride.sloop.user.last_name %></h5>
           <p class="mb-0">Utilisateur.rice</p>
         </div>
+        <%= link_to  chatroom_ride_path, data: {turbo_method: :put} do %>
+          <i class="fa-regular fa-comment fa-lg bubblechat" style="color: #023631;"></i>
+        <% end %>
       </div>
     </div>
     <hr>
