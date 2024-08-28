@@ -26,9 +26,6 @@ h1 {
   font-size: 40px;
 }
 
-#h1-profil {
-  color: $darkgreen;
-}
 
 p, i, span, label {
   color: $darkgreen;
@@ -39,4 +36,20 @@ p, i, span, label {
   font-family: $body-font;
   color: $white;
   font-size: 20px;
+}
+
+.btn-info {
+  font-family: $body-font;
+  font-size: 20px;
+  color: $darkgreen;
+}
+
+#btn-dash {
+  font-size: 15px;
+  width: 50%;
+}
+
+// Component profil ?
+#h1-profil {
+  color: $darkgreen;
 }
