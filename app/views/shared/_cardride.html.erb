@@ -1,7 +1,7 @@
 <div class="col-md-4 mb-4">
   <%= link_to ride_path(ride), style: "text-decoration: none; color: inherit;" do %>
-    <div class="card-riderequest"> <!-- Utiliser la même classe que la carte riderequest -->
-
+    <div class="card-ride"> <!-- Utiliser la même classe que la carte riderequest -->
+      <h2 class="mt-3"><%= ride.sloop.name %></h2>
       <div class="card-body"> <!-- Ajout de card-body pour uniformiser avec riderequest -->
       <% if ride.sloop.photos.any? %>
         <%= cl_image_tag ride.sloop.photos.first.key, class: "card-img-top fixed-map-size"%> <!-- Ajout de la classe pour la taille fixe -->
@@ -11,7 +11,6 @@
 
 
       </div>
-       <h3 class="mt-3"><%= ride.sloop.name %></h3>
 
        <div class="travel_info ">
         <span><i class="avatar fa-solid fa-play"></i> <%= ride.start_port %></span>
@@ -30,7 +29,7 @@
 
          <p class="card-text owner-text">
         <% if ride.sloop.user.photo.attached? %>
-          <%= cl_image_tag ride.sloop.user.photo.key, class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+          <h3><%= ride.sloop.user.first_name %></h3><%= cl_image_tag ride.sloop.user.photo.key, class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
         <% else %>
           <%= image_tag "default_avatar.png", class: "ride-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
         <% end %>

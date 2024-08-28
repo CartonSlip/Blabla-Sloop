@@ -2,13 +2,41 @@
   height: 200px;
 }
 
+.pic_name {
+  display: flex;
+  align-items: center;
+}
+
+.pic_ride {
+  margin-right: 10px;
+}
+
+.user_details {
+  h5 {
+    text-align: left;
+  }
+}
+
+.chatbubble {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.ride_description {
+  margin: 10px !important;
+  margin-bottom: 20px !important;
+  display: flex;
+  justify-content: space-between;
+}
+
 .travel_info {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .map_ride {

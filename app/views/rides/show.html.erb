@@ -1,93 +1,135 @@
-<div class="banner no_home" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
-    <h1>Détails du voyage proposé</h1>
+<div class="banner no-home"
+  style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
+  <div>
+    <%= link_to rides_path, class:"back-arrow" do %>
+      <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFFFFF;"></i>
+      <% end %>
+  </div>
+  <h1>Détails du voyage proposé</h1>
 </div><br>
-
-<div class="container">
-  <%= link_to rides_path do %>
-    <i class="fa-solid fa-arrow-left-long"></i>
-  <% end %><br>
-  <!-- Carte de détails du voyage -->
-  <div class="card shadow-sm mb-3">
-    <div class="card-body">
-      <p class="card-text"><%= @ride.details %></p>
-      <hr>
-      <!-- Informations utilisateur -->
-      <div class="d-flex align-items-center">
-        <% if @ride.sloop.user.photo.attached? %>
-          <%= link_to (cl_image_tag @ride.sloop.user.photo.key, class: "rounded-circle me-3", style: "width: 60px; height: 60px;"), user_path(@ride.sloop.user) %>
+<!-- Carte de détails du voyage -->
+<div class="ride_description">
+  <div class="pic_name">
+    <div class="pic_ride">
+      <% if @ride.sloop.user.photo.attached? %>
+        <div class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <%= cl_image_tag @ride.sloop.user.photo.key, class: " rounded-circle " ,
+            style: "width: 60px; height: 60px;" %>
+        </div>
         <% else %>
-          <%= image_tag "default_avatar.png", class: "rounded-circle me-3", style: "width: 60px; height: 60px;" %>
-        <% end %>
-        <div>
-          <h5 class="mb-0"><%= @ride.sloop.user.first_name %> <%= @ride.sloop.user.last_name %></h5>
-          <p class="mb-0">Utilisateur.rice</p>
-        </div>
-      </div>
+          <%= image_tag "default_avatar.png" , class: "rounded-circle" , style: "width: 60px; height: 60px;" %>
+            <% end %>
+              <%# DEBUT MODAL %>
+                <!-- Button trigger modal -->
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <div class="text-start">
+                          <h2 class="">Infos de <%= @ride.sloop.user.first_name %>
+                          </h2>
+                          <p class="border rounded-3 p-3">
+                            <%= current_user.description %>
+                          </p>
+                          <h2> Préférences de <%= @ride.sloop.user.first_name %>
+                          </h2>
+                          <p class="border rounded-3 p-3">
+                            <%= current_user.preferences %>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
+                        <%= link_to "voir plus" , user_path(@ride.sloop.user), class: "btn btn-primary" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal -->
+                <%# END MODAL %>
     </div>
-    <hr>
-      <div class="travel_info">
-        <span><i class="fa-solid fa-play"></i> <%= @ride.start_port %></span>
-        <span><%= l(@ride.start_date, format: '%d/%m/%Y') %></span>
-      </div>
-      <div class="travel_info">
-        <span><i class="fa-solid fa-flag-checkered"></i> <%= @ride.end_port %></span>
-        <span><%= l(@ride.end_date, format: '%d/%m/%Y') %></span>
-      </div>
-      <div class="travel_info">
-        <span><i class="avatar  fa-solid fa-users"></i> <%= @ride.traveller_rides.accepted.count %> voyageurs</span>
-        <span><i class="  fa-solid fa-person-circle-exclamation"></i> <%= @ride.capacity %> <strong class="me-2">MAX</strong></span>
-      </div>
-    <br>
-  </div>
-  <hr>
-
-  <div class="col-md-12 map_ride" style="height: 350px;">
-    <div class="card shadow-sm h-100">
-      <div class="card-body">
-        <div style="height: 100%;"
-
-              data-controller="map"
-              data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      </div>
+    <div class="user_details">
+      <h5 class='m-0'>
+        <%= @ride.sloop.user.first_name %>
+          <%= @ride.sloop.user.last_name %>
+      </h5>
+      <p class='m-0'>Utilisateur.rice</p>
     </div>
   </div>
-  <hr>
-
-  <h2 class="subtitle">Le bateau</h2>
-  <div class="card_center">
-    <%= render 'shared/sloopcard', sloop: @ride.sloop %>
+  <div class="chatbubble">
+    <%= link_to chatroom_ride_path, data: {turbo_method: :put} do %>
+      <i class="fa-regular fa-comment fa-2xl" style="color: #023631;"></i>
+      <% end %>
   </div>
-  <hr>
+</div>
+<div class="card-body">
+  <p class="card-text ride_description">
+    <%= @ride.details %>
+  </p>
+  <!-- Informations utilisateur -->
+  <div class="travel_info">
+    <span><i class="avatar fa-solid fa-play"></i>
+      <%= @ride.start_port %>
+    </span>
+    <span>
+      <%= l(@ride.start_date, format: '%d/%m/%Y' ) %>
+    </span>
+  </div>
+  <div class="travel_info">
+    <span><i class="avatar fa-solid fa-flag-checkered"></i>
+      <%= @ride.end_port %>
+    </span>
+    <span>
+      <%= l(@ride.end_date, format: '%d/%m/%Y' ) %>
+    </span>
+  </div>
+  <div class="travel_info">
+    <span><i class="avatar fa-solid fa-users"></i>
+      <%= @ride.traveller_rides.accepted.count %> voyageurs
+    </span>
+    <span><i class="  fa-solid fa-person-circle-exclamation"></i>
+      <%= @ride.capacity %> <strong class="me-2">MAX</strong>
+    </span>
+  </div>
+  <br>
+</div>
+<div style="height: 300px;">
+  <div style="height: 100%;" data-controller="map" data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
 
-  <% if @ride.max_capacity_reached? %>
-    <div class="capacity_reach sorry_text">
-      <div class="division">
-        <h2><i class="fa-regular fa-face-frown fa-xl" style="color: #FFFFFF;"></i></i>  Désolé, le trajet est complet.</h2>
-        <p>Mais vous pouvez toujours jeter un oeil aux autres propositions.</p>
-      </div>
+<hr>
+<h2 class="subtitle">Le bateau</h2>
+<div class=" container">
+  <%= render 'shared/sloopcard' , sloop: @ride.sloop %>
+</div>
+<hr>
+<% if @ride.max_capacity_reached? %>
+  <div class="capacity_reach sorry_text">
+    <div class="division">
+      <h2><i class="fa-regular fa-face-frown fa-xl" style="color: #FFFFFF;"></i></i> Désolé, le trajet est complet.
+      </h2>
+      <p>Mais vous pouvez toujours jeter un oeil aux autres propositions.</p>
     </div>
+  </div>
   <% else %>
-  <div class="subtitle card_center">
-    <h2>Informations pour le Slooper</p>
-  </div>
-
+    <div class="subtitle card_center">
+      <h2> Informations pour le Slooper</h2>
+    </div>
     <%= simple_form_for [@ride, @traveller_ride] do |f| %>
-
-    <div class="mb-3 traveller_info_container">
-      <%= f.input :info,
-        placeholder: "Quelles sont les informations que vous voulez partager/donner au Slooper ?",
-        input_html: { class: "traveller_info" },
-        wrapper_html: { class:"traveller_info_wrapper"},
-        label: false %>
-      <%# <label for="exampleFormControlTextarea1" class="form-label"></label> %>
-      <%# <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Quelles sont les informations que vous voulez partager/donner au Slooper ?" rows="3"></textarea> %>
-    </div>
-
-    <div class="centered_button">
-      <%= button_to "Demande de réservation",  dashboard_path, class: "btn btn-primary size_large" %>
-    </div>
+      <div class="mb-4 traveller_info_container">
+        <%= f.input :info, placeholder: "Quelles sont les informations que vous voulez partager/donner au Slooper ?" ,
+          input_html: { class: "traveller_info" }, wrapper_html: { class:"traveller_info_wrapper"}, label: false %>
+          <%# <label for="exampleFormControlTextarea1" class="form-label"></label> %>
+            <%# <textarea class="form-control" id="exampleFormControlTextarea1"
+              placeholder="Quelles sont les informations que vous voulez partager/donner au Slooper ?" rows="3">
+              </textarea> %>
+      </div>
+      <div class="centered_button">
+        <%= button_to "Demande de réservation" , dashboard_path, class: "btn btn-primary size_large" %>
+      </div>
     <% end %>
   <% end %>
-</div>

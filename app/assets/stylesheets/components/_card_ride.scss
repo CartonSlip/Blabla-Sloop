@@ -1,0 +1,35 @@
+.card-ride {
+  position: relative; /* To allow absolute positioning inside */
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.723);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+
+  h2 {
+    position: absolute;
+    top: 10px;
+    margin-left: 20px;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 1);
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+
+  }
+  
+  h3 {
+    position: absolute;
+    top: 226px;
+    right: 60px;
+    text-shadow: 1px -1px 3px rgba(0, 0, 0, 1);
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    font-family: $headers-font;
+  }
+}
+
+.ride-avatar-position {
+  position: absolute;
+  bottom: 130px;
+  right: 10px;
+}

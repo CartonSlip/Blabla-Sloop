@@ -8,7 +8,11 @@
       <%# recuperer le dernier message  %>
         <h2><%= other_user.first_name%></h2>
         <P class="message-content">
-          <%= chat.user_messages.last.content unless  chat.user_messages.empty?%>
+          <% if chat.user_messages.last.content.length > 45 %>
+            <%= "#{chat.user_messages.last.content[0, 45]}..." %>
+          <% else %>
+            <%= chat.user_messages.last.content unless  chat.user_messages.empty?%>
+          <% end %>
         </p>
       </div>
         <%# recuperer l'heure et la date du dernier message a l'aide de chatroom_id.updated_at , calculer la différence et afficher la diférence %>
@@ -18,7 +22,3 @@
       </div>
     </div>
 <% end %>
-
-deux problématique:
-le message dans "message content" ne wrap pas si le message est trop long
-le other_user.firstname disparait si le message est trop long.
