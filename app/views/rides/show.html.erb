@@ -1,50 +1,50 @@
-<div class="banner no_home" style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
-    <h1>Détails du voyage proposé</h1>
+<div class="banner no-home" style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
+  <div>
+    <%= link_to rides_path, class:"back-arrow"  do %>
+      <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFFFFF;"></i>
+    <% end %>
+  </div>
+  <h1>Détails du voyage proposé</h1>
 </div><br>
 
-<div class="container">
-  <%= link_to rides_path do %>
-    <i class="avatar fa-solid fa-arrow-left-long"></i>
-  <% end %>
-  <br>
-
   <!-- Carte de détails du voyage -->
-  <div >
-  <hr>
-      <div class="d-flex align-items-start ">
-        <% if @ride.sloop.user.photo.attached? %>
-          <%= link_to (cl_image_tag @ride.sloop.user.photo.key, class: " ms-3 rounded-circle ", style: "width: 60px; height: 60px;"), user_path(@ride.sloop.user) %>
-        <% else %>
-          <%= image_tag "default_avatar.png", class: "rounded-circle ms-3", style: "width: 60px; height: 60px;" %>
-        <% end %>
-        <div>
-          <h5 class="ms-3"><%= @ride.sloop.user.first_name %> <%= @ride.sloop.user.last_name %></h5>
-          <p class="ms-3">Utilisateur.rice</p>
-        </div>
-        <%= link_to  chatroom_ride_path, data: {turbo_method: :put} do %>
-          <i class="fa-regular fa-comment fa-lg bubblechat" style="color: #023631;"></i>
-        <% end %>
-      </div>
+<div class="ride_description">
+  <div class="pic_name">
+    <div class="pic_ride">
+      <% if @ride.sloop.user.photo.attached? %>
+        <%= link_to (cl_image_tag @ride.sloop.user.photo.key, class: "rounded-circle ", style: "width: 60px; height: 60px;"), user_path(@ride.sloop.user) %>
+      <% else %>
+        <%= image_tag "default_avatar.png", class: "rounded-circle ms-3", style: "width: 60px; height: 60px;" %>
+      <% end %>
     </div>
-      <hr>
-    <div class="card-body">
-    <p class="ms-3"><i class="fa-regular fa-comment"></i></p>
-      <p class="card-text ms-3"><%= @ride.details %></p>
-      <br>
-      <!-- Informations utilisateur -->
-      <div class="travel_info">
-        <span><i class="avatar fa-solid fa-play"></i> <%= @ride.start_port %></span>
-        <span><%= l(@ride.start_date, format: '%d/%m/%Y') %></span>
-      </div>
-      <div class="travel_info">
-        <span><i class="avatar fa-solid fa-flag-checkered"></i> <%= @ride.end_port %></span>
-        <span><%= l(@ride.end_date, format: '%d/%m/%Y') %></span>
-      </div>
-      <div class="travel_info">
-        <span><i class="avatar fa-solid fa-users"></i> <%= @ride.traveller_rides.accepted.count %> voyageurs</span>
-        <span><i class="  fa-solid fa-person-circle-exclamation"></i> <%= @ride.capacity %> <strong class="me-2">MAX</strong></span>
-      </div>
-    <br>
+    <div class="user_details">
+      <h5  class='m-0'><%= @ride.sloop.user.first_name %> <%= @ride.sloop.user.last_name %></h5>
+      <p class='m-0'>Utilisateur.rice</p>
+    </div>
+  </div>
+  <div class="chatbubble">
+  <%= link_to  chatroom_ride_path, data: {turbo_method: :put} do %>
+    <i class="fa-regular fa-comment fa-2xl" style="color: #023631;"></i>
+  <% end %>
+  </div>
+</div>
+
+  <div class="card-body">
+    <p class="card-text ride_description"><%= @ride.details %></p>
+    <!-- Informations utilisateur -->
+    <div class="travel_info">
+      <span><i class="avatar fa-solid fa-play"></i> <%= @ride.start_port %></span>
+      <span><%= l(@ride.start_date, format: '%d/%m/%Y') %></span>
+    </div>
+    <div class="travel_info">
+      <span><i class="avatar fa-solid fa-flag-checkered"></i> <%= @ride.end_port %></span>
+      <span><%= l(@ride.end_date, format: '%d/%m/%Y') %></span>
+    </div>
+    <div class="travel_info">
+      <span><i class="avatar fa-solid fa-users"></i> <%= @ride.traveller_rides.accepted.count %> voyageurs</span>
+      <span><i class="  fa-solid fa-person-circle-exclamation"></i> <%= @ride.capacity %> <strong class="me-2">MAX</strong></span>
+    </div>
+  <br>
   </div>
 
 

@@ -4,6 +4,10 @@
   margin-bottom: 80px;
 }
 
+.back-arrow {
+  display: flex;
+}
+
 h3, h4, h5 {
   font-family: $body-font;
   color: $darkgreen;
