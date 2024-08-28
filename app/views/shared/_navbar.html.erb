@@ -4,27 +4,18 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-<<<<<<< HEAD
-            <%# !!! link to Map non fonctionnel %>
-            <%= link_to do %>
-=======
             <%= link_to map_path do %>
->>>>>>> 1182bb9a1d3ef8eeeefe61c6641213e4c4462f6c
               <i class="fa-regular fa-map"></i>
             <% end %>
-            <%# link to Daschboard fonctionnel %>
             <%= link_to dashboard_path do %>
               <i class="fa-regular fa-calendar-check"></i>
             <% end %>
-            <%# link to Home fonctionnel %>
-            <%= link_to "/" do %>
+            <%= link_to root_path do %>
               <% image_tag "logo-sloop.png", class: "logo-nav" %>
             <% end %>
-            <%# !!!! link to tchat non fonctionnel %>
             <%= link_to chatrooms_path do %>
               <i class="fa-regular fa-comment"></i>
             <% end %>
-            <%# link to Profil fonctionnel %>
             <%= link_to profil_path, class: "avatar" do %>
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar" %>
