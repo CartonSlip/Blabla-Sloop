@@ -8,17 +8,22 @@
       <%# recuperer le dernier message  %>
         <h2><%= other_user.first_name%></h2>
         <P class="message-content">
-          <% if chat.user_messages.last.content.length > 45 %>
+          <% if  chat.user_messages.empty?%>
+              Il n'y a pas encore de message.
+          <%elsif chat.user_messages.last.content.length > 45  %>
             <%= "#{chat.user_messages.last.content[0, 45]}..." %>
           <% else %>
-            <%= chat.user_messages.last.content unless  chat.user_messages.empty?%>
+            <%= chat.user_messages.last.content%>
           <% end %>
         </p>
       </div>
         <%# recuperer l'heure et la date du dernier message a l'aide de chatroom_id.updated_at , calculer la différence et afficher la diférence %>
-      <div class="card-cellchat-time">
-        il y a
-        <p><%= distance_of_time_in_words(Time.now, chat.user_messages.last.updated_at) %></p>
-      </div>
+      <% if  chat.user_messages.empty?%>
+      <% else %>
+        <div class="card-cellchat-time">
+          il y a
+          <p><%= distance_of_time_in_words(Time.now, chat.user_messages.last.updated_at) %></p>
+        </div>
+      <% end %>
     </div>
 <% end %>
