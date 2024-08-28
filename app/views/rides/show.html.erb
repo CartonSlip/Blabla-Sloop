@@ -43,35 +43,31 @@ style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0
                         <%= link_to "voir plus" , user_path(@ride.sloop.user), class: "btn btn-primary" %>
                       </div>
                     </div>
-
                   </div>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
-                  <%= link_to "voir plus" , user_path(@ride.sloop.user), class: "btn btn-primary" %>
+
+                <div class="user_details">
+                  <h5 class='m-0'>
+                    <%= @ride.sloop.user.first_name %>
+                    <%= @ride.sloop.user.last_name %>
+                  </h5>
+                  <p class='m-0'>Utilisateur.rice</p>
+                </div>
+
+                <div class="chatbubble">
+                  <% unless current_user == @ride.skipper %>
+                    <%= link_to chatroom_ride_path, data: {turbo_method: :put} do %>
+                      <i class="fa-regular fa-comment fa-2xl" style="color: #023631;"></i>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
             </div>
           </div>
           <!-- Modal -->
           <%# END MODAL %>
-    </div>
-    <div class="user_details">
-      <h5 class='m-0'>
-        <%= @ride.sloop.user.first_name %>
-        <%= @ride.sloop.user.last_name %>
-      </h5>
-      <p class='m-0'>Utilisateur.rice</p>
-    </div>
-  </div>
 
-  <div class="chatbubble">
-    <% unless current_user == @ride.skipper %>
-      <%= link_to chatroom_ride_path, data: {turbo_method: :put} do %>
-        <i class="fa-regular fa-comment fa-2xl" style="color: #023631;"></i>
-      <% end %>
-    <% end %>
-  </div>
+
 
 
 </div>
