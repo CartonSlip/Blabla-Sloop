@@ -1,0 +1,9 @@
+<div class="chatbanner" style="background-image: url(<%= image_path "chatbanner.jpg" %>);">
+  <h2>Messages</h2>
+</div>
+  <% @chatrooms.each do |chat|%>
+    <%= render "chatrooms/chatcells", chat: chat %>
+  <% end %>
+<%  if @chatrooms.empty? %>
+  <p>Vous n'avez pas de messages</p>
+<% end %>

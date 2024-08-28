@@ -1,6 +1,11 @@
 require_relative "boot"
 
 require "rails/all"
+require 'dotiw'
+
+include ActionView::Helpers::DateHelper
+include ActionView::Helpers::TextHelper
+include ActionView::Helpers::NumberHelper
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
