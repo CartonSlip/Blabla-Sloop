@@ -75,7 +75,7 @@ class RidesController < ApplicationController
     ]
     @traveller_ride = TravellerRide.new
 
-    
+
 
   end
 
@@ -93,8 +93,9 @@ class RidesController < ApplicationController
   end
 
   def chatroom
+    user= params[:user].nil? ?  current_user : User.find(params[:user])
     ride = Ride.find(params[:id])
-    @chatroom = Chatroom.find_or_create_by(ride: ride, user: current_user, skipper_id: ride.skipper.id )
+    @chatroom = Chatroom.find_or_create_by(ride: ride, user: user, skipper_id: ride.skipper.id )
     redirect_to chatroom_path(@chatroom)
   end
 
