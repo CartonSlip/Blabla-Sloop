@@ -1,13 +1,18 @@
-<div class="container mt-3 mb-5">
-  <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-  <hr>
-  <%= simple_form_for current_user, url: profile_path do |f| %>
-    <%= f.input :first_name, label:'Prénom' %>
-    <%= f.input :last_name, label:'Nom' %>
-    <%= f.input :phone_number, label:'Numéro de téléphone' %>
-    <%= f.input :description, label:'À propos' %>
-    <%= f.input :preferences, label:'Préférences' %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "Éditer", class:"btn btn-primary" %>
-  <% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col col-sm-8 col-lg-4">
+      <div class="form-login">
+       <h1 class="text-primary"><%= current_user.first_name %> <%= current_user.last_name %></h1>
+        <%= simple_form_for current_user, url: profile_path do |f| %>
+          <%= f.input :first_name, label:'Prénom' %>
+          <%= f.input :last_name, label:'Nom' %>
+          <%= f.input :phone_number, label:'Numéro de téléphone' %>
+          <%= f.input :description, label:'À propos' %>
+          <%= f.input :preferences, label:'Préférences' %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit "Éditer", class:"btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
