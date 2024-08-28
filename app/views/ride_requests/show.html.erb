@@ -1,28 +1,62 @@
-<div class="banner no_home" style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
-    <h1>Détails du voyage demandé</h1>
-</div>
-<br>
-<div class="container">
-  <%= link_to ride_requests_path do %>
-    <i class="avatar fa-solid fa-arrow-left-long"></i>
-  <% end %>
-  <br>
-
-  <!-- Carte de détails du voyage -->
-  <div >
-<hr>
-      <div class="d-flex align-items-start">
-
-        <% if @riderequest.user.photo.attached? %>
-          <%= link_to (cl_image_tag @riderequest.user.photo.key, class: "rounded-circle ms-3", style: "width: 60px; height: 60px;"), user_path(@riderequest.user) %>
-        <% else %>
-          <%= image_tag "default_avatar.png", class: "rounded-circle ms-3", style: "width: 60px; height: 60px;" %>
-        <% end %>
-        <div>
-          <h5 class=" ms-3"><%= @riderequest.user.first_name %> <%= @riderequest.user.last_name %></h5>
-          <p class=" ms-3 ">Utilisateur.rice</p>
+<div class="banner no-home"
+  style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
+  <div>
+    <%= link_to ride_requests_path, class:"back-arrow" do %>
+      <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFFFFF;"></i>
+      <% end %>
+  </div>
+  <h1>Détails du voyage proposé</h1>
+</div><br>
+<div class="ride_description">
+  <div class="pic_name">
+    <div class="pic_ride">
+      <% if @riderequest.user.photo.attached? %>
+        <div class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <%= cl_image_tag @riderequest.user.photo.key, class: " rounded-circle " ,
+            style: "width: 60px; height: 60px;" %>
         </div>
-      </div>
+        <% else %>
+          <%= image_tag "default_avatar.png" , class: "rounded-circle" , style: "width: 60px; height: 60px;" %>
+            <% end %>
+              <%# DEBUT MODAL %>
+                <!-- Button trigger modal -->
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <div class="text-start">
+                          <h2 class="">Infos de <%= @riderequest.user.first_name %>
+                          </h2>
+                          <p class="border rounded-3 p-3">
+                            <%= @riderequest.user.description %>
+                          </p>
+                          <% if @riderequest.user.preferences != nil %>
+                          <h2> Préférences de <%= @riderequest.user.first_name %></h2>
+                          <p class="border rounded-3 p-3"><%= @riderequest.user.preferences %></p>
+                        <% end %>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
+                        <%= link_to "voir plus" , user_path(@riderequest.user), class: "btn btn-primary" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal -->
+                <%# END MODAL %>
+    </div>
+    <div class="user_details">
+      <h5 class='m-0'>
+        <%= @riderequest.user.first_name %>
+          <%= @riderequest.user.last_name %>
+      </h5>
+      <p class='m-0'>Utilisateur.rice</p>
+    </div>
+  </div>
+</div>
       <hr>
       <div class="card-body">
       <p class="ms-3"><i class="fa-regular fa-comment"></i></p>
@@ -41,6 +75,7 @@
     </div>
     </div>
 
+    <br>
   <!-- Boutons d'action -->
   <div class="d-flex justify-content-evenly align-items-center mb-1">
     <% if @riderequest.user == current_user %>
