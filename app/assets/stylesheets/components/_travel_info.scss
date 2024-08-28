@@ -15,13 +15,15 @@
   margin: 15px;
 }
 
-.subtitle h2 {
+.subtitle {
+  h2 {
   display: flex;
   margin-top: 20px;
   margin-left: 25px;
   color: #023631;
   font-weight: bold;
   font-size: 18px;
+  }
 }
 
 .traveller_info_container {
@@ -41,11 +43,12 @@
 .capacity_reach {
   background-color: #910F0F;
   display: flex;
-  width: 360px;
+  width: 100%;
   justify-content: center;
-  margin-left: 15px;
   border-radius: 15px;
-  height: 140px;
+  height: 125px;
+  bottom: 25px;
+  position: relative;
 }
 
 .fa-face-frown {
@@ -54,22 +57,28 @@
 }
 
 .sorry_text {
-  h2 {
+  h2, p {
     color: #FFFFFF;
     display: flex;
     text-align: left;
     align-items: center;
-    font-size: 16px;
-    margin-left: 15px;
+    margin-left: 25px;
   }
 }
 
-.sorry_text h2 {
-  margin-top: 25px;
+.sorry_text {
+  h2 {
+    font-size: 18px;
+    margin-top: 25px;
+    font-family: $body-font;
+  }
 }
 
-.sorry_text p {
-  margin-right: 15px;
+.sorry_text {
+  p {
+    font-size: 16px;
+    margin-right: 15px;
+  }
 }
 
 .card_center {
