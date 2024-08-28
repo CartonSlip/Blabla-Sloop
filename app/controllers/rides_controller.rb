@@ -74,6 +74,9 @@ class RidesController < ApplicationController
       }
     ]
     @traveller_ride = TravellerRide.new
+
+    
+
   end
 
   def edit

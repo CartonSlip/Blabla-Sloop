@@ -2,18 +2,16 @@
     <h1>Détails du voyage proposé</h1>
 </div><br>
 
-<div class="container">
-  <%= link_to rides_path do %>
-    <i class="avatar fa-solid fa-arrow-left-long"></i>
-  <% end %>
-  <br>
-
   <!-- Carte de détails du voyage -->
   <div >
   <hr>
       <div class="d-flex align-items-start ">
         <% if @ride.sloop.user.photo.attached? %>
-          <%= link_to (cl_image_tag @ride.sloop.user.photo.key, class: " ms-3 rounded-circle ", style: "width: 60px; height: 60px;"), user_path(@ride.sloop.user) %>
+        <div class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <%= cl_image_tag @ride.sloop.user.photo.key, class: " ms-3 rounded-circle ", style: "width: 60px; height: 60px;" %>
+</div>
+
+          <%#= link_to (cl_image_tag @ride.sloop.user.photo.key, class: " ms-3 rounded-circle ", style: "width: 60px; height: 60px;"), user_path(@ride.sloop.user) %>
         <% else %>
           <%= image_tag "default_avatar.png", class: "rounded-circle ms-3", style: "width: 60px; height: 60px;" %>
         <% end %>
@@ -42,6 +40,36 @@
         <span><i class="  fa-solid fa-person-circle-exclamation"></i> <%= @ride.capacity %> <strong class="me-2">MAX</strong></span>
       </div>
     <br>
+    <%# DEBUT MODAL %>
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+         <div class="text-start">
+          <h2 class="">Infos de <%= @ride.sloop.user.first_name %> </h2>
+            <p class="border rounded-3 p-3"><%= current_user.description %></p>
+          <h2> Préférences de <%= @ride.sloop.user.first_name %></h2>
+            <p class="border rounded-3 p-3"><%= current_user.preferences %></p>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
+                <%= link_to "voir plus", user_path(@ride.sloop.user), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+
+    <%# END MODAL %>
   </div>
 
 
