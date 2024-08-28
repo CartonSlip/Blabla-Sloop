@@ -92,6 +92,12 @@ class RidesController < ApplicationController
     end
   end
 
+  def chatroom
+    ride = Ride.find(params[:id])
+    @chatroom = Chatroom.find_or_create_by(ride: ride, user: current_user, skipper_id: ride.skipper.id )
+    redirect_to chatroom_path(@chatroom)
+  end
+
   def destroy
     @ride = Ride.find(params[:id])
     @ride.destroy

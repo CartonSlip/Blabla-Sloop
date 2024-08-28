@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :rides do
     resources :traveller_rides, only: %i[new create]
     resources :chatrooms, only: [:create]
+    member do
+      put :chatroom, to: "rides#chatroom"
+    end
   end
   resources :traveller_rides, only: %i[edit update]
   resources :chatrooms, only: [:show] do
