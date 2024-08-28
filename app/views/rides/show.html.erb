@@ -16,26 +16,34 @@ style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0
         </div>
         <% else %>
           <%= image_tag "default_avatar.png" , class: "rounded-circle" , style: "width: 60px; height: 60px;" %>
-        <% end %>
-        <%# DEBUT MODAL %>
-          <!-- Button trigger modal -->
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <div class="text-start">
-                    <h2 class="">Infos de <%= @ride.sloop.user.first_name %>
-                    </h2>
-                    <p class="border rounded-3 p-3">
-                      <%= current_user.description %>
-                    </p>
-                    <h2> Préférences de <%= @ride.sloop.user.first_name %>
-                    </h2>
-                    <p class="border rounded-3 p-3">
-                      <%= current_user.preferences %>
-                    </p>
+
+            <% end %>
+              <%# DEBUT MODAL %>
+                <!-- Button trigger modal -->
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <div class="text-start">
+                          <h2 class="">Infos de <%= @ride.sloop.user.first_name %>
+                          </h2>
+                          <p class="border rounded-3 p-3">
+                            <%= @ride.sloop.user.description %>
+                          </p>
+                             <% if @ride.sloop.user.preferences != nil %>
+                          <h2> Préférences de <%= @ride.sloop.user.first_name %></h2>
+                          <p class="border rounded-3 p-3"><%= @ride.sloop.user.preferences %></p>
+                        <% end %>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
+                        <%= link_to "voir plus" , user_path(@ride.sloop.user), class: "btn btn-primary" %>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
                 <div class="modal-footer">
