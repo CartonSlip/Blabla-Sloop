@@ -30,7 +30,7 @@ class RideRequestsController < ApplicationController
     @riderequest = RideRequest.new(riderequest_params)
     @riderequest.user = current_user
 
-    if @riderequest.save*
+    if @riderequest.save
       redirect_to dashboard_path, notice: "Votre demande de voyage a bien été ajoutée"
     else
       render :new, status: :unprocessable_entity

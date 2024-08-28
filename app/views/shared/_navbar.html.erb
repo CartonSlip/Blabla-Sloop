@@ -4,7 +4,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to do %>
+            <%= link_to map_path do %>
               <i class="fa-regular fa-map"></i>
             <% end %>
             <%= link_to dashboard_path do %>
