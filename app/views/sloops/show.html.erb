@@ -1,20 +1,17 @@
 <div class="container mt-3">
-  <div class="text-center mb-3">
-    <h2><strong><%= @sloop.name %></strong></h2>
-  </div>
-
   <div class="row h-100">
     <!-- Partie supérieure : Image et description -->
     <div class="col-md-12 mb-3"  >
-      <div class="row ">
+      <div class="row">
         <div class="col-md-6">
-                <%= render "shared/favorite_btn", sloop: @sloop %>
+          <%= render "shared/favorite_btn", sloop: @sloop %>
           <!-- Conteneur pour l'image du sloop -->
+          <% if @sloop.photos.count > 1 %>
           <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
               <% @sloop.photos.each_with_index do |photo, index| %>
                 <div class="carousel-item <%= 'active' if index == 0 %>">
-                  <%= cl_image_tag photo.key, class: "img-fluid d-block w-100", style: "height: 450px; width: 100%; object-fit: cover; border-radius: 5px;" %>
+                  <%= cl_image_tag photo.key, class: "img-fluid d-block w-100", style: "height: 250px; width: 100%; object-fit: cover; border-radius: 15px;" %>
                 </div>
               <% end %>
             </div>
@@ -28,43 +25,53 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
+          <% else %>
+            <%= cl_image_tag @sloop.photos.first.key, class: "img-fluid d-block w-100", style: "height: 250px; width: 100%; object-fit: cover; border-radius: 15px;" %>
+          <% end %>
         </div>
         <div class="col-md-6">
-          <!-- Conteneur pour les détails de la chèvre -->
+          <!-- Conteneur pour les détails du sloop -->
           <div class=" container" >
             <div class="card-body">
-              <h3 class="card-title text-center"><strong>Informations sur le Sloop</strong></h3>
-              <hr>
-              <p class="mt-3">
+              <div class=" d-flex justify-content-between align-items-center my-4 ">
+                <h1 class="text-primary"><%= @sloop.name %></h1>
+                <p class="h2">
+                <%= @sloop.user.first_name %> <%= @sloop.user.last_name %>
                 <% if @sloop.user.photo.attached? %>
-                  <%= cl_image_tag @sloop.user.photo.key, class: "avatar me-3" %>
-                <% else %>
-                  <%= image_tag "default_avatar.png", class: "avatar me-3" %>
-                <% end %>
-                <%= @sloop.user.first_name %>
-              </p>
-              <hr>
-              <p class="mt-3 ">
-              <%= image_tag "logo-sloop.png", class: "avatar me-3", alt: "Logo" %><%= @sloop.category %>
-              </p>
-              <hr>
-              <p class="mt-3">
-                <i class="avatar fa-regular fa-comments fa-xl "></i>
+                    <%= cl_image_tag @sloop.user.photo.key, class: "avatar" %>
+                  <% else %>
+                    <%= image_tag "default_avatar.png", class: "avatar" %>
+                  <% end %>
+                </p>
+              </div>
+              <div class=" d-flex justify-content-between my-4">
+                <p>
+                  <%= image_tag "logo-sloop.png", class: "avatar-mini me-2", alt: "Logo" %><%= @sloop.category %>
+                </p>
+                <p>
+                   <%= @sloop.capacity %> places
+                  <i class="avatar  fa-solid fa-users fa-xl ms-2"></i>
+                </p>
+              </div>
+
+
+              <h4 class="mb-3">Description du Sloop</h4>
+              <p class="border rounded-3 p-3 mb-3">
+                <%# <i class="avatar fa-regular fa-comments fa-xl "></i> %>
                 <%= @sloop.description %>
               </p>
-              <hr>
-              <p class="mt-3">
-              <i class="avatar  fa-solid fa-users"></i>
-              <%= @sloop.capacity %>
-              </p>
+
+
+
+
             </div>
             <div class=" d-flex justify-content-evenly align-items-end mb-3 ">
               <% if @sloop.user == current_user %>
-                <%= link_to "Modifier le Sloop", edit_sloop_path, class: "text-info text-decoration-none" %>
+                <%= link_to "Modifier le Sloop", edit_sloop_path, class: "btn btn-info" %>
               <% end %>
               <%# Si je possède le sloop et qu'il n'a pas de rides, je peux le supprimer %>
               <% if current_user == @sloop.user && @sloop.rides.empty? %>
-                <%= link_to "Supprimer",sloop_path(@sloop), data: { turbo_method: :delete }, class: "text-danger text-decoration-none" %>
+                <%= link_to "Supprimer",sloop_path(@sloop), data: { turbo_method: :delete }, class: "btn btn-warning" %>
               <% end %>
             </div>
           </div>

@@ -43,7 +43,10 @@ p, i, span, label {
   font-size: 20px;
   color: $darkgreen;
 }
-
+.btn-warning {
+  font-family: $body-font;
+  font-size: 20px;
+}
 #btn-dash {
   font-size: 15px;
   width: 50%;
