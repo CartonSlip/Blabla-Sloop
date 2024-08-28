@@ -4,6 +4,15 @@
   background: rgba(255, 255, 255, 0.723);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 15px;
+  h2 {
+    position: absolute;
+    top: 10px;
+    margin-left: 20px;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 1);
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+  }
 }
 .fixed-cover {
   width: 100%; /* Adapte l'image à la largeur du conteneur parent */

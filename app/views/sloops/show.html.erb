@@ -35,6 +35,7 @@
             <div class="card-body">
               <div class=" d-flex justify-content-between align-items-center my-4 ">
                 <h1 class="text-primary"><%= @sloop.name %></h1>
+                <%= link_to user_path(@sloop.user), class: "text-decoration-none" do %>
                 <p class="h2">
                 <%= @sloop.user.first_name %> <%= @sloop.user.last_name %>
                 <% if @sloop.user.photo.attached? %>
@@ -43,6 +44,7 @@
                     <%= image_tag "default_avatar.png", class: "avatar" %>
                   <% end %>
                 </p>
+                <% end %>
               </div>
               <div class=" d-flex justify-content-between my-4">
                 <p>
