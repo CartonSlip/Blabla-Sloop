@@ -1,0 +1,54 @@
+.card-cellchat {
+  margin: 10px 0px 10px;
+  overflow: hidden;
+  text-decoration: none;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-cellchat img {
+  height: 80%;
+  width: 90px;
+  object-fit: cover;
+}
+
+
+.card-cellchat h2 {
+  font-family: "Nunito";
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-cellchat p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-cellchat .card-cellchat-infos {
+  padding: 16px;
+  flex-grow: 1;
+}
+
+.card-cellchat .card-cellchat-time {
+  margin-left: auto;
+  padding: 16px;
+  text-align: right;
+}
+
+.card-cellchat .card-cellchat-time p {
+  margin: 0;
+}
+
+
+.message-content {
+  max-width: 150px;
+  text-wrap: wrap;
+  overflow-wrap: break-word;
+}

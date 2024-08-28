@@ -67,6 +67,7 @@ end
 gem "cloudinary"
 gem 'acts_as_favoritor', github: 'jonhue/acts_as_favoritor'
 gem "open-uri"
+gem 'dotiw'
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

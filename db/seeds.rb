@@ -1,6 +1,7 @@
 require "open-uri"
 
 puts "Cleaning DB..."
+TravellerRide.destroy_all
 Chatroom.destroy_all
 TravellerRide.destroy_all
 Bookmark.destroy_all
@@ -276,7 +277,16 @@ request1 = Ride.new(
   capacity: sloop5.capacity
 )
 request1.save!
-puts "rides request1 created!"
+puts "rides1 created!"
+
+# une ride request en attente pour fabien
+ride1 = TravellerRide.new(
+ user: fabien,
+ ride: request1,
+ validate_status: "pending",
+ created_at: 1.days.ago
+)
+ride1.save!
 
 request2 = Ride.new(
   start_date: "2024-10-05",  # Date de départ

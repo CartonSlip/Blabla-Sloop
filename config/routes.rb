@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
   resources :traveller_rides, only: %i[edit update]
-  resources :chatrooms, only: [:show] do
+  resources :chatrooms, only: [:show, :index] do
     resources :user_messages, only: [:create]
   end
   resources :ride_requests do

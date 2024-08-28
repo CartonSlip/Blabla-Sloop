@@ -2,13 +2,15 @@
     <h1 class="text-center mt-3">Mon tableau de bord</h1>
 </div>
 <div class="container mt-3">
-  <% if current_user.skipper_traveller_rides.empty? && current_user.traveller_rides.empty? %>
-    <h4 class="text-center">Vous êtes perdu en mer ? Pas de panique, vous n'avez pas encore de voyage !</h4>
+  <% if current_user.skipper_traveller_rides.empty? && current_user.traveller_rides.empty? && current_user.rides.empty? %>
+    <h4 class="text-center">Vous êtes perdu en mer ? <br><br> Pas de panique,<br> Vous n'avez pas encore de voyage !</h4>
+    <div class="text-center mb-3">
+      <%= image_tag "lost-in-sea.jpg", class: "avatar me-2", style: "width: 93%; height: 315px; border-radius: 5%;" %>
+    </div>
     <div class="text-center">
-    <%= image_tag "lost-in-sea.jpg", class: "avatar me-2", style: "width: 400px; height: 350px; border-radius: 5%;" %>
+      <%= link_to "Choisir votre prochaine navigation", root_path, class: "btn btn-primary" %>
     </div>
     <hr>
-    <%= link_to "Choisir votre prochaine navigation", root_path, class: "btn btn-primary" %>
   <% end %>
   <% if current_user.skipper_traveller_rides.any? %>
     <div class="container mt-3">
@@ -20,7 +22,6 @@
               <div class="card-body">
                 <h5>Demande faite par <strong><%= traveller_ride.user.first_name %></strong>
                 <% if traveller_ride.user.photo.attached? %>
-                  <%# <%= cl_image_tag traveller_ride.user.photo.key, class: "avatar" > %>
                   <%= link_to (cl_image_tag traveller_ride.user.photo.key, class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(traveller_ride.user) %>
                 <% elsif %>
                   <% link_to (image_tag "logo.png", class: "avatar me-2"), user_path(traveller_ride.user) %>
@@ -67,7 +68,7 @@
 
   <% if current_user.traveller_rides.any? %>
     <div class="container mt-3">
-      <h2 class="mb-3 py-2" id="last_ask"><%= current_user.rides.size == 1 ? "Ma demande pour un voyage" : "Mes demandes pour des voyages" %></h2>
+      <h2 class="mb-3 py-2" id="last_ask"><%= current_user.traveller_rides.size == 1 ? "Ma demande à un skipper" : "Mes demandes à des skippers" %></h2>
       <div class="row">
         <% current_user.traveller_rides.each do |traveller_ride| %>
           <div class="col-md-4 mb-4">

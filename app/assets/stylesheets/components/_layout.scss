@@ -2,10 +2,14 @@
   z-index: 0;
   position: relative;
   margin-bottom: 80px;
+  top: -25px
 }
 
 .back-arrow {
-  display: flex;
+  position: sticky;
+  margin-left: 20px;
+  top: 30px;
+  z-index: 10;
 }
 
 h3, h4, h5 {

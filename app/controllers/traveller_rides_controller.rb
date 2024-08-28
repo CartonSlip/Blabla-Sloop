@@ -39,6 +39,11 @@ class TravellerRidesController < ApplicationController
     end
   end
 
+  def destroy
+    @travellerride = TravellerRide.find(params[:id])
+    @travellerride.destroy
+  end
+
   private
 
   def travellerride_create_params
