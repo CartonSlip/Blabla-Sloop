@@ -27,6 +27,11 @@
                   <% link_to (image_tag "logo.png", class: "avatar me-2"), user_path(traveller_ride.user) %>
                 <% end %>
                 </h5>
+                <div class="chatbubble">
+                  <%= link_to chatroom_ride_path(traveller_ride.ride, params: {user: traveller_ride.user.id}), data: {turbo_method: :put} do %>
+                    <i class="fa-regular fa-comment " style="color: #023631; font-size:3em;"></i>
+                  <% end %>
+                </div>
                 <div class="travel_info">
                   <span><i class="avatar fa-solid fa-sailboat"></i> <%= traveller_ride.sloop.name %></span>
                 </div>
@@ -82,6 +87,11 @@
                     <%= image_tag "default_avatar.png", class: "avatar me-2", style: "width: 40px; height: 40px; border-radius: 50%;" %>
                   <% end %>
                 </h5>
+                <div class="chatbubble">
+                  <%= link_to chatroom_ride_path(traveller_ride.ride), data: {turbo_method: :put} do %>
+                    <i class="fa-regular fa-comment " style="color: #023631; font-size:3em;"></i>
+                  <% end %>
+                </div>
                 <div class="travel_info">
                   <span><i class="avatar fa-solid fa-sailboat"></i> <%= traveller_ride.sloop.name %></span>
                 </div>
