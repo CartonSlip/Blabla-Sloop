@@ -71,11 +71,10 @@
 .capacity_reach {
   background-color: #910F0F;
   display: flex;
-  width: 100%;
   justify-content: center;
   border-radius: 15px;
   height: 125px;
-  bottom: 25px;
+  margin: 10px !important;
   position: relative;
 }
 
