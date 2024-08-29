@@ -71,9 +71,6 @@ style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0
 
 <!-- Boutons d'action -->
 <div class="d-flex justify-content-evenly align-items-center mb-1">
-  <% if @riderequest.user == current_user %>
-    <%= link_to "Modifier la demande", edit_ride_request_path(@riderequest), class: "btn btn-primary" %>
-  <% end %>
   <% if @riderequest.user != current_user && current_user.sloops.any?%>
     <%= link_to "Valider l'embarquement", new_ride_request_ride_path(@riderequest), class: "btn btn-primary" %>
   <% end %>
