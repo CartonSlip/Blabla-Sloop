@@ -1,18 +1,16 @@
-<div>
-  <p>
-    <strong>Détails de l'utilisateur :
-    <% if @ride_request.user.photo.attached? %>
-      <%= link_to (cl_image_tag @ride_request.user.photo.key, style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(@ride_request.user) %>
-    <% else %>
-      <%= image_tag "default_avatar.png", class: "riderequest-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
-    <% end %></strong> <br>
-    Nom : <%= @ride_request.user.first_name %> <%= @ride_request.user.last_name %> <br>
-    Âge : <%= @ride_request.user.age %> <br>
-    Description : <%= @ride_request.user.description %>
+<div class=" d-flex justify-content-around align-items-center my-4 ">
+  <p class="h2">
+  <% if @ride_request.user.photo.attached? %>
+    <%= link_to (cl_image_tag @ride_request.user.photo.key, style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(@ride_request.user) %>
+  <% else %>
+    <%= image_tag "default_avatar.png", class: "riderequest-avatar-position avatar-bordered", style: "width: 40px; height: 40px; border-radius: 50%;" %>
+  <% end %>
+  <%= @ride_request.user.first_name %> <%= @ride_request.user.last_name %>
   </p>
-  <p>
-    <strong>Note :  probléme à regler en commentaire</strong>
-    <%# <%= @ride_request.user.reviews.average(:rating) || "Pas encore de notes" / 5 %>
-  </p>
-  <hr>
+   <%= @ride_request.user.age %> ans
 </div>
+   <h4 class="mb-3">Description</h4>
+    <p class="border rounded-3 p-3 mb-3">
+      <%# <i class="avatar fa-regular fa-comments fa-xl "></i> %>
+      <%= @ride_request.user.description %>
+    </p>
