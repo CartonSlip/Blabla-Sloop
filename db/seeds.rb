@@ -18,6 +18,7 @@ john = User.new(
   email: "john@gmail.com",
   password: "password",
   description: "Le vent, les embrunts, la mer...",
+  preferences: "-Fumeurs sur le pont \n -J'aime les gens qui ont de la conversation",
   first_name: "John",
   last_name: "Doe",
   phone_number: "+33 6 12 34 56 78",
@@ -34,6 +35,7 @@ celia = User.new(
   description: "Je réve d'un trois mats volant!",
   first_name: "Celia",
   last_name: "Dalia",
+  preferences: "-Voyages sans animaux ",
   phone_number: "+33 6 87 65 43 21",
   age: "18"
 )
@@ -48,6 +50,7 @@ alex = User.new(
   description: "J'ai toujours eu un esprit de partage et de communauté. J'aime échanger avec les autres, mais je prends aussi plaisir à la tranquillité que m'offrent la campagne et la mer. Mon temps libre est partagé entre mes amis, ma famille et l'océan, où je trouve le calme que je recherche.",
   first_name: "Alex",
   last_name: "Rudeau",
+  preferences: "-Animaux à bord OK \n -Fumeurs OK \n -Alcool ok",
   phone_number: "+33 6 98 76 54 32",
   age: "34"
 )
@@ -59,7 +62,8 @@ file13 = URI.open("https://avatars.githubusercontent.com/u/133055509?v=4")
 fabien = User.new(
   email: "fabien@gmail.com",
   password: "password",
-  description: "Passionné par la mer, j'ai déjà de nombreux amis avec des voiliers. Même si je n'ai pas encore mon propre bateau, j'adore embarquer, prêter main-forte et participer aux aventures maritimes.",
+  description: "J'ai grandis au bord de la mer, et j'ai l'habitude de filer un coup de main quand je voyage"
+  preferences: "-J'aime bien le silence, une préférence pour les personnes qui vont à l'essentiel \n -Je suis fumeurs ",
   first_name: "Fabien",
   last_name: "Lihard",
   phone_number: "+33 6 98 76 54 32",
@@ -76,6 +80,7 @@ maxime = User.new(
   description: "Je suis un artiste-peintre, et mon voilier est mon atelier flottant. J'aime capturer la beauté des océans.",
   first_name: "Maxime",
   last_name: "Dupont",
+  preferences: "-Animaux à bord OK \n -Zero tabac à bord \n -Zero Alcool à bord",
   phone_number: "+33 6 45 67 89 01",
   age: "41"
 )
@@ -119,6 +124,7 @@ thais = User.new(
   description: "Je suis développeuse web et graphiste. J'aime profiter de mon bateau et travailler en voyageant.",
   first_name: "Thaïs",
   last_name: "Hervouët",
+  preferences: "-Personnes expérimentées de préférences",
   phone_number: "+33 6 98 76 54 32",
   age: "34"
 )
@@ -133,6 +139,7 @@ elise = User.new(
   description: "Je rêve d'apprendre la navigation et de voyager en mer, à la découverte de nouveaux horizons.",
   first_name: "Elise",
   last_name: "Moreau",
+  preferences: "-Je suis ok avec les animaux, le tabac et l'alcool (dans la mesure du raisonnable)",
   phone_number: "+33 6 12 98 76 54",
   age: "27"
 )
@@ -216,7 +223,7 @@ puts "Sloop Josette created!!"
 # Pour Thomas John
 file23 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724663643/2006-bavaria-46-cruiser-sail-9394355-20240527071039100-1_XLARGE.3906a204b68c1c3d610ef1057aaa8523_zuurvo.jpg?_s=public-apps")
 sloop2 = Sloop.new(
-  name: "Le pigeon",
+  name: "Le Pigeon",
   description: "petite frégate humble et chill",
   user: john,
   capacity: "3",
@@ -242,7 +249,7 @@ puts "Sloop de Julien created!!"
 # Pour fabien Dubois
 file26 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/le-trois-mats-barque-belem-toutes-voiles-dehors_lgqdjs.jpg?_s=public-apps")
 sloop4 = Sloop.new(
-  name: "Le belem",
+  name: "Le Belem",
   description: "N'avez vous jamais révé de revivre les voyage d'autrefois?",
   user: thais,
   capacity: "10",
@@ -255,7 +262,7 @@ puts "Sloop de fabien created!!"
 # Pour Isabelle Girard
 file27 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724663644/tir-de-bateau-%C3%A0-voile-agains-la-lumi%C3%A8re-du-soleil_kzj2it.jpg?_s=public-apps") # Réutilisation de l'image
 sloop5 = Sloop.new(
-  name: "La franchise",
+  name: "La Franchise",
   description: "Petite ambarcation conviviale",
   user: isabelle,
   capacity: "3",
