@@ -209,10 +209,10 @@ puts "Creating sloops..."
 
 # ###############sloop######################""""
 
-file22 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/presentation-dun-bateau-trimaran-1024x512_wealuo.jpg?_s=public-apps")
+file22 = URI.open("https://images.boats.com/resize/1/50/72/2024-neel-52-sail-9495072-20240805114307150-1_XLARGE.jpg?t=1722883361000&w=900&h=900")
 sloop1 = Sloop.new(
   name: "Josette",
-  description: "Un trimaran récent, rapide",
+  description: "Un trimaran moderne, alliant rapidité et agilité. Conçu pour les amateurs de sensations fortes, il glisse sur l'eau avec grâce, offrant une expérience de navigation exaltante.",
   user: alex,
   capacity: "2",
   category: "Trimaran"
@@ -222,10 +222,10 @@ sloop1.save!
 puts "Sloop Josette created!!"
 
 # Pour Thomas John
-file23 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724663643/2006-bavaria-46-cruiser-sail-9394355-20240527071039100-1_XLARGE.3906a204b68c1c3d610ef1057aaa8523_zuurvo.jpg?_s=public-apps")
+file23 = URI.open("https://images.unsplash.com/photo-1674816795437-530a26e02624?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 sloop2 = Sloop.new(
   name: "Le Pigeon",
-  description: "Petite frégate humble et chill",
+  description: "Une petite frégate humble et décontractée, parfaite pour des sorties paisibles en mer. Profitez de la tranquillité et de la beauté des paysages marins à bord de ce voilier charmant.",
   user: john,
   capacity: "3",
   category: "Voilier 1 mât"
@@ -235,10 +235,10 @@ sloop2.save!
 puts "Sloop de Thomas created!!"
 
 # Pour Julien Rousseau
-file25 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/8623882_20221213040617666_1_LARGE.d84197b2845c03880e2467953142ba20_o4jfaq.jpg?_s=public-apps")
+file25 = URI.open("https://images.unsplash.com/photo-1499365265913-51eac7765412?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 sloop3 = Sloop.new(
   name: "Black Pearl",
-  description: "Il est assez vieux, mais toujours bien entretenu",
+  description: "Bien que ce monocoque ait quelques années, il reste un véritable joyau, soigneusement entretenu. Son style classique et son confort en font un excellent choix pour des aventures mémorables.",
   user: julien,
   capacity: "1",
   category: "Monocoque"
@@ -248,10 +248,10 @@ sloop3.save!
 puts "Sloop de Julien created!!"
 
 # Pour Fabien Dubois
-file26 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/le-trois-mats-barque-belem-toutes-voiles-dehors_lgqdjs.jpg?_s=public-apps")
+file26 = URI.open("https://scontent-cdg4-3.xx.fbcdn.net/v/t39.30808-6/277536938_5002385773173510_8102619474585914574_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=75d36f&_nc_ohc=9lZFaP8UFZ0Q7kNvgHXCefU&_nc_ht=scontent-cdg4-3.xx&oh=00_AYDZ7O0TPdM8L7qpbChx2LQhg_OAudnGXjokMAUgH7mEjg&oe=66D66768")
 sloop4 = Sloop.new(
   name: "Le Belem",
-  description: "N'avez-vous jamais rêvé de revivre les voyages d'autrefois?",
+  description: "Avez-vous déjà rêvé de revivre les voyages d'autrefois ? Ce voilier ancien de cargaison vous transporte dans le temps, alliant charme historique et navigation authentique sur les mers.",
   user: thais,
   capacity: "10",
   category: "Voilier ancien de cargaison"
@@ -264,7 +264,7 @@ puts "Sloop de Fabien created!!"
 file27 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724663644/tir-de-bateau-%C3%A0-voile-agains-la-lumi%C3%A8re-du-soleil_kzj2it.jpg?_s=public-apps") # Réutilisation de l'image
 sloop5 = Sloop.new(
   name: "La Franchise",
-  description: "Petite embarcation conviviale",
+  description: "Petite embarcation conviviale, parfaite pour des moments de partage en mer. Son design accueillant et son ambiance chaleureuse font de chaque sortie une expérience inoubliable.",
   user: isabelle,
   capacity: "3",
   category: "Monocoque"
@@ -327,7 +327,7 @@ request4 = RideRequest.new(
   start_port: "La Rochelle",
   end_date: "2024-11-20",    # Date d'arrivée
   end_port: "Bordeaux",
-  details: "J'en ai mare de la vie parisien, du metro et du speed. A la recherche d'un marin pour me faire découvrir autre chose...",
+  details: "J'en ai marre de la vie parisienne, du métro et du speed. A la recherche d'un marin pour me faire découvrir autre chose.",
   user: celia
 )
 request4.save!
@@ -340,7 +340,7 @@ request6 = RideRequest.new(
   start_port: "Saint-Tropez",
   end_date: "2025-01-05",    # Date d'arrivée
   end_port: "Cannes",
-  details: "Noël en mer?? Voyage en mer le long de la Côte d'Azur pour découvrir les charmantes villes côtières et les calanques. ",
+  details: "J'ai navigué pour la première fois en été 2022 et j'aimerai continuer d'apprendre à parcourir les mers.",
   user: elise
 )
 request6.save!
@@ -352,7 +352,7 @@ request7 = RideRequest.new(
   start_port: "Bordeaux",
   end_date: "2025-01-25",    # Date d'arrivée
   end_port: "La Rochelle",
-  details: "Ancien professeur de mathématiques passionné par l'analyse et la cartographie, je rêve de parfaire mes connaissances en géographie maritime. Je cherche une expérience de navigation qui me permettra de découvrir les subtilités des courants océaniques, des routes maritimes et des caractéristiques géographiques des côtes. Mon objectif est de combiner mon amour des chiffres et des cartes avec une aventure en mer enrichissante. Préférences pour des itinéraires éducatifs et des escales dans des lieux d'intérêt géographique.",
+  details: "Equipier expérimenté disponible.",
   user: sophie
 )
 request7.save!
@@ -363,7 +363,7 @@ request5 = RideRequest.new(
   start_port: "Saint-Malo",
   end_date: "2024-09-15",    # Date d'arrivée
   end_port: "Cork",
-  details: "Je suis expérimenté en navigation, cepenadant mon bateau est en réparation. Merci au skippeur qui acceptera ma demande.",
+  details: "Je suis expérimenté en navigation, cependant mon bateau est en réparation. Merci au skippeur qui acceptera ma demande.",
   user: alex
 )
 request5.save!
