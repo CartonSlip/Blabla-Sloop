@@ -6,4 +6,9 @@ class Chatroom < ApplicationRecord
   def skipper
     User.find(skipper_id)
   end
+
+  def users
+    # Renvoie tous les users de la chatroom du message
+    [user, ride.skipper]
+  end
 end
