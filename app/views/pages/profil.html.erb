@@ -14,10 +14,10 @@
 <!-- Détails de l'utilisateur -->
   <div class="text-start">
     <h4 class="">À propos</h4>
-    <p class="border rounded-3 p-3"><%= current_user.description %></p>
+    <p class="border rounded-3 p-3" style='text-align: justify;'><%= current_user.description %></p>
     <% if current_user.preferences != nil %>
       <h4 class="">Mes préférences</h4>
-      <p class="border rounded-3 p-3"><%= current_user.preferences %></p>
+      <p class="border rounded-3 p-3" style='text-align: justify;'><%= current_user.preferences %></p>
     <% end %>
   </div>
 <!-- Sloops de l'utilisateur / Si existants -->
