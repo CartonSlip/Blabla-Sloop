@@ -1,4 +1,4 @@
-<%= turbo_stream_from "chatroom_user_#{current_user.id}" if user_signed_in?%>
+<%= turbo_stream_from "navbar_user_#{current_user.id}" if user_signed_in?%>
   <div class="navbar navbar-expand navbar-light navbar-lewagon">
     <div class="container">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -8,8 +8,10 @@
               <%= link_to map_path do %>
                 <i class="fa-regular fa-map"></i>
               <% end %>
-              <%= link_to dashboard_path do %>
-                <i class="fa-regular fa-calendar-check"></i>
+              <%= turbo_frame_tag :dashboard_link do %>
+                <%= link_to dashboard_path, data: {turbo_frame: '_top'} do %>
+                  <i class="fa-regular fa-calendar-check"></i>
+                <% end %>
               <% end %>
               <%= link_to root_path do %>
                 <% image_tag "logo-sloop.png", class: "logo-nav" %>

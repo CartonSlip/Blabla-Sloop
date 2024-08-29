@@ -14,7 +14,7 @@ class UserMessage < ApplicationRecord
     chatroom_users = chatroom.users
     chatroom_users.delete(user)
     chatroom_other_user = chatroom_users.first
-    broadcast_replace_to "chatroom_user_#{chatroom_other_user.id}",
+    broadcast_replace_to "navbar_user_#{chatroom_other_user.id}",
                         target: "chatroom_link",
                         partial: "shared/chatroom_new_msg_btn",
                         locals: { chatroom: chatroom }
