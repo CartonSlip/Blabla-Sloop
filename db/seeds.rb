@@ -622,7 +622,3 @@ book10.save!
 
 puts "10 bookmarks created!"
 
-puts "creation chatroom celia & request1sloop5.user"
-chat1 = Chatroom.new(user: celia, ride: request1, skipper_id: request1.sloop.user.id)
-
-chat1.save!
