@@ -1,99 +1,89 @@
-<%= link_to root_path, class:"back-arrow" do %>
-  <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFFFFF;"></i>
-<% end %>
+  <%= link_to ride_requests_path, class:"back-arrow" do %>
+    <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFFFFF;"></i>
+  <% end %>
 
 <div class="banner no-home"
-  style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
-  <div>
-  </div>
+style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
   <h1>Détails du voyage proposé</h1>
 </div><br>
+
 <div class="ride_description">
-  <div class="pic_name">
-    <div class="pic_ride">
+  <div class="pictureandname">
+    <div class="picture_ride">
       <% if @riderequest.user.photo.attached? %>
         <div class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <%= cl_image_tag @riderequest.user.photo.key, class: " rounded-circle " ,
-            style: "width: 60px; height: 60px;" %>
+          style: "width: 60px; height: 60px;" %>
         </div>
-        <% else %>
-          <%= image_tag "default_avatar.png" , class: "rounded-circle" , style: "width: 60px; height: 60px;" %>
-            <% end %>
-              <%# DEBUT MODAL %>
-                <!-- Button trigger modal -->
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                  aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <div class="text-start">
-                          <h2 class="">Infos de <%= @riderequest.user.first_name %>
-                          </h2>
-                          <p class="border rounded-3 p-3">
-                            <%= @riderequest.user.description %>
-                          </p>
-                          <% if @riderequest.user.preferences != nil %>
-                          <h2> Préférences de <%= @riderequest.user.first_name %></h2>
-                          <p class="border rounded-3 p-3"><%= @riderequest.user.preferences %></p>
-                        <% end %>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
-                        <%= link_to "voir plus" , user_path(@riderequest.user), class: "btn btn-primary" %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Modal -->
-                <%# END MODAL %>
+      <% else %>
+        <%= image_tag "default_avatar.png" , class: "rounded-circle" , style: "width: 60px; height: 60px;" %>
+      <% end %>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="text-start">
+                <h2 class="">Infos de <%= @riderequest.user.first_name %></h2>
+                <p class="border rounded-3 p-3"><%= @riderequest.user.description %></p>
+                <% if @riderequest.user.preferences != nil %>
+                  <h2> Préférences de <%= @riderequest.user.first_name %></h2>
+                  <p class="border rounded-3 p-3"><%= @riderequest.user.preferences %></p>
+                <% end %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
+              <%= link_to "voir plus" , user_path(@riderequest.user), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
     </div>
     <div class="user_details">
       <h5 class='m-0'>
         <%= @riderequest.user.first_name %>
-          <%= @riderequest.user.last_name %>
+        <%= @riderequest.user.last_name %>
       </h5>
-      <p class='m-0'>Utilisateur.rice</p>
     </div>
+  </div>
+<div class="chatbubble">
+  <i class="fa-regular fa-comment " style="color: #023631; font-size:3em;"></i>
+</div>
+</div>
+<br>
+
+<div class="card-body">
+  <p class="card-text ms-3"><%= @riderequest.details %></p>
+  <br>
+  <!-- Informations utilisateur -->
+  <div class="travel_info">
+    <span><i class="fa-solid fa-play"></i> <%= @riderequest.start_port %></span>
+    <span><%= l(@riderequest.start_date, format: '%d/%m/%Y') %></span>
+  </div>
+  <div class="travel_info">
+    <span><i class="fa-solid fa-flag-checkered"></i> <%= @riderequest.end_port %></span>
+    <span><%= l(@riderequest.end_date, format: '%d/%m/%Y') %></span>
   </div>
 </div>
-      <hr>
-      <div class="card-body">
-      <p class="ms-3"><i class="fa-regular fa-comment"></i></p>
-      <p class="card-text ms-3"><%= @riderequest.details %></p>
+<br>
 
-    <br>
-      <!-- Informations utilisateur -->
+<!-- Boutons d'action -->
+<div class="d-flex justify-content-evenly align-items-center mb-1">
+  <% if @riderequest.user == current_user %>
+    <%= link_to "Modifier la demande", edit_ride_request_path(@riderequest), class: "btn btn-primary" %>
+  <% end %>
+  <% if @riderequest.user != current_user && current_user.sloops.any?%>
+    <%= link_to "Valider l'embarquement", new_ride_request_ride_path(@riderequest), class: "btn btn-primary" %>
+  <% end %>
+</div>
+<br>
 
-    <div class="travel_info">
-      <span><i class="fa-solid fa-play"></i> <%= @riderequest.start_port %></span>
-      <span><%= l(@riderequest.start_date, format: '%d/%m/%Y') %></span>
-    </div>
-    <div class="travel_info">
-      <span><i class="fa-solid fa-flag-checkered"></i> <%= @riderequest.end_port %></span>
-      <span><%= l(@riderequest.end_date, format: '%d/%m/%Y') %></span>
-    </div>
-    </div>
-
-    <br>
-  <!-- Boutons d'action -->
-  <div class="d-flex justify-content-evenly align-items-center mb-1">
-    <% if @riderequest.user == current_user %>
-
-      <%= link_to "Modifier la demande", edit_ride_request_path(@riderequest), class: "btn btn-primary" %>
-    <% end %>
-    <% if @riderequest.user != current_user && current_user.sloops.any?%>
-      <%= link_to "Valider l'embarquement", new_ride_request_ride_path(@riderequest), class: "btn btn-primary" %>
-    <% end %>
+<div  style="height: 300px;">
+  <div  style="height: 100%;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-    <hr>
-
-    <div  style="height: 300px;">
-      <div  style="height: 100%;"
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
-  </div>
+</div>
