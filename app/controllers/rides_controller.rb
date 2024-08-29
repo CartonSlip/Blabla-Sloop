@@ -1,10 +1,10 @@
 class RidesController < ApplicationController
   def index
+    @rides = Ride.all
+
     if params[:query].present?
       sql_subquery = "start_port ILIKE :query OR end_port ILIKE :query"
       @rides = @rides.where(sql_subquery, query: "%#{params[:query]}%")
-    else
-      @rides = Ride.all
     end
   end
 
