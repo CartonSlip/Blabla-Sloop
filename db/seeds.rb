@@ -17,8 +17,8 @@ file10 = URI.open("https://randomuser.me/api/portraits/men/91.jpg")
 john = User.new(
   email: "john@gmail.com",
   password: "password",
-  description: "Le vent, les embrunts, la mer...",
-  preferences: "-Fumeurs sur le pont \n -J'aime les gens qui ont de la conversation",
+  description: "Le vent, les embruns, la mer...",
+  preferences: "- Fumeurs sur le pont \n - J'aime les gens qui ont de la conversation",
   first_name: "John",
   last_name: "Doe",
   phone_number: "+33 6 12 34 56 78",
@@ -32,10 +32,10 @@ file11 = URI.open("https://randomuser.me/api/portraits/women/96.jpg")
 celia = User.new(
   email: "Celia@gmail.com",
   password: "password",
-  description: "Je réve d'un trois mats volant!",
+  description: "Je rêve d'un trois-mâts volant!",
   first_name: "Celia",
   last_name: "Dalia",
-  preferences: "-Voyages sans animaux ",
+  preferences: "- Voyages sans animaux",
   phone_number: "+33 6 87 65 43 21",
   age: "18"
 )
@@ -50,7 +50,7 @@ alex = User.new(
   description: "J'ai toujours eu un esprit de partage et de communauté. J'aime échanger avec les autres, mais je prends aussi plaisir à la tranquillité que m'offrent la campagne et la mer. Mon temps libre est partagé entre mes amis, ma famille et l'océan, où je trouve le calme que je recherche.",
   first_name: "Alex",
   last_name: "Rudeau",
-  preferences: "-Animaux à bord OK \n -Fumeurs OK \n -Alcool ok",
+  preferences: "- Animaux à bord OK \n - Fumeurs OK \n - Alcool OK",
   phone_number: "+33 6 98 76 54 32",
   age: "34"
 )
@@ -62,8 +62,8 @@ file13 = URI.open("https://avatars.githubusercontent.com/u/133055509?v=4")
 fabien = User.new(
   email: "fabien@gmail.com",
   password: "password",
-  description: "J'ai grandis au bord de la mer, et j'ai l'habitude de filer un coup de main quand je voyage"
-  preferences: "-J'aime bien le silence, une préférence pour les personnes qui vont à l'essentiel \n -Je suis fumeurs ",
+  description: "J'ai grandi au bord de la mer, et j'ai l'habitude de donner un coup de main quand je voyage.",
+  preferences: "- J'aime bien le silence, une préférence pour les personnes qui vont à l'essentiel \n - Je suis fumeur",
   first_name: "Fabien",
   last_name: "Lihard",
   phone_number: "+33 6 98 76 54 32",
@@ -80,7 +80,7 @@ maxime = User.new(
   description: "Je suis un artiste-peintre, et mon voilier est mon atelier flottant. J'aime capturer la beauté des océans.",
   first_name: "Maxime",
   last_name: "Dupont",
-  preferences: "-Animaux à bord OK \n -Zero tabac à bord \n -Zero Alcool à bord",
+  preferences: "- Animaux à bord OK \n - Zéro tabac à bord \n - Zéro alcool à bord",
   phone_number: "+33 6 45 67 89 01",
   age: "41"
 )
@@ -101,7 +101,6 @@ david = User.new(
 david.photo.attach(io: file15, filename: "nes.png", content_type: "image/png")
 david.save
 puts "David created!!"
-
 
 file16 = URI.open("https://randomuser.me/api/portraits/men/73.jpg")
 julien = User.new(
@@ -124,7 +123,7 @@ thais = User.new(
   description: "Je suis développeuse web et graphiste. J'aime profiter de mon bateau et travailler en voyageant.",
   first_name: "Thaïs",
   last_name: "Hervouët",
-  preferences: "-Personnes expérimentées de préférences",
+  preferences: "- Personnes expérimentées de préférence",
   phone_number: "+33 6 98 76 54 32",
   age: "34"
 )
@@ -139,7 +138,7 @@ elise = User.new(
   description: "Je rêve d'apprendre la navigation et de voyager en mer, à la découverte de nouveaux horizons.",
   first_name: "Elise",
   last_name: "Moreau",
-  preferences: "-Je suis ok avec les animaux, le tabac et l'alcool (dans la mesure du raisonnable)",
+  preferences: "- Je suis OK avec les animaux, le tabac et l'alcool (dans la mesure du raisonnable)",
   phone_number: "+33 6 12 98 76 54",
   age: "27"
 )
@@ -151,7 +150,7 @@ file19 = URI.open("https://randomuser.me/api/portraits/women/71.jpg")
 isabelle = User.new(
   email: "isabelle@gmail.com",
   password: "password",
-  description: "Je suis une photographe passionnée, et mon voilier 'Odyssée' est l'endroit idéal pour capturer des moments uniques.",
+  description: "Je suis une photographe passionnée, et mon voilier 'La Franchise' est l'endroit idéal pour capturer des moments uniques.",
   first_name: "Isabelle",
   last_name: "Girard",
   phone_number: "+33 6 67 89 01 23",
@@ -194,7 +193,7 @@ file24 = URI.open("https://avatars.githubusercontent.com/u/116439098?v=4")
 massi = User.new(
   email: "massi@gmail.com",
   password: "password",
-  description: "Jeune développeur, je viens d'acheter un petit bateau. Je n'ai pas une grande expérience du voyage, et j'aime être accompagné par des personnes ayant de l'expérience. Voyager me permet de travailler tout en profitant de l'ensemble du monde. J'aime apprendre des langues, actuellement j'apprends le japonais.",
+  description: "Jeune développeur, je viens d'acheter un petit bateau. Je n'ai pas une grande expérience du voyage, et j'aime être accompagné par des personnes ayant de l'expérience. Voyager me permet de travailler tout en profitant du monde entier. J'aime apprendre des langues, actuellement j'apprends le japonais.",
   first_name: "Massi",
   last_name: "Mondeguer",
   phone_number: "+33 6 98 76 54 32",
@@ -204,17 +203,17 @@ massi.photo.attach(io: file24, filename: "nes.png", content_type: "image/png")
 massi.save
 puts "Massi created!!"
 
-puts "create sloop"
+puts "Creating sloops..."
 
 # ###############sloop######################""""
 
 file22 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/presentation-dun-bateau-trimaran-1024x512_wealuo.jpg?_s=public-apps")
 sloop1 = Sloop.new(
   name: "Josette",
-  description: "Un trimarant récent, rapide",
+  description: "Un trimaran récent, rapide",
   user: alex,
   capacity: "2",
-  category: "trimarant"
+  category: "Trimaran"
 )
 sloop1.photos.attach(io: file22, filename: "nes.png", content_type: "image/png")
 sloop1.save!
@@ -224,10 +223,10 @@ puts "Sloop Josette created!!"
 file23 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724663643/2006-bavaria-46-cruiser-sail-9394355-20240527071039100-1_XLARGE.3906a204b68c1c3d610ef1057aaa8523_zuurvo.jpg?_s=public-apps")
 sloop2 = Sloop.new(
   name: "Le Pigeon",
-  description: "petite frégate humble et chill",
+  description: "Petite frégate humble et chill",
   user: john,
   capacity: "3",
-  category: "Voilier 1 mats"
+  category: "Voilier 1 mât"
 )
 sloop2.photos.attach(io: file23, filename: "sloop_thomas.png", content_type: "image/png")
 sloop2.save!
@@ -236,7 +235,7 @@ puts "Sloop de Thomas created!!"
 # Pour Julien Rousseau
 file25 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/8623882_20221213040617666_1_LARGE.d84197b2845c03880e2467953142ba20_o4jfaq.jpg?_s=public-apps")
 sloop3 = Sloop.new(
-  name: "Black Peral",
+  name: "Black Pearl",
   description: "Il est assez vieux, mais toujours bien entretenu",
   user: julien,
   capacity: "1",
@@ -246,31 +245,31 @@ sloop3.photos.attach(io: file25, filename: "sloop_julien.png", content_type: "im
 sloop3.save!
 puts "Sloop de Julien created!!"
 
-# Pour fabien Dubois
+# Pour Fabien Dubois
 file26 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724155197/le-trois-mats-barque-belem-toutes-voiles-dehors_lgqdjs.jpg?_s=public-apps")
 sloop4 = Sloop.new(
   name: "Le Belem",
-  description: "N'avez vous jamais révé de revivre les voyage d'autrefois?",
+  description: "N'avez-vous jamais rêvé de revivre les voyages d'autrefois?",
   user: thais,
   capacity: "10",
   category: "Voilier ancien de cargaison"
 )
 sloop4.photos.attach(io: file26, filename: "sloop_marie.png", content_type: "image/png")
 sloop4.save!
-puts "Sloop de fabien created!!"
+puts "Sloop de Fabien created!!"
 
 # Pour Isabelle Girard
 file27 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724663644/tir-de-bateau-%C3%A0-voile-agains-la-lumi%C3%A8re-du-soleil_kzj2it.jpg?_s=public-apps") # Réutilisation de l'image
 sloop5 = Sloop.new(
   name: "La Franchise",
-  description: "Petite ambarcation conviviale",
+  description: "Petite embarcation conviviale",
   user: isabelle,
   capacity: "3",
   category: "Monocoque"
 )
 sloop5.photos.attach(io: file27, filename: "sloop_isabelle.png", content_type: "image/png")
 sloop5.save!
-puts "Sloop 5 isabelle created!!"
+puts "Sloop de Isabelle created!!"
 
 # ########################## rides #########################""
 puts "Creating Rides..."
