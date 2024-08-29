@@ -30,9 +30,9 @@ puts "John created!!"
 
 file11 = URI.open("https://randomuser.me/api/portraits/women/96.jpg")
 celia = User.new(
-  email: "Celia@gmail.com",
+  email: "celia@gmail.com",
   password: "password",
-  description: "Je rêve d'un trois-mâts volant!",
+  description: "Je rêve d'un trois-mâts volant !",
   first_name: "Celia",
   last_name: "Dalia",
   preferences: "- Voyages sans animaux",
@@ -151,6 +151,7 @@ isabelle = User.new(
   email: "isabelle@gmail.com",
   password: "password",
   description: "Je suis une photographe passionnée, et mon voilier 'La Franchise' est l'endroit idéal pour capturer des moments uniques.",
+  preferences: "- Fumeurs sur le pont \n - J'aime les gens qui ont de la conversation",
   first_name: "Isabelle",
   last_name: "Girard",
   phone_number: "+33 6 67 89 01 23",
@@ -194,10 +195,11 @@ massi = User.new(
   email: "massi@gmail.com",
   password: "password",
   description: "Jeune développeur, je viens d'acheter un petit bateau. Je n'ai pas une grande expérience du voyage, et j'aime être accompagné par des personnes ayant de l'expérience. Voyager me permet de travailler tout en profitant du monde entier. J'aime apprendre des langues, actuellement j'apprends le japonais.",
+  preferences: "- Fumeurs sur le pont \n - J'aime les gens qui ont de la conversation",
   first_name: "Massi",
   last_name: "Mondeguer",
   phone_number: "+33 6 98 76 54 32",
-  age: "34"
+  age: "19"
 )
 massi.photo.attach(io: file24, filename: "nes.png", content_type: "image/png")
 massi.save
@@ -355,6 +357,17 @@ request7 = RideRequest.new(
 )
 request7.save!
 puts "rides request7 created!"
+
+request5 = RideRequest.new(
+  start_date: "2024-09-09",  # Date de départ
+  start_port: "Saint-Malo",
+  end_date: "2024-09-15",    # Date d'arrivée
+  end_port: "Cork",
+  details: "Je suis expérimenté en navigation, cepenadant mon bateau est en réparation. Merci au skippeur qui acceptera ma demande.",
+  user: alex
+)
+request5.save!
+puts "rides request5 created!"
 
 puts "create reviews ..."
 
@@ -547,7 +560,7 @@ alex_id = User.find_by(first_name: "Alex").id
 fabien_id = User.find_by(first_name: "Fabien").id
 
 review14 = Review.new(
-  comment: "Je dois avouer que j'ai fait une bonne rencontre avec Fabien. Il a son carractére mais c'est ce qui fait qu'on peut compter sur lui.",
+  comment: "Je dois avouer que j'ai fait une bonne rencontre avec Fabien. Il a son caractère, mais c'est ce qui fait qu'on peut compter sur lui.",
   rating: 3,
   receiver_id: fabien_id,
   poster_id: alex_id,
@@ -579,10 +592,10 @@ thomas = User.find_by(first_name: "Thomas")
 fabien = User.find_by(first_name: "Fabien")
 
 # Récupérer les sloops (bateaux)
-sloop1 = Sloop.find_by(name: "Le pigeon")
-sloop2 = Sloop.find_by(name: "La franchise")
-sloop3 = Sloop.find_by(name: "Le belem")
-sloop4 = Sloop.find_by(name: "Black Peral")
+sloop1 = Sloop.find_by(name: "Le Pigeon")
+sloop2 = Sloop.find_by(name: "La Franchise")
+sloop3 = Sloop.find_by(name: "Le Belem")
+sloop4 = Sloop.find_by(name: "Black Pearl")
 sloop5 = Sloop.find_by(name: "Josette")
 
 # Créer les bookmarks
