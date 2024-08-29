@@ -1,38 +1,42 @@
-<div class="navbar navbar-expand navbar-light navbar-lewagon">
-  <div class="container">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to map_path do %>
-              <i class="fa-regular fa-map"></i>
-            <% end %>
-            <%= link_to dashboard_path do %>
-              <i class="fa-regular fa-calendar-check"></i>
-            <% end %>
-            <%= link_to root_path do %>
-              <% image_tag "logo-sloop.png", class: "logo-nav" %>
-            <% end %>
-            <%= link_to chatrooms_path do %>
-              <i class="fa-regular fa-comment"></i>
-            <% end %>
-            <%= link_to profil_path, class: "avatar" do %>
-              <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, class: "avatar" %>
-              <% elsif %>
-                <% image_tag "logo-sloop.png", class: "avatar" %>
+<%= turbo_stream_from "chatroom_user_#{current_user.id}" if user_signed_in?%>
+  <div class="navbar navbar-expand navbar-light navbar-lewagon">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to map_path do %>
+                <i class="fa-regular fa-map"></i>
               <% end %>
-            <% end %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to new_user_session_path, class: "nav-link", id: "font_link" do %>
-              <span class="sr-only">"Se connecter"</span>
-              <i class="fa-regular fa-user"></i>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+              <%= link_to dashboard_path do %>
+                <i class="fa-regular fa-calendar-check"></i>
+              <% end %>
+              <%= link_to root_path do %>
+                <% image_tag "logo-sloop.png", class: "logo-nav" %>
+              <% end %>
+              <%# Si j'ai un nouveau message, je suis notifié et le lien m'amène sur la chatroom en question %>
+              <%= turbo_frame_tag :chatroom_link do %>
+                <%= link_to chatrooms_path, data: {turbo_frame: '_top'} do %>
+                  <i class="fa-regular fa-comment"></i>
+                <% end %>
+              <% end %>
+              <%= link_to profil_path, class: "avatar" do %>
+                <% if current_user.photo.attached? %>
+                  <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+                <% elsif %>
+                  <% image_tag "logo-sloop.png", class: "avatar" %>
+                <% end %>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to new_user_session_path, class: "nav-link", id: "font_link" do %>
+                <span class="sr-only">"Se connecter"</span>
+                <i class="fa-regular fa-user"></i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-</div>

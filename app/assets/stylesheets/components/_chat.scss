@@ -1,6 +1,9 @@
 .chat {
   margin-top: 61px;
-
+  .messages{
+    height: calc(100vh - 290px);
+    overflow: auto;
+  }
   .message {
     display: flex;
     flex-direction: column;
