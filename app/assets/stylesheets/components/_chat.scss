@@ -1,5 +1,5 @@
 .chat {
-  margin-top: 61px;
+  margin-top: 15px;
   .messages{
     height: calc(100vh - 290px);
     overflow: auto;
@@ -10,7 +10,6 @@
     margin-bottom: 1rem;
     width: 100%;
     position: relative;
-    bottom: 30px;
   }
 
   .message-info {

@@ -52,18 +52,18 @@ style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0
   <i class="fa-regular fa-comment " style="color: #023631; font-size:3em;"></i>
 </div>
 </div>
-<br>
 
 <div class="card-body">
-  <p class="card-text ms-3"><%= @riderequest.details %></p>
-  <br>
+  <p class="card-text ride_description">
+    <%= @riderequest.details %>
+  </p>
   <!-- Informations utilisateur -->
   <div class="travel_info">
-    <span><i class="fa-solid fa-play"></i> <%= @riderequest.start_port %></span>
+    <span><i class="avatar fa-solid fa-play"></i> <%= @riderequest.start_port %></span>
     <span><%= l(@riderequest.start_date, format: '%d/%m/%Y') %></span>
   </div>
   <div class="travel_info">
-    <span><i class="fa-solid fa-flag-checkered"></i> <%= @riderequest.end_port %></span>
+    <span><i class="avatar fa-solid fa-flag-checkered"></i> <%= @riderequest.end_port %></span>
     <span><%= l(@riderequest.end_date, format: '%d/%m/%Y') %></span>
   </div>
 </div>
