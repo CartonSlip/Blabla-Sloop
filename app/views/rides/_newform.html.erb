@@ -6,13 +6,13 @@
           <h4>Proposer un Voyage</h2>
         <%= simple_form_for(@ride) do |f| %>
           <div data-controller="newride" data-newride-capacity-by-sloop-value="<%= @capacity_by_sloop.to_json %>">
-            <%= f.association :sloop, label: "Choisissez votre bateau", collection: @sloops, label_method: :name, include_blank: true, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
+            <%= f.association :sloop, label: "Choisissez votre bateau", collection: @sloops,  label_method: :name, include_blank: false, input_html: { "data-newride-target": "sloop", "data-action": "change->newride#updateCapacity" } %>
             <%= f.input :start_date, as: :string,
               label: "Date de debut", input_html: { data: { controller: "datepicker" } } %>
             <%= f.input :end_date, as: :string,
               label: "Date de fin", input_html: { data: { controller: "datepicker" } } %>
-            <%= f.input :capacity, label: "Capacité de voyageurs", input_html: { "data-newride-target": "capacity" } %>
-            <%= f.input :details %>
+            <%= f.input :capacity, label: "Capacité de voyageurs", input_html: { min: '1', step: 'any', "data-newride-target": "capacity" } %>
+            <%= f.input :details, label: "Détails" %>
 
             <%= f.input :start_port, label: 'Port de départ',
                 input_html: { data: { address_autocomplete_target: "startPort" }, class: "d-none" },
