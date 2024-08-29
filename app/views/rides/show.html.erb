@@ -1,12 +1,12 @@
 <%= link_to rides_path, class:"back-arrow" do %>
   <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFFFFF;"></i>
 <% end %>
+
 <div class="banner no-home"
 style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/drgeetoka/image/upload/e_blur:1500/v1724331976/alex-perez-vX29CtVP3jc-unsplash_j6yxac.jpg);">
   <h1>Détails du voyage proposé</h1>
 </div><br>
 
-<!-- Carte de détails du voyage -->
 <div class="ride_description">
   <div class="pictureandname">
     <div class="picture_ride">
@@ -90,7 +90,7 @@ style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0
       <%= @ride.traveller_rides.accepted.count %> voyageurs
     </span>
     <span><i class="  fa-solid fa-person-circle-exclamation"></i>
-      <%= @ride.capacity %> <strong class="me-2">MAX</strong>
+      <%= @ride.capacity %> <strong class="">MAX</strong>
     </span>
   </div>
   <br>
@@ -120,7 +120,10 @@ style="height: 350px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0
   </div>
     <%= simple_form_for [@ride, @traveller_ride] do |f| %>
       <div class="mb-4 traveller_info_container">
-        <%= f.input :info, placeholder: "Quelles sont les informations que vous voulez partager/donner au Slooper ?", input_html: { class: "traveller_info" }, wrapper_html: { class:"traveller_info_wrapper"}, label: false %>
+        <%= f.input :info, placeholder: "Quelles sont les informations que vous voulez partager/donner au Slooper ?",
+            input_html: { class: "traveller_info" },
+            wrapper_html: { class:"traveller_info_wrapper"},
+            label: false %>
       </div>
       <div class="centered_button">
         <%= f.submit "Demande de réservation", class: "btn btn-primary size_large" %>
