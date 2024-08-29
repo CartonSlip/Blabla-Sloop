@@ -1,9 +1,9 @@
 <%= turbo_frame_tag sloop do %>
   <%= link_to favorite_sloop_path(sloop)  do %>
     <%if current_user.favorited?(sloop) %>
-      <i class='sticky-fav fa-regular fa-heart fa-2xl'></i>
-    <% else %>
       <i class='sticky-fav fa-solid fa-heart fa-2xl text-danger'></i>
+    <% else %>
+      <i class='sticky-fav fa-regular fa-heart fa-2xl'></i>
     <% end %>
   <% end %>
 <% end %>
