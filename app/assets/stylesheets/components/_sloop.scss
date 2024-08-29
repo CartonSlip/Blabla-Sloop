@@ -14,6 +14,7 @@
     color: white;
   }
 }
+
 .fixed-cover {
   width: 100%; /* Adapte l'image à la largeur du conteneur parent */
   height: 250px; /* Fixe la hauteur de l'image */
@@ -21,8 +22,8 @@
 }
 .card-sloop-infos {
   padding: 16px;
-
 }
+
 .card-sloop-user {
   position: absolute;
   bottom: 80px;
@@ -34,9 +35,15 @@
   border: 1px $darkgreen;
 }
 
-
 .ride-avatar-position {
   position: absolute;
   bottom: 170px;
   right: 10px;
+}
+
+.btn-skipper-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px
 }
