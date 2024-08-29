@@ -254,7 +254,7 @@ sloop4 = Sloop.new(
   description: "Avez-vous déjà rêvé de revivre les voyages d'autrefois ? Ce voilier ancien de cargaison vous transporte dans le temps, alliant charme historique et navigation authentique sur les mers.",
   user: thais,
   capacity: "10",
-  category: "Voilier ancien de cargaison"
+  category: "Voilier 3 mats"
 )
 sloop4.photos.attach(io: file26, filename: "sloop_marie.png", content_type: "image/png")
 sloop4.save!
