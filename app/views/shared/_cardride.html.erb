@@ -23,7 +23,8 @@
       </div>
 
         <div class="travel_info">
-          <span><i class="avatar  fa-solid fa-users"></i> <%= ride.traveller_rides.accepted.count %> voyageurs</span>
+          <span><i class="avatar  fa-solid fa-users"></i><%= ride.traveller_rides.accepted.size %> <%=  "voyageur".pluralize(ride.traveller_rides.accepted.size) %></span>
+
           <span><i class="  fa-solid fa-person-circle-exclamation"></i> <%= ride.capacity %> <strong class="me-2">MAX</strong></span>
         </div>
 
