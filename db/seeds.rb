@@ -18,7 +18,7 @@ john = User.new(
   email: "john@gmail.com",
   password: "password",
   description: "Le vent, les embruns, la mer...",
-  preferences: "- Fumeurs sur le pont \n - J'aime les gens qui ont de la conversation",
+  preferences: "Fumeurs sur le pont. J'aime les gens qui ont de la conversation !",
   first_name: "John",
   last_name: "Doe",
   phone_number: "+33 6 12 34 56 78",
@@ -35,7 +35,7 @@ celia = User.new(
   description: "Je rêve d'un trois-mâts volant !",
   first_name: "Celia",
   last_name: "Dalia",
-  preferences: "- Voyages sans animaux",
+  preferences: "Voyages sans animaux",
   phone_number: "+33 6 87 65 43 21",
   age: "18"
 )
@@ -50,7 +50,7 @@ alex = User.new(
   description: "J'ai toujours eu un esprit de partage et de communauté. J'aime échanger avec les autres, mais je prends aussi plaisir à la tranquillité que m'offrent la campagne et la mer. Mon temps libre est partagé entre mes amis, ma famille et l'océan, où je trouve le calme que je recherche.",
   first_name: "Alex",
   last_name: "Rudeau",
-  preferences: "- Animaux à bord OK \n - Fumeurs OK \n - Alcool OK",
+  preferences: "Animaux à bord OK. Fumeurs OK.  Alcool OK",
   phone_number: "+33 6 98 76 54 32",
   age: "34"
 )
@@ -63,7 +63,7 @@ fabien = User.new(
   email: "fabien@gmail.com",
   password: "password",
   description: "J'ai grandi au bord de la mer, et j'ai l'habitude de donner un coup de main quand je voyage.",
-  preferences: "- J'aime bien le silence, une préférence pour les personnes qui vont à l'essentiel \n - Je suis fumeur",
+  preferences: "J'aime bien le silence, une préférence pour les personnes qui vont à l'essentiel. Je suis fumeur",
   first_name: "Fabien",
   last_name: "Lihard",
   phone_number: "+33 6 98 76 54 32",
@@ -80,7 +80,7 @@ maxime = User.new(
   description: "Je suis un artiste-peintre, et mon voilier est mon atelier flottant. J'aime capturer la beauté des océans.",
   first_name: "Maxime",
   last_name: "Dupont",
-  preferences: "- Animaux à bord OK \n - Zéro tabac à bord \n - Zéro alcool à bord",
+  preferences: "Animaux à bord OK. Zéro tabac à bord. Zéro alcool à bord.",
   phone_number: "+33 6 45 67 89 01",
   age: "41"
 )
@@ -123,7 +123,7 @@ thais = User.new(
   description: "Je suis développeuse web et graphiste. J'aime profiter de mon bateau et travailler en voyageant.",
   first_name: "Thaïs",
   last_name: "Hervouët",
-  preferences: "- Personnes expérimentées de préférence",
+  preferences: "Personnes expérimentées de préférence",
   phone_number: "+33 6 98 76 54 32",
   age: "34"
 )
@@ -138,7 +138,7 @@ elise = User.new(
   description: "Je rêve d'apprendre la navigation et de voyager en mer, à la découverte de nouveaux horizons.",
   first_name: "Elise",
   last_name: "Moreau",
-  preferences: "- Je suis OK avec les animaux, le tabac et l'alcool (dans la mesure du raisonnable)",
+  preferences: "Je suis OK avec les animaux, le tabac et l'alcool (dans la mesure du raisonnable)",
   phone_number: "+33 6 12 98 76 54",
   age: "27"
 )
@@ -151,7 +151,7 @@ isabelle = User.new(
   email: "isabelle@gmail.com",
   password: "password",
   description: "Je suis une photographe passionnée, et mon voilier 'La Franchise' est l'endroit idéal pour capturer des moments uniques.",
-  preferences: "- Fumeurs sur le pont \n - J'aime les gens qui ont de la conversation",
+  preferences: "Fumeurs sur le pont . J'aime les gens qui ont de la conversation",
   first_name: "Isabelle",
   last_name: "Girard",
   phone_number: "+33 6 67 89 01 23",
@@ -195,7 +195,7 @@ massi = User.new(
   email: "massi@gmail.com",
   password: "password",
   description: "Jeune développeur, je viens d'acheter un petit bateau. Je n'ai pas une grande expérience du voyage, et j'aime être accompagné par des personnes ayant de l'expérience. Voyager me permet de travailler tout en profitant du monde entier. J'aime apprendre des langues, actuellement j'apprends le japonais.",
-  preferences: "- Fumeurs sur le pont \n - J'aime les gens qui ont de la conversation",
+  preferences: "Fumeurs sur le pont. J'aime les gens qui ont de la conversation",
   first_name: "Massi",
   last_name: "Mondeguer",
   phone_number: "+33 6 98 76 54 32",
@@ -621,4 +621,3 @@ book9.save!
 book10.save!
 
 puts "10 bookmarks created!"
-
