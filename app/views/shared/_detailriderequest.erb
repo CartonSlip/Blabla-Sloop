@@ -1,3 +1,6 @@
+ <p class="border rounded-3 p-3 mb-3">
+    <%= @ride_request.details %>
+  </p>
 <div class=" d-flex justify-content-around align-items-center my-4 ">
   <p class="h2">
   <% if @ride_request.user.photo.attached? %>
@@ -9,8 +12,3 @@
   </p>
    <%= @ride_request.user.age %> ans
 </div>
-   <h4 class="mb-3">Description</h4>
-    <p class="border rounded-3 p-3 mb-3">
-      <%# <i class="avatar fa-regular fa-comments fa-xl "></i> %>
-      <%= @ride_request.user.description %>
-    </p>
