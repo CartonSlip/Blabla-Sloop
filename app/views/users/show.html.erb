@@ -55,7 +55,7 @@
             <% review.rating.times do %>
               <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
             <% end %>
-            <small><em class="text-muted"> Il y a <%= distance_of_time_in_words_to_now(review.created_at) %></em></small>
+            <small><em class="text-muted"> <%= l(review.created_at, format: "le %d %B %Y") %></i></em></small>
             <p class="mb-0"><%= review.comment %></p>
           </div>
         <% end %>
