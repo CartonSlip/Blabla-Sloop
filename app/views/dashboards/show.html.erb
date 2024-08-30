@@ -44,7 +44,7 @@
                   <span><%= l(traveller_ride.ride.end_date, format: '%d/%m/%Y') %></span>
                 </div>
                 <hr>
-                <span><i class="avatar fa-regular fa-comments"></i> <%= traveller_ride.info %></span>
+                <span><i class="avatar fa-regular fa-comments"></i> <%= traveller_ride.ride.details %></span>
                 <hr>
                 <div class="text-center">
                   <% if traveller_ride.validate_status == "pending" %>
