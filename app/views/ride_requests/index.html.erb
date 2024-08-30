@@ -1,6 +1,16 @@
+<% if @riderequests.empty? %>
+  <%= link_to ride_requests_path, class:"back-arrow" do %>
+    <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFFFFF;"></i>
+  <% end %>
+<% else %>
+  <%= link_to root_path, class:"back-arrow" do %>
+    <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFFFFF;"></i>
+  <% end %>
+<% end %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
   <h1 class="text-center my-4">Tous les voyages demandés</h1>
 </div>
+
 <div class="container mb-3">
 <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
@@ -24,19 +34,17 @@
         <% if current_user.sloops.exists? %>
           <%= link_to "Proposer un voyage", new_ride_path, class: "btn btn-primary" %>
         <% else %>
-          <%= link_to "Enregistrer un bateau pour proposer", new_sloop_path, class: "btn btn-primary" %>
+          <%= link_to "Ajouter un bateau", new_sloop_path, class: "btn btn-primary" %>
         <% end %>
       </div>
       <hr>
       <span class="mb-3 d-block">
         <% if @riderequests.empty? %>
-          <em><%= " Aucun résultat pour votre recherche, consultez la carte pour voir tous les ridesrequests disponibles" %>
+          <em class="d-flex"><%= " Aucun résultat pour votre recherche, consultez la carte pour voir tous les ridesrequests disponibles" %>
           </em>
           <br>
           <br>
-          <%= link_to ride_requests_path do %>
-            <i class="fa-solid fa-arrow-left-long"> Retrouvez toutes les demandes de voyages disponnibles</i>
-          <% end %>
+
         <% else %>
           <span class="mb-3 d-block"><em>
             <%= "#{pluralize(@riderequests.count, @riderequests.size == 1 ? "Résultat" : "Résultats")}"  %></em>
