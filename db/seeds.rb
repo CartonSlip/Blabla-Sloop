@@ -217,9 +217,9 @@ sloop1 = Sloop.new(
   capacity: "2",
   category: "Trimaran"
 )
-sloop1.photos.attach(io: file22, filename: "nes.png", content_type: "image/png")
+sloop1.photos.attach(io: file22, filename: "sloop_alex.png", content_type: "image/png")
 sloop1.save!
-puts "Sloop Josette created!!"
+puts "Sloop d'Alex created!!"
 
 # Pour Thomas John
 file23 = URI.open("https://images.unsplash.com/photo-1674816795437-530a26e02624?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
