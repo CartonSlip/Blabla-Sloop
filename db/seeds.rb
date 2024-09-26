@@ -261,7 +261,7 @@ sloop4.save!
 puts "Sloop de Fabien created!!"
 
 # Pour Isabelle Girard
-file27 = URI.open("https://res.cloudinary.com/drgeetoka/image/upload/fl_preserve_transparency/v1724663644/tir-de-bateau-%C3%A0-voile-agains-la-lumi%C3%A8re-du-soleil_kzj2it.jpg?_s=public-apps") # Réutilisation de l'image
+file27 = URI.open("https://images.unsplash.com/photo-1683027178600-434a348b2c4b?q=80&w=2013&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") # Réutilisation de l'image
 sloop5 = Sloop.new(
   name: "La Franchise",
   description: "Petite embarcation conviviale, parfaite pour des moments de partage en mer. Son design accueillant et son ambiance chaleureuse font de chaque sortie une expérience inoubliable.",
