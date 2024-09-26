@@ -235,7 +235,7 @@ sloop2.save!
 puts "Sloop de Thomas created!!"
 
 # Pour Julien Rousseau
-file25 = URI.open("https://images.unsplash.com/photo-1499365265913-51eac7765412?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+file25 = URI.open("https://images.unsplash.com/photo-1572448117705-d5a2191d8ddd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 sloop3 = Sloop.new(
   name: "Black Pearl",
   description: "Bien que ce monocoque ait quelques années, il reste un véritable joyau, soigneusement entretenu. Son style classique et son confort en font un excellent choix pour des aventures mémorables.",
@@ -248,7 +248,7 @@ sloop3.save!
 puts "Sloop de Julien created!!"
 
 # Pour Fabien Dubois
-file26 = URI.open("https://scontent-cdg4-3.xx.fbcdn.net/v/t39.30808-6/277536938_5002385773173510_8102619474585914574_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=75d36f&_nc_ohc=9lZFaP8UFZ0Q7kNvgHXCefU&_nc_ht=scontent-cdg4-3.xx&oh=00_AYDZ7O0TPdM8L7qpbChx2LQhg_OAudnGXjokMAUgH7mEjg&oe=66D66768")
+file26 = URI.open("https://images.unsplash.com/photo-1581062885237-839840f5c5ad?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 sloop4 = Sloop.new(
   name: "Le Belem",
   description: "Avez-vous déjà rêvé de revivre les voyages d'autrefois ? Ce voilier ancien de cargaison vous transporte dans le temps, alliant charme historique et navigation authentique sur les mers.",
