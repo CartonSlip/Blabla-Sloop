@@ -17,11 +17,11 @@
   <hr>
 <!-- Détails de l'utilisateur -->
   <div class="text-start">
-    <h4 class="">À propos</h4>
-    <p class="border rounded-3 p-3" style='text-align: justify;'><%= current_user.description %></p>
+    <h4>À propos</h4>
+    <p class="text-center border rounded-3 p-3" style='text-align: justify;'><%= current_user.description %></p>
     <% if current_user.preferences != nil %>
-      <h4 class="">Mes préférences</h4>
-      <p class="border rounded-3 p-3" style='text-align: justify;'><%= current_user.preferences %></p>
+      <h4>Mes préférences</h4>
+      <p class="text-center border rounded-3 p-3" style='text-align: justify;'><%= current_user.preferences %></p>
     <% end %>
   </div>
 <!-- Sloops de l'utilisateur / Si existants -->
@@ -50,7 +50,7 @@
   <% end %>
 
 <!-- Commentaires sur l'utlisateur -->
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-12 col-sm-6">
       <h3>Commentaires reçus</h3>
       <% if current_user.received_reviews.empty? %>

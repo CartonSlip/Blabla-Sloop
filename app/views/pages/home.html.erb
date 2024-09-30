@@ -2,21 +2,19 @@
 <%# ##########Banner########################### %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
   <h1 id="hometitle"><%= image_tag "logo-sloop.png", class: "avatar" %> Blabla'Sloop</h1>
-  <div class="container mt-5" id="banner-content">
-    <strong><%= link_to "Vous avez un bateau", ride_requests_path, class: "btn btn-primary", id:"banner-bouton" %></strong>
+  <div class="container mt-5 text-center" id="banner-bouton">
+    <%= link_to "Vous avez un bateau", ride_requests_path, class: "btn btn-primary" %>
   </div>
-  <div class="container mt-5" id="banner-content">
-    <strong><%= link_to "Vous cherchez un bateau", rides_path, class: "btn btn-primary", id:"banner-bouton" %></strong>
+  <div class="container mt-5 text-center" id="banner-bouton">
+    <%= link_to "Vous cherchez un bateau", rides_path, class: "btn btn-primary" %>
   </div>
 </div>
 
 
 <%# ########## purpose ########################### %>
 <div class="container mb-3" id="home-content">
-  <div class="row justify-content-center">
-    <div class="col-sm-8">
-      <h2 class="text-center py-2", id="last_propal"><strong>Derniers voyages proposés</strong></h2>
-    </div>
+    <div class="row justify-content-center">
+    <h2 class="text-center py-2", id="last_propal"><strong>Derniers voyages proposés</strong></h2>
   </div>
   <div class="cards mt-2">
     <div class="row">
@@ -30,9 +28,7 @@
 </div>
 <div class="container mb-3" id="home-content">
   <div class="row justify-content-center">
-    <div class="col-sm-8">
     <h2 class="text-center py-2", id="last_ask"><strong>Derniers voyages demandés</strong></h2>
-    </div>
   </div>
   <div class="cards mt-2">
     <div class="row">
