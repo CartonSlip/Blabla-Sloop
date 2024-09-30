@@ -327,7 +327,7 @@ puts "create rides request ..."
 request6 = RideRequest.new(
   start_date: "2024-06-28",  # Date de départ
   start_port: "Saint-Tropez",
-  end_date: "2025-06-30",    # Date d'arrivée
+  end_date: "2024-06-30",    # Date d'arrivée
   end_port: "Cannes",
   details: "J'ai navigué pour la première fois en été 2022 et j'aimerai continuer d'apprendre à parcourir les mers.",
   user: elise

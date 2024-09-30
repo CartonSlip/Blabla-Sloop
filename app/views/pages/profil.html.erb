@@ -1,7 +1,7 @@
 <div class="container bg-white mb-3">
 <!-- Infos principales de l'utilisateur -->
   <div class="text-center">
-    <% if current_user.photo.any? %>
+    <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, height: 175, class: "my-3", alt: "photo de profil", radius: "max" %>
     <% else %>
       <i class="fa-regular fa-user"></i>
