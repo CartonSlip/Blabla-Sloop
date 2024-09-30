@@ -8,11 +8,11 @@
   <hr>
   <div class="text-start">
     <!-- Détails de l'utilisateur -->
-    <h4 class="">À propos</h4>
-    <p class="border rounded-3 p-3" style='text-align: justify;'><%= @user.description %></p>
+    <h4>À propos</h4>
+    <p class="border rounded-3 p-3 text-center" style='text-align: justify;'><%= @user.description %></p>
     <% if current_user.preferences != nil %>
       <h4>Mes préférences</h4>
-      <p class='border rounded-3 p-3 mb-3' style='text-align: justify;'> <%= current_user.preferences %> </p>
+      <p class='border rounded-3 p-3 mb-3 text-center' style='text-align: justify;'> <%= current_user.preferences %> </p>
     <% end %>
     <!-- Sloops de l'utilisateur / Si existants -->
     <% if @user.sloops.any? %>
