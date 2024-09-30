@@ -14,7 +14,9 @@
   <% end %>
   <% if current_user.skipper_traveller_rides.any? %>
     <div class="container mt-3">
-      <h2 class="mb-3 py-2" id="last_propal"><%= current_user.rides.size == 1 ? "La demande pour mon voyage" : "Les demandes pour mon voyage" %></h2>
+      <div class="row justify-content-center">
+        <h2 class="mb-3 py-2" id="last_propal"><%= current_user.rides.size == 1 ? "La demande pour mon voyage" : "Les demandes pour mon voyage" %></h2>
+      </div>
       <div class="row">
         <% current_user.skipper_traveller_rides.each do |traveller_ride| %>
           <div class="col-md-4 mb-4">
@@ -75,7 +77,9 @@
 
   <% if current_user.traveller_rides.any? %>
     <div class="container mt-3">
-      <h2 class="mb-3 py-2" id="last_ask"><%= current_user.traveller_rides.size == 1 ? "Ma demande à un skipper" : "Mes demandes à des skippers" %></h2>
+      <div class="row justify-content-center">
+        <h2 class="mb-3 py-2" id="last_ask"><%= current_user.traveller_rides.size == 1 ? "Ma demande à un skipper" : "Mes demandes à des skippers" %></h2>
+      </div>
       <div class="row">
         <% current_user.traveller_rides.each do |traveller_ride| %>
           <div class="col-md-4 mb-4">
@@ -131,7 +135,9 @@
   <!-- Les trajets proposés par l'utlisateur -->
   <% if current_user.rides.any? %>
   <div class="container mt-3">
-    <h2 class="mb-3 py-2" id="last_propal"><%= current_user.rides.size == 1 ? "Mon voyage proposé" : "Mes voyages proposés" %></h2>
+    <div class="row justify-content-center">
+      <h2 class="mb-3 py-2" id="last_propal"><%= current_user.rides.size == 1 ? "Mon voyage proposé" : "Mes voyages proposés" %></h2>
+    </div>
     <div class="row">
       <% current_user.rides.each do |ride| %>
         <%= render "shared/cardride", ride: ride %>
@@ -143,7 +149,9 @@
 <!-- Les demandes de trajet de l'utlisateur -->
   <% if current_user.ride_requests.any? %>
     <div class="container mt-3">
-      <h2 class="mb-3 py-2" id="last_ask"><%= current_user.ride_requests.size == 1 ? "Mon voyage demandé" : "Mes voyages demandés" %></h2>
+      <div class="row justify-content-center">
+        <h2 class="mb-3 py-2" id="last_ask"><%= current_user.ride_requests.size == 1 ? "Mon voyage demandé" : "Mes voyages demandés" %></h2>
+      </div>
       <div class="row">
         <% current_user.ride_requests.each do |riderequest| %>
           <%= render "shared/riderequestcard", riderequest: riderequest %>
