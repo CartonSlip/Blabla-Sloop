@@ -1,17 +1,16 @@
 <% if @rides.empty? %>
   <%= link_to rides_path, class:"back-arrow" do %>
-    <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFFFFF;"></i>
+    <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFF1D0;"></i>
   <% end %>
 <% else %>
   <%= link_to root_path, class:"back-arrow" do %>
-    <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFFFFF;"></i>
+    <i class="fa-solid fa-angle-left fa-2xl" style="color: #FFF1D0;"></i>
   <% end %>
 <% end %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "banner.jpg" %>);">
-          <h1 class="text-center my-4">Tous les voyages proposés</h1>
+  <h1 class="text-center my-4">Tous les voyages proposés</h1>
 </div>
 <div class="container mb-3">
-
   <div class="row justify-content-center">
     <div class="col-sm-8 my-3">
       <%= form_with url: rides_path, method: :get, class: "d-flex" do %>
@@ -22,19 +21,16 @@
           id: "search-query"
           %>
         <%= button_tag :submit, class: "btn btn-primary",id: "search-btn" do %>
-          <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-magnifying-glass" style="color: #FFF1D0;"></i>
         <% end %>
       <% end %>
     </div>
   </div>
-
   <div class="cards mt-2">
     <div class="row">
       <div>
         <div class="d-flex justify-content-evenly align-items-center mb-3">
           <%= link_to "Demander un voyage", new_ride_request_path, class: "btn btn-primary" %>
-        </div>
-        </div>
         </div>
         <hr>
         <span class="mb-3 d-block">
@@ -54,7 +50,6 @@
       <% @rides.each do |ride| %>
         <%= render "shared/cardride", ride: ride %>
       <% end %>
-      <p><br></p>
     </div>
   </div>
 </div>

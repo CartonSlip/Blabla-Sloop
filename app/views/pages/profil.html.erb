@@ -1,7 +1,11 @@
 <div class="container bg-white mb-3">
 <!-- Infos principales de l'utilisateur -->
   <div class="text-center">
-    <%= cl_image_tag current_user.photo.key, height: 175, class: "my-3", alt: "photo de profil", radius: "max" %>
+    <% if current_user.photo.any? %>
+      <%= cl_image_tag current_user.photo.key, height: 175, class: "my-3", alt: "photo de profil", radius: "max" %>
+    <% else %>
+      <i class="fa-regular fa-user"></i>
+    <% end %>
     <h1 id="h1-profil"><%= current_user.first_name %> <%= current_user.last_name %></h1>
     <span><%= current_user.age %> ans</span>
     <ul class="list-inline ">

@@ -12,22 +12,33 @@
 
 
 <%# ########## purpose ########################### %>
-<div class="container pb-0" id="home-content">
-    <h2 class="mb-3 py-2", id="last_propal"><strong>Derniers voyages proposés</strong></h2>
-    <%# aller dans la table ride %>
-    <%# recuperer les 3 derniers proposer %>
-    <%# afficher les 3 derniere ride %>
-    <% @rides.each do |ride| %>
-      <%= render 'shared/cardride', ride: ride %>
-    <% end %>
+<div class="container mb-3" id="home-content">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <h2 class="text-center py-2", id="last_propal"><strong>Derniers voyages proposés</strong></h2>
+    </div>
+  </div>
+  <div class="cards mt-2">
+    <div class="row">
+      <% @rides.each do |ride| %>
+        <%= render 'shared/cardride', ride: ride %>
+      <% end %>
+    </div>
+  </div>
+</div>
 <hr>
 </div>
-<div class="container pt-0" id="home-content">
-    <h2 class="mb-3 py-2", id="last_ask"><strong>Derniers voyages demandés</strong></h2>
-    <%# aller dans la table ride %>
-    <%# recuperer les 3 derniers proposer %>
-    <%# afficher les 3 derniere ride %>
-    <% @rides_requests.each do |riderequest| %>
-      <%= render 'shared/riderequestcard', riderequest: riderequest %>
-    <% end %>
+<div class="container mb-3" id="home-content">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+    <h2 class="text-center py-2", id="last_ask"><strong>Derniers voyages demandés</strong></h2>
+    </div>
+  </div>
+  <div class="cards mt-2">
+    <div class="row">
+      <% @rides_requests.each do |riderequest| %>
+        <%= render 'shared/riderequestcard', riderequest: riderequest %>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -19,6 +19,6 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
   validates :phone_number, presence: true, length: { minimum: 10 }
-  validates :age, numericality: true, exclusion: { in: 0...18, message: "Vous devez avoir au moins 18 ans pour vous inscrire" }
+  validates :age, numericality: {only_integer: true}, exclusion: { in: 0...18, message: "Vous devez avoir au moins 18 ans pour vous inscrire" }
 
 end

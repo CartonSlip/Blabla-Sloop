@@ -4,13 +4,28 @@
       <div class="form-login">
        <h1 class="text-primary"><%= current_user.first_name %> <%= current_user.last_name %></h1>
         <%= simple_form_for current_user, url: profile_path do |f| %>
-          <%= f.input :first_name, label:'Prénom' %>
-          <%= f.input :last_name, label:'Nom' %>
-          <%= f.input :phone_number, label:'Numéro de téléphone' %>
-          <%= f.input :description, label:'À propos' %>
-          <%= f.input :preferences, label:'Préférences' %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit "Éditer", class:"btn btn-primary" %>
+          <div class="form-inputs">
+            <%= f.input :first_name, label: "Prénom",
+                        required: true,
+                        placeholder: "Prénom",
+                        input_html: { autocomplete: "prenom" } %>
+            <%= f.input :last_name, label: "Nom",
+                        required: true,
+                        placeholder: "Nom",
+                        input_html: { autocomplete: "nom" } %>
+            <%= f.input :age, label: "Âge",
+                        required: true,
+                        placeholder: "Âge",
+                        input_html: { autocomplete: "age" } %>
+            <%= f.input :phone_number, label: "Numéro de téléphone",
+                        required: true,
+                        placeholder: "Numéro de téléphone",
+                        input_html: { autocomplete: "telephone" } %>
+            <%= f.input :photo, as: :file %>
+          </div>
+          <div class="form-actions">
+            <%= f.submit "Éditer", class:"btn btn-primary" %>
+          </div>
         <% end %>
       </div>
     </div>

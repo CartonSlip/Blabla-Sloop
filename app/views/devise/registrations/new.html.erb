@@ -1,14 +1,13 @@
-<div class="container">
+  <div class="container">
   <div class="row justify-content-center">
     <div class="col col-sm-8 col-lg-4">
       <div class="form-login">
-        <h1><%= image_tag "logo-sloop.png", height: 30, width: 30, alt: "Logo" %> BlablaSloop</h1>
+        <h2><%= image_tag "logo-sloop.png", height: 30, width: 30, alt: "Logo" %> BlablaSloop</h1>
           <h2>S'inscrire</h2>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
-
+            <%= devise_error_messages! %>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false } }) do |f| %>
           <div class="form-inputs">
-            <%= f.input :email,
+            <%= f.input :email, label: "Adresse e-mail",
                         required: true,
                         autofocus: true,
                         placeholder: "E-mail",
@@ -20,8 +19,25 @@
                         input_html: { autocomplete: "new-password" } %>
             <%= f.input :password_confirmation,
                         required: true,
-                        placeholder: "Mot de passe",
+                        placeholder: "Répéter le mot de passe",
                         input_html: { autocomplete: "new-password" } %>
+            <%= f.input :first_name, label: "Prénom",
+                        required: true,
+                        placeholder: "Prénom",
+                        input_html: { autocomplete: "prenom" } %>
+            <%= f.input :last_name, label: "Nom",
+                        required: true,
+                        placeholder: "Nom",
+                        input_html: { autocomplete: "nom" } %>
+            <%= f.input :age, label: "Âge",
+                        required: true,
+                        placeholder: "Âge",
+                        input_html: { autocomplete: "age" } %>
+            <%= f.input :phone_number, label: "Numéro de téléphone",
+                        required: true,
+                        placeholder: "Numéro de téléphone",
+                        hint: ("#{@minimum_phone_number_length} chiffres minimum" if @minimum_phone_number_length),
+                        input_html: { autocomplete: "telephone" } %>
           </div>
 
           <div class="form-actions">

@@ -276,9 +276,9 @@ puts "Sloop de Isabelle created!!"
 # ########################## rides #########################""
 puts "Creating Rides..."
 request1 = Ride.new(
-  start_date: "2024-10-01",  # Date de départ
+  start_date: "2024-04-01",  # Date de départ
   start_port: "La Rochelle",
-  end_date: "2024-10-10",    # Date d'arrivée
+  end_date: "2024-04-05",    # Date d'arrivée
   end_port: "Nantes",
   details: "Voyage relaxant avec escales dans des petites criques cachées. Prévoir des vêtements légers et une bonne humeur.",
   sloop: sloop5,
@@ -297,9 +297,9 @@ ride1 = TravellerRide.new(
 ride1.save!
 
 request2 = Ride.new(
-  start_date: "2024-10-05",  # Date de départ
+  start_date: "2024-05-05",  # Date de départ
   start_port: "Marseille",
-  end_date: "2024-10-15",    # Date d'arrivée
+  end_date: "2024-05-07",    # Date d'arrivée
   end_port: "Nice",
   details: "Croisière à travers la Côte d'Azur avec des visites de vignobles locaux. Accueil chaleureux garanti.",
   sloop: sloop1,
@@ -309,9 +309,9 @@ request2.save!
 puts "rides request2 created!"
 
 request3 = Ride.new(
-  start_date: "2024-11-01",  # Date de départ
+  start_date: "2024-05-12",  # Date de départ
   start_port: "La Rochelle",
-  end_date: "2024-11-20",    # Date d'arrivée
+  end_date: "2024-05-15",    # Date d'arrivée
   end_port: "Bordeaux",
   details: "Aventure automnale avec exploration des îles alentours. Prévoir des vêtements chauds et des jumelles pour observer les oiseaux.",
   sloop: sloop2,
@@ -322,23 +322,12 @@ puts "rides request3 created!"
 
 puts "create rides request ..."
 
-request4 = RideRequest.new(
-  start_date: "2024-11-01",  # Date de départ
-  start_port: "La Rochelle",
-  end_date: "2024-11-20",    # Date d'arrivée
-  end_port: "Bordeaux",
-  details: "J'en ai marre de la vie parisienne, du métro et du speed. A la recherche d'un marin pour me faire découvrir autre chose.",
-  user: celia
-)
-request4.save!
-puts "rides request3 created!"
-
 
 # Pour Elise Moreau
 request6 = RideRequest.new(
-  start_date: "2024-12-15",  # Date de départ
+  start_date: "2024-06-28",  # Date de départ
   start_port: "Saint-Tropez",
-  end_date: "2025-01-05",    # Date d'arrivée
+  end_date: "2025-06-30",    # Date d'arrivée
   end_port: "Cannes",
   details: "J'ai navigué pour la première fois en été 2022 et j'aimerai continuer d'apprendre à parcourir les mers.",
   user: elise
@@ -348,9 +337,9 @@ puts "rides request6 created!"
 
 # Pour Sophie Durand
 request7 = RideRequest.new(
-  start_date: "2025-01-10",  # Date de départ
+  start_date: "2024-06-30",  # Date de départ
   start_port: "Bordeaux",
-  end_date: "2025-01-25",    # Date d'arrivée
+  end_date: "2024-07-02",    # Date d'arrivée
   end_port: "La Rochelle",
   details: "Equipier expérimenté disponible.",
   user: sophie
