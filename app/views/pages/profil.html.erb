@@ -1,5 +1,5 @@
 <div class="container bg-white mb-3">
-<!-- Infos principales de l'utilisateur -->
+  <!-- Infos principales de l'utilisateur -->
   <div class="text-center">
     <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, height: 175, class: "my-3", alt: "photo de profil", radius: "max" %>
@@ -15,7 +15,7 @@
     <%= link_to "Éditer mon profil", edit_profile_path, class: "btn btn-primary" %>
   </div>
   <hr>
-<!-- Détails de l'utilisateur -->
+  <!-- Détails de l'utilisateur -->
   <div class="text-start">
     <h4>À propos</h4>
     <p class="text-center border rounded-3 p-3" style='text-align: justify;'><%= current_user.description %></p>
@@ -24,10 +24,10 @@
       <p class="text-center border rounded-3 p-3" style='text-align: justify;'><%= current_user.preferences %></p>
     <% end %>
   </div>
-<!-- Sloops de l'utilisateur / Si existants -->
+  <!-- Sloops de l'utilisateur / Si existants -->
   <% if current_user.sloops.any? %>
     <h3 class="mb-4"> <%= current_user.sloops.size == 1 ? "Mon Sloop" : "Mes Sloops" %></h3>
-    <div class="row">
+    <div class="row justify-content-center">
     <% current_user.sloops.each do |sloop| %>
       <%= render "shared/sloopcard", sloop: sloop %>
     <% end %>
@@ -62,7 +62,12 @@
             <i class="fas fa-star text-info"></i>
           <% end %>
           <small><em class="text-muted"><i> <%= l(review.created_at, format: "le %d %B %Y") %></i> par <%= review.poster.first_name %></em></small>
-          <p class="mb-0 review"><%= cl_image_tag review.poster.photo.key, class:"avatar" %> <%= review.comment %></p>
+          <% if review.poster.photo.attached? %>
+            <%= link_to (cl_image_tag review.poster.photo.key, class: "avatar ms-1", style: "width: 40px; height: 40px; border-radius: 50%;"), user_path(review.poster) %>
+          <% elsif %>
+            <% link_to (image_tag "logo.png", class: "avatar ms-1"), user_path(review.poster) %>
+          <% end %>
+          <p><%= review.comment %></p>
         </div>
         <br>
       <% end %>

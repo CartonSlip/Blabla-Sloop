@@ -16,8 +16,8 @@
     <% end %>
     <!-- Sloops de l'utilisateur / Si existants -->
     <% if @user.sloops.any? %>
-      <h3 class="mb-4"> <%=  @user.sloops.size == 1 ? "Son Sloop" : "Ses Sloops" %></h3>
-      <div class="row">
+      <h3 class="mb-4 text-center"> <%=  @user.sloops.size == 1 ? "Son Sloop" : "Ses Sloops" %></h3>
+      <div class="row justify-content-center">
         <% @user.sloops.each do |sloop| %>
           <%= render "shared/sloopcard", sloop: sloop %>
         <% end %>
@@ -26,17 +26,21 @@
     <hr>
     <!-- Les trajets proposés par l'utlisateur -->
     <% if @user.rides.any? %>
-    <h2 class="mb-3 py-2" id="last_propal"> <%= @user.rides.size == 1 ? "Son voyage proposé" : "Ses voyages Proposés" %></h2>
-    <div class="row">
-      <% @user.rides.each do |ride| %>
-        <%= render "shared/cardride", ride: ride %>
-      <% end %>
-    </div>
+      <div class="row justify-content-center">
+        <h2 class="mb-3 py-2" id="last_propal"> <%= @user.rides.size == 1 ? "Son voyage proposé" : "Ses voyages Proposés" %></h2>
+      </div>
+      <div class="row justify-content-center">
+        <% @user.rides.each do |ride| %>
+          <%= render "shared/cardride", ride: ride %>
+        <% end %>
+      </div>
     <% end %>
     <!-- Les demandes de trajet de l'utlisateur -->
     <% if @user.ride_requests.any? %>
-    <h2 class="mb-3 py-2" id="last_ask"> <%= @user.ride_requests.size == 1 ? "Son voyage demandé" : "Ses voyages demandés"%></h2>
-    <div class="row">
+    <div class="row justify-content-center">
+      <h2 class="mb-3 py-2" id="last_ask"> <%= @user.ride_requests.size == 1 ? "Son voyage demandé" : "Ses voyages demandés"%></h2>
+    </div>
+    <div class="row justify-content-center">
       <% @user.ride_requests.each do |riderequest| %>
         <%= render "shared/riderequestcard", riderequest: riderequest %>
       <% end %>
@@ -44,7 +48,7 @@
     <% end %>
     <hr>
     <!-- Commentaires sur l'utlisateur -->
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12 col-sm-6">
         <h3>Commentaires reçus</h3>
         <% if @user.received_reviews.empty? %>
