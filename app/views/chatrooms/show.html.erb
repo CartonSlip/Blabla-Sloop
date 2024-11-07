@@ -4,7 +4,7 @@
   <div class="chatbanner" style="background-image: url(<%= image_path "chatbanner.jpg" %>);">
     <h1>
       <% other_user = current_user == @chatroom.skipper ? @chatroom.user : @chatroom.skipper %>
-      <%= cl_image_tag other_user.photo.key, class: "chatroompic", alt: "photo de profil" %> <%= other_user.first_name %> <%= other_user.last_name %>
+      <%= link_to (cl_image_tag other_user.photo.key, class: "chatroompic", alt: "photo de profil"), user_path(other_user) %> <%= other_user.first_name %> <%= other_user.last_name %>
     </h1>
   </div>
 
@@ -29,7 +29,7 @@
       input_html: { class: "chatbox" }
     %>
     <%= button_tag  :submit, class: "btn btn-primary mb-3 chatsend" do %>
-      <i class="fa-regular fa-paper-plane fa-lg" style="color: #FFFFFF;"></i>
+      <i class="fa-regular fa-paper-plane fa-lg" style="color: #FFF1D0;"></i>
     <% end %>
   <% end %>
 
